@@ -28,6 +28,18 @@
         
                 <div class="<?php if ( get_option('cp_ad_images') == 'yes' ) echo 'post-right'; else echo 'post-right-no-img'; ?> <?php echo get_option('cp_ad_right_class'); ?>">
                 
+                    <?php
+                    //livechat
+                    $meta_values = get_post_meta($post->ID, 'myplugin_new_field', true); 
+                    if(!empty($meta_values)){
+                        $meta_values = htmlspecialchars_decode($meta_values);
+                        echo '<div class = "dazake_live_chat" >';
+                        echo $meta_values;
+                        echo '</div>';
+                    }
+
+                    ?>
+
                     <?php appthemes_before_post_title(); ?>
         
                     <h3><a href="<?php the_permalink(); ?>"><?php if ( mb_strlen( get_the_title() ) >= 75 ) echo mb_substr( get_the_title(), 0, 75 ).'...'; else the_title(); ?></a></h3>

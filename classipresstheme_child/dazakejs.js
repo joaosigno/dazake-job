@@ -48,6 +48,7 @@ jQuery(document).ready(function(jQuery){
 			dazakeStart();
 	});
 
+	
 	dazakeStart();
 	
 	$('.tabnavig li a').click(function(){

@@ -89,6 +89,7 @@
 
               <div class="undertab"><span class="big"><?php _e('Classified Ads','appthemes') ?> / <strong><span class="colour"><?php _e('Featured Listings','appthemes') ?></span></strong></span></div> 
 
+
               <div class="dazake_slideup_block dazakeactive">
                 <?php 
                     // show all random ads but make sure the sticky featured ads don't show up first 

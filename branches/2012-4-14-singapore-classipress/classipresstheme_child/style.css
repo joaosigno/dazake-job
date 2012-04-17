@@ -22,3 +22,20 @@ Version: 3.1.8
   float:right;
 }  
 
+#dazake_header_wi{
+  width:468px;
+  height:60px;
+}
+
+.dazakeblockout{
+  height:190px;
+  background:#fff;
+}
+
+#dazake_middle_wi{
+  overflow:hidden
+}
+#dazake_middle_wi .ads li{
+  float:left;
+  margin:0px 10px;
+}

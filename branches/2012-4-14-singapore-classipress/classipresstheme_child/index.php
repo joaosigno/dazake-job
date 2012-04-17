@@ -41,6 +41,7 @@
 
               <div class="undertab"><span class="big"><?php _e('Classified Ads','appthemes') ?> / <strong><span class="colour"><?php _e('Just Listed','appthemes') ?></span></strong></span></div> 
 
+              <div class="dazake_slideup_block">
                 <?php 
                     // show all ads but make sure the sticky featured ads don't show up first 
                     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1; 
@@ -55,7 +56,7 @@
             if( $total_pages > 1 ){ ?> 
             <div class="paging"><a href="<?php echo $post_type_url; ?>page/2/"> <?php _e( 'View More Ads', 'appthemes' ); ?> </a></div> 
             <?php } ?> 
-
+              </div>
             </div><!-- /block1 --> 
 
 
@@ -66,7 +67,7 @@
               <div class="clr"></div> 
 
               <div class="undertab"><span class="big"><?php _e('Classified Ads','appthemes') ?> / <strong><span class="colour"><?php _e('Most Popular','appthemes') ?></span></strong></span></div> 
-
+              <div class="dazake_slideup_block">
         <?php get_template_part( 'loop', 'featured' ); ?> 
 
         <?php global $cp_has_next_page; ?> 
@@ -75,7 +76,7 @@
         <?php } ?> 
 
         <?php wp_reset_query(); ?> 
-
+              </div>
             </div><!-- /block2 --> 
 
 
@@ -87,6 +88,7 @@
 
               <div class="undertab"><span class="big"><?php _e('Classified Ads','appthemes') ?> / <strong><span class="colour"><?php _e('Featured Listings','appthemes') ?></span></strong></span></div> 
 
+              <div class="dazake_slideup_block dazakeactive">
                 <?php 
                     // show all random ads but make sure the sticky featured ads don't show up first 
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
@@ -100,7 +102,7 @@
             if( $total_pages > 1 ){ ?> 
             <div class="paging"><a href="<?php echo $post_type_url; ?>page/2/?sort=Featured Listings"> <?php _e( 'View More Ads', 'appthemes' ); ?> </a></div> 
             <?php } ?> 
-
+                </div>
             </div><!-- /block3 --> 
 
             <!-- tab 4 --> 

@@ -98,8 +98,8 @@ function cp_dazake_sidebars_init() {
         'name'          => __('Middle Sidebar','appthemes'),
         'id'            => 'sidebar_dazake_middle',
         'description'   => __('This is the middle ClassiPress sidebar add by child theme.','appthemes'),
-        'before_widget' => '<div class="shadowblock_out" id="%2$s"><div id="dazake_middle_wi">',
-        'after_widget'  => '</div><!-- /shadowblock --></div><!-- /shadowblock_out -->',
+        'before_widget' => '<div class="dazakeblockout shadowblock_out" id="%2$s"><div class="shadowblockdir"><div id="dazake_middle_wi">',
+        'after_widget'  => '</div><!-- /shadowblock --></div></div><!-- /shadowblock_out -->',
         'before_title'  => '<h2 class="dotted">',
         'after_title'   => '</h2>',
     ));

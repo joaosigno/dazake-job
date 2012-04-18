@@ -100,25 +100,7 @@ jQuery(document).ready(function ($) {
                                         } // end legacy check
                                         ?>
 
-                                            <li id="cp_expires"><span><?php _e( 'Expires: Advertiser , activate your ad here', 'appthemes' ) ?></span></li>
-
-                                            <li id="cp_dazake_link"><a href = "http://www.advertiser.expert.com.sg" >www.advertiser.expert.com.sg</a></li>
-
-                                            <?php
-                                            //phone
-                                            $meta_values = get_post_meta($post->ID, 'cp_phone', true); 
-                                            if(!empty($meta_values)){
-                                            echo '<li id="cp_phone_no"><span>Phone:</span>'.$meta_values.'</li>';
-                                             }
-                                            ?>
-
-                                            <?php
-                                            //website
-                                            $meta_values = get_post_meta($post->ID, 'cp_website', true); 
-                                            if(!empty($meta_values)){
-                                            echo '<li id="cp_phone_no"><span>Website:</span><a href = "'.$meta_values.'" >'.$meta_values.'</a></li>';
-                                             }
-                                            ?>
+                                            <li id="cp_expires"><span><a href = "http://www.advertiser.expert.com.sg" ><?php _e( 'Expires: Advertiser , activate your ad here', 'appthemes' ) ?></a></span></li>
 
                                     </ul>
 

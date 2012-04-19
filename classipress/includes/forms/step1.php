@@ -71,9 +71,7 @@ global $current_user, $wpdb;
                                 if ( get_option('cp_price_scheme') == 'category' && get_option('cp_enable_paypal') == 'yes' && get_option('cp_ad_parent_posting') != 'no' ) {
         
                                     cp_dropdown_categories_prices('show_option_none='.__('Select one','appthemes').'&class=dropdownlist&orderby=name&order=ASC&hide_empty=0&hierarchical=1&taxonomy='.APP_TAX_CAT.'&depth=1');
-        
                                 } else {
-        
                                    wp_dropdown_categories('show_option_none='.__('Select one','appthemes').'&class=dropdownlist&orderby=name&order=ASC&hide_empty=0&hierarchical=1&taxonomy='.APP_TAX_CAT.'&depth=1');
         
                                 }
@@ -95,41 +93,100 @@ global $current_user, $wpdb;
                 </form>
 
 
-            <?php } else {
-
-  
+            <?php } elseif(!isset($_POST['stepadd'])) {
                 // show the form based on the category selected
                 // get the cat nice name and put it into a variable
                 $adCategory = get_term_by( 'id',$_POST['cat'], APP_TAX_CAT );
-				$_POST['catname'] = $adCategory->name;
+                $_POST['catname'] = $adCategory->name;
             ?>
-
                 <form name="mainform" id="mainform" class="form_step" action="" method="post" enctype="multipart/form-data">
+                    <ul class = "dazakeul">
+						<li class="withborder">
+							<div class="labelwrapper">
+							<label><?php _e('Featured Listing','appthemes'); ?> <?php echo cp_pos_price(cp_ad_dazake_feature_listing_free($_POST['cat'])); ?></label>
+							</div>
+							<div class="clr"></div>
+								<input type="radio" name="dazakepacks" value="featured" >
+								<?php _e('Your listing will appear in the featured slider section at the top of the front page.','appthemes'); ?>
+							<div class="clr"></div>
+						</li>
+						
+						<li class="withborder">
+							<div class="labelwrapper">
+							<label><?php _e('Premium Listing','appthemes'); ?> <?php cp_pos_price(cp_ad_dazake_premium_listing_free($_POST['cat'])); ?></label>
+							</div>
+							<div class="clr"></div>
+								<input type="radio" name="dazakepacks" value="premium" >
+								<?php 
+									_e("Your will allow to upload ",'appthemes');
+									echo get_option("dazake_category{$_POST['cat']}_pic_num");
+									_e(" images ",'appthemes'); 
+								
+								?>
+							<div class="clr"></div>
+						</li>
+						
 
+						<li class="withborder">
+							<div class="labelwrapper">
+							<label><?php _e('Free Listing','appthemes'); ?> </label>
+							</div>
+							<div class="clr"></div>
+								<input type="radio" name="dazakepacks" value="free" >
+								<?php 
+									_e('Your listing will only upload  ','appthemes'); 
+									echo get_option('dazakefreepicnum');;
+									_e(' images ','appthemes'); 
+								?>
+							<div class="clr"></div>
+						</li>
+						
+					</ul>
+                    <p class = "btn1" ><input class = "btn_orange" type="submit" name="stepadd" value = "<?php _e('Continue &rsaquo;&rsaquo;','appthemes'); ?>"></p>
+                    <input type="hidden" id="cat" name="cat" value="<?php echo $_POST['cat']; ?>" />
+                    <input type="hidden" id="catname" name="catname" value="<?php echo $_POST['catname']; ?>" />
+                    <input type="hidden" id="fid" name="fid" value="<?php if(isset($_POST['fid'])) echo $_POST['fid']; ?>" />
+                    <input type="hidden" id="oid" name="oid" value="<?php echo $order_id; ?>" />
+                </form>
+            <?php } ?>
+
+
+
+<!-- edite by dazake add one step before input files -->
+            <?php
+                if ( isset($_POST['cat'] ) && ($_POST['cat'] != '-1') && isset($_POST['stepadd']) ) {
+
+                // show the form based on the category selected
+                // get the cat nice name and put it into a variable
+                $adCategory = get_term_by( 'id',$_POST['cat'], APP_TAX_CAT );
+                $_POST['catname'] = $adCategory->name;
+            ?>
+                 <form name="mainform" id="mainform" class="form_step" action="" method="post" enctype="multipart/form-data">
                     <ol>
 
                         <li>
-                        	<div class="labelwrapper">
-                            	<label><?php _e('Category','appthemes');?>:</label>
-							</div>
+                            <div class="labelwrapper">
+                                <label><?php _e('Category','appthemes');?>:</label>
+                            </div>
                             <strong><?php echo $_POST['catname']; ?></strong>&nbsp;&nbsp;<small><a href=""><?php _e('(change)', 'appthemes') ?></a></small>
                         </li>
 
                         <?php echo cp_show_form( $_POST['cat'] ); ?>
-
                         <p class="btn1">
                             <input type="submit" name="step1" id="step1" class="btn_orange" value="<?php _e('Continue &rsaquo;&rsaquo;','appthemes'); ?>" />
                         </p>
 
                     </ol>
 
+                        <input type="hidden" id="dazakepacks" name="dazakepacks" value="<?php echo $_POST['dazakepacks']; ?>" />
                         <input type="hidden" id="cat" name="cat" value="<?php echo $_POST['cat']; ?>" />
                         <input type="hidden" id="catname" name="catname" value="<?php echo $_POST['catname']; ?>" />
                         <input type="hidden" id="fid" name="fid" value="<?php if(isset($_POST['fid'])) echo $_POST['fid']; ?>" />
                         <input type="hidden" id="oid" name="oid" value="<?php echo $order_id; ?>" />
 
                 </form>
-
-            <?php } ?>
+            <?php
+                }
+            ?>
 
 </div>

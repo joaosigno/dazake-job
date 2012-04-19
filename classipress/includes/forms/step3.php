@@ -45,6 +45,13 @@ if ( isset( $_POST['step2'] ) && isset( $advals['oid'] ) && ( strcasecmp( $_POST
 	<?php 
 	    // insert the ad and get back the post id
    		$post_id = cp_add_new_listing( $advals );
+		//record the premium post id .
+		if (isset($_POST['dazakepacks']) && ($_POST['dazakepacks'] == 'premium' )) {
+			$dazake_premium_posts = array();
+			$dazake_premium_posts = get_option('dazake_premium_posts');
+			$dazake_premium_posts[] = $post_id;
+			update_option('dazake_premium_posts',$dazake_premium_posts );
+		}
 	?>
 	</div>
     <div class="thankyou">

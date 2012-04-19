@@ -19,6 +19,12 @@ function appthemes_admin_options() {
 	add_submenu_page( basename(__FILE__), __('Emails','appthemes'), __('Emails','appthemes'), 'manage_options', 'emails', 'cp_emails' );
 	add_submenu_page( basename(__FILE__), __('Pricing Settings','appthemes'), __('Pricing','appthemes'), 'manage_options', 'pricing', 'cp_pricing' );
 	add_submenu_page( basename(__FILE__), __('Packages','appthemes'), __('Packages','appthemes'), 'manage_options', 'packages', 'cp_ad_packs' );
+	
+	//edite by dazake add menu page 
+    // add_submenu_page( basename(__FILE__), __('Dazake Packages','appthemes'), __('Dazake Packages','appthemes'), 'manage_options', 'dazake_packages', 'cp_ad_dazake_packs' );
+    add_submenu_page( basename(__FILE__), __('Premium Packages','appthemes'), __('Premium Packages','appthemes'), 'manage_options', 'premium_packages', 'cp_ad_premium_packs' );
+	//end edite by dazake 
+	
 	add_submenu_page( basename(__FILE__), __('Coupons','appthemes'), __('Coupons','appthemes'), 'manage_options', 'coupons', 'cp_coupons' );
 	add_submenu_page( basename(__FILE__), __('Payment Gateway Options','appthemes'), __('Gateways','appthemes'), 'manage_options', 'gateways', 'cp_gateways' );
 	add_submenu_page( basename(__FILE__), __('Form Layouts','appthemes'), __('Form Layouts','appthemes'), 'manage_options', 'layouts', 'cp_form_layouts' );
@@ -1165,7 +1171,157 @@ function cp_pricing() {
 <?php
 }
 
-
+// show the ad premium packages admin page
+function cp_ad_premium_packs(){
+	//update Categories
+	if(isset($_POST['dazake_category_submit'])){
+		if(isset($_POST['dazake_category_check'])){
+			foreach($_POST['dazake_category_check'] as $value){
+				$pricename = "dazake_category{$value}_price";
+				$pricefeaturename = "dazake_category{$value}_price_feature";
+				$pinumname = "dazake_category{$value}_pic_num";
+				
+				if(isset($_POST[$pricename ]))
+					update_option( $pricename, $_POST[$pricename ] );
+					
+				if(isset($_POST[$pinumname]))
+					update_option( $pinumname, $_POST[$pinumname] ) ;
+								
+				if(isset($_POST[$pricefeaturename]))
+					update_option( $pricefeaturename, $_POST[$pricefeaturename] ) ;
+			}
+			
+		}	
+		
+		//update free pic nums
+		if(isset($_POST['dazakefreepicnum']))
+			update_option( 'dazakefreepicnum', $_POST['dazakefreepicnum'] ) ;
+				
+		//update feature pic nums
+		if(isset($_POST['dazakefeaturepicnum']))
+			update_option( 'dazakefeaturepicnum', $_POST['dazakefeaturepicnum'] ) ;
+			
+		//update feature time
+		if(isset($_POST['dazakefeaturetime']))
+			update_option( 'dazakefeaturetime', $_POST['dazakefeaturetime'] ) ;
+			
+		//update premium time
+		if(isset($_POST['dazakepremiumtime']))
+			update_option( 'dazakepremiumtime', $_POST['dazakepremiumtime'] ) ;
+			
+		//update free time 
+		if(isset($_POST['dazakefreetime']))
+			update_option( 'dazakefreetime', $_POST['dazakefreetime'] ) ;
+			
+	}
+	
+	$categories = get_categories( array('hide_empty' => 0,
+                                       'taxonomy' 	 => APP_TAX_CAT) );
+?>
+<div class="wrap">
+    <div class="icon32" id="icon-themes"><br/></div>
+        <h2><?php _e('Ad Premium Packs','appthemes') ?>&nbsp;</h2>
+        <?php cp_admin_info_box(); ?>
+		<form method = "POST">
+		<p class = "submit">
+		<input class = "btn button-primary" type = "submit" name = "dazake_category_submit" value = "<?php _e('Save changes','appthemes') ?>" >
+		</p>
+		
+		
+		<table>
+		<tr>
+			<td><span class = "dazakespan">Ad Listing Period Of Feature:</span></td>
+			<td><input type = "text" class = "dazaketext" name = "dazakefeaturetime" value = "<?php echo get_option('dazakefeaturetime')?>"></td>
+		</tr>
+		<tr>
+			<td><span class = "dazakespan">Ad Listing Period Of Premium:</span></td>
+			<td><input type = "text" class = "dazaketext" name = "dazakepremiumtime" value = "<?php echo get_option('dazakepremiumtime')?>"></td>
+		</tr>
+		<tr>
+			<td><span class = "dazakespan">Ad Listing Period Of Free:</span></td>
+			<td><input type = "text" class = "dazaketext" name = "dazakefreetime" value = "<?php echo get_option('dazakefreetime')?>"></td>
+		</tr>
+		
+		
+		<tr>
+			<td><span class = "dazakespan">Pic Num Of Free</span></td>
+			<td><select name="dazakefreepicnum" class="dazakeselect">  
+				<?php 
+					for ($i=1; $i <9 ; $i++) { 
+						if($i == get_option('dazakefreepicnum'))
+							echo '<option value="'.$i.'" selected= "true">'.$i.'</option> ';
+						else
+							echo '<option value="'.$i.' ">'.$i.'</option> ';
+					}
+				?>
+				
+			</select></td>
+		</tr>
+		<tr>
+			<td><span class = "dazakespan">Pic Num Of Feature</span></td>
+		<td><select name="dazakefeaturepicnum" class="dazakeselect">  
+				<?php 
+					for ($i=1; $i <9 ; $i++) { 
+						if($i == get_option('dazakefeaturepicnum'))
+							echo '<option value="'.$i.'" selected= "true">'.$i.'</option> ';
+						else
+							echo '<option value="'.$i.' ">'.$i.'</option> ';
+					}
+				?>		
+		</select></td>
+		</tr>
+		
+		</table>
+		
+		<table id="tblspacer" class="widefat fixed">
+            <thead>
+            <tr>
+                <th scope="col" style="width:35px;">&nbsp;</th>
+                <th scope="col"><?php _e('Categories Name','appthemes') ?></th>
+                <th scope="col"><?php _e('Price Per Categories','appthemes') ?></th>
+                <th scope="col"><?php _e('Feature Price Per Categories','appthemes') ?></th>
+                <th scope="col"><?php _e('Pic Num Of The Categories','appthemes') ?></th>
+                <th scope="col"><?php _e('Update Check','appthemes') ?></th>
+            </tr>
+        </thead>
+		<tbody id="list">
+		
+<?php
+	$add = 1;
+	foreach($categories as $key => $value){
+	$catid = $value->cat_ID;
+	$pricename = "dazake_category{$catid}_price";
+	$pricefeaturename = "dazake_category{$catid}_price_feature";
+	$pinumname = "dazake_category{$catid}_pic_num";
+?>
+	<tr class="<?php echo $value->category_nicename ?>">
+        <td style="padding-left:10px;"><?php echo $add++; ?>.</td>
+        <td><?php echo $value->cat_name ?></td>
+        <td><input type = "text" name = "<?php echo $pricename ?>" value = "<?php echo get_option($pricename);?>" ><span><?php echo get_option('cp_curr_pay_type')?></span></td>
+        <td><input type = "text" name = "<?php echo $pricefeaturename ?>" value = "<?php echo get_option($pricefeaturename);?>" ><span><?php echo get_option('cp_curr_pay_type')?></span></td>
+        <td>
+			<select name="<?php echo $pinumname ?>" class="dazakeselect">  
+				<?php 
+					for ($i=1; $i <9 ; $i++) { 
+						if($i == get_option($pinumname))
+							echo '<option value="'.$i.'" selected= "true">'.$i.'</option> ';
+						else
+							echo '<option value="'.$i.' ">'.$i.'</option> ';
+					}
+				?>
+				
+			</select>  
+		</td>
+        <td><input type="checkbox" class = "dazakecheck" name="dazake_category_check[]" value = "<?php echo $value->cat_ID ?>"></td>
+    </tr>
+<?php
+}//end foreach
+?>
+	</tbody>
+	</table>
+	</form>
+<?php
+}//end premium packages function
 
 // show the ad packages admin page
 function cp_ad_packs() {

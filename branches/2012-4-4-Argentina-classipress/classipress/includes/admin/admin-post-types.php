@@ -415,7 +415,6 @@ if (inlineEditPost) {
 	
 	
 </script>
-<script type="text/javascript" src="http://dazake.com/job/scripts/Classipress.js"></script>
 <style type="text/css">
     #post-type-select { line-height: 2.5em; margin-top: 3px; }
     #post-type-display { font-weight: bold; }

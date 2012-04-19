@@ -12,9 +12,12 @@
 else
 {?>
 
-<div class="pack"><a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a></div>
+<div class="pack"></div>
 
-  <div id="loop" class="<?php if ($_COOKIE['mode'] == 'grid') echo 'grid'; else echo 'list'; ?> clear">
+
+
+  <div id="loop" class="flip clear">
+  
 
 	<?php  $cnt = 1; ?>
 
@@ -27,19 +30,59 @@ else
 	    <?php while ( have_posts() ) : the_post(); ?>
 
 	        <?php appthemes_before_post(); ?>
+			
+			<?php
+				$display = '<div class="post-block-out">';
+				global $displaytype ;
+				if(isset($displaytype)){
+					switch ($displaytype) {
+						case 'feature':
+							if(is_sticky($post_ID) == true)
+								$display = '<div class="post-block-out">';
+							else
+								$display = '<div class="hide">';
+						break;
+						case 'premium':
+							if((!is_sticky($post_ID) == true ) && dazake_is_premiun($post->ID))
+								$display = '<div class="post-block-out">';
+							else
+								$display = '<div class="hide">';
+						break;
+						case 'free':
+							if(dazake_is_free($post->ID))
+								$display = '<div class="post-block-out">';
+							else
+								$display = '<div class="hide">';
+						break;
+						case 'all':
+							$display = '<div class="post-block-out">';
+						break;
+		
+						default:
+							$display = '<div class="hide">';
+						break;
+					}
+				}
+				echo $display;
+			
+			?>
+	      
 
-	        <div class="post-block-out">
-
-	            <div class="<?php if(is_sticky($post_ID) == true) echo 'post-block-featured'; else echo 'post-block'; ?>">
+	            <div class="<?php if( is_sticky($post_ID) == true) echo 'post-block-featured'; elseif(dazake_is_premiun($post->ID)) echo 'post-block-premium';else echo 'post-block-free';?>">
 
 	                <div class="post-left">
                     
-                    <?php if ($_COOKIE['mode'] == 'grid'){?> 
-                    
-                    
+                    <?php 
+									
+					if ($_COOKIE['mode'] == 'changegrid')
+					{
+					
+					// echo $_COOKIE['mode'];
 
+	
+					 ?> 
+                    
 	                 <?php if ( get_option('cp_ad_images') == 'yes' ) cp_ad_loop_thumbnail(); ?>
-
 	                  </div>
 
 	                    <div class="<?php if ( get_option('cp_ad_images') == 'yes' ) echo 'post-right'; else echo 'post-right-no-img'; ?> <?php echo get_option('cp_ad_right_class'); ?>">
@@ -47,7 +90,6 @@ else
 	                   
 
 	                    </div>
-
 	                    <h3><a href="<?php the_permalink(); ?>"><?php if ( mb_strlen( get_the_title() ) >= 60 ) echo mb_substr( get_the_title(), 0, 60 ).'...'; else the_title(); ?></a></h3>
                          <div class="price-wrap">
 
@@ -81,12 +123,18 @@ else
 	                </div>
 
 
-  <?php } else { ?>
-
-
-
-  <?php if ( get_option('cp_ad_images') == 'yes' ) cp_ad_loop_thumbnail(); ?>
-                
+  <?php } else {
+  
+  					// echo $_COOKIE['mode'];
+					
+				
+  
+  ?>
+  <?php 
+	if ( get_option('cp_ad_images') == 'yes' ) {
+		cp_ad_loop_thumbnail(); 
+	}
+  ?>
                 </div>
         
                 <div class="<?php if ( get_option('cp_ad_images') == 'yes' ) echo 'post-right'; else echo 'post-right-no-img'; ?> <?php echo get_option('cp_ad_right_class'); ?>">
@@ -96,15 +144,11 @@ else
                     <h3><a href="<?php the_permalink(); ?>"><?php if ( mb_strlen(get_the_title()) >= 67) echo mb_substr( get_the_title(), 0, 67 ).'...'; else the_title(); ?></a></h3>
                     
                     <div class="clr"></div>
-                 
                     <?php appthemes_after_post_title(); ?>
-                    
                     <div class="clr"></div>
-                    
                     <?php appthemes_before_post_content(); ?>
         
                     <p class="post-desc"><?php $tcontent = strip_tags( get_the_content() ); if ( mb_strlen( $tcontent ) >= 150 ) echo mb_substr( $tcontent, 0, 150 ).'...'; else echo $tcontent; ?></p>
-                    
                     <?php appthemes_after_post_content(); ?>
                     
                     <div class="clr"></div>
@@ -112,7 +156,6 @@ else
                 </div>
 
 <?php } ?>
-
 
 	                <div class="clr"></div>
 
@@ -136,11 +179,21 @@ else
 
 	    <div class="clr"></div>
 
-	    <?php appthemes_after_endwhile(); ?>
+	    <?php 
+			//only display when the last loop
+			global $displaytype ;
+			if($displaytype == 'free' || $displaytype == 'all')
+			appthemes_after_endwhile(); 
+		?>
 
 	    <?php else: ?>
 
-	    <?php appthemes_loop_else(); ?>
+	    <?php 
+			//only display when the last loop
+			global $displaytype ;
+			if($displaytype == 'free' || $displaytype == 'all')
+				appthemes_loop_else(); 
+		?>
 
 	    </div>
 

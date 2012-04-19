@@ -18,11 +18,13 @@
 
         <!-- left block -->
         <div class="content_left">            
-
-			<?php if ($_GET['search-class']) { 
+        
+        			<?php if ($_GET['search-class']) { 
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 			query_posts(array('caller_get_posts' => 1, 'paged'=>$paged)); 
 			} ?> 
+
+
 			<?php if ( have_posts() ) : ?>
 
 				<div class="shadowblock_out">
@@ -36,15 +38,31 @@
 							printf( __("Search for '%s' returned %s results",'appthemes'), $searchTxt, $wp_query->found_posts ); 
 						?>
                         </h1>
+          
+				<?php 
+						 if(function_exists('twg_tfsp_sort')) 
+							twg_tfsp_sort();
+						
+				?>
+						</div><!-- /shadowblock -->
+						</div><!-- /shadowblock_out -->
+						
+				<?php
+					if(isset($_POST['sort_order'])){
+						$displaytype = 'all';
+						get_template_part( 'loop', 'ad_listing' ); 
+					}else{
+						$displaytype = 'feature';
+						get_template_part( 'loop', 'ad_listing' ); 
 
-					</div><!-- /shadowblock -->
+						global $displaytype ;
+						$displaytype = 'premium';
+						get_template_part( 'loop', 'ad_listing' ); 
 
-				</div><!-- /shadowblock_out -->
-
-
-                <?php get_template_part( 'loop', 'ad_listing' ); ?>
-				
-
+						$displaytype = 'free';
+						get_template_part( 'loop', 'ad_listing' ); 
+					}
+				?>
 			<?php else: ?>
 
 

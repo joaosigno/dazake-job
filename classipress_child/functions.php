@@ -26,6 +26,36 @@ function cp_get_price($postid) {
 	echo $price_out;
 }
 
+function dazake_is_premiun($postid) {
+	$arr_premium = get_option('dazake_premium_posts');
+	if(is_array($arr_premium)){
+		if(in_array($postid,$arr_premium))
+			return true;
+		else 
+			return false;
+	}else{
+		return false;
+	}
+}
+
+function dazake_is_free($postid) {
+	$arr_premium = get_option('dazake_premium_posts');
+	$arr_sticky = get_option('sticky_posts');
+
+	if(!is_array($arr_premium))
+		$arr_premium = array();
+	if(!is_array($arr_sticky))
+		$arr_sticky = array();
+		
+	if(in_array($postid,$arr_premium))
+		return false;
+	elseif(in_array($postid,$arr_sticky))
+		return false;
+	else
+		return true;
+
+}
+
  
 
 

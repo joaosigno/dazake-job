@@ -196,10 +196,34 @@ function cp_formbuilder_review($results) {
 
 }
 
+function cp_dazake_image_details($catid){
+	global $wpdb;
+	if(isset($catid))
+		$results = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "cp_ad_dazake_packs WHERE categories = $catid ORDER BY id desc" ) );
+	if($results)
+		return $results;
+}
+
 // calculates total number of image input upload boxes on create ad page
 function cp_image_input_fields() {
-
-    for ( $i=0; $i < get_option('cp_num_images'); $i++ ) {
+	global $wpdb;
+	$imgnum = 1;
+	
+	if(isset($_POST['dazakepacks']) && isset($_POST['cat'])){
+		if($_POST['dazakepacks'] == 'free')
+			$imgnum = get_option('dazakefreepicnum');
+		elseif($_POST['dazakepacks'] == 'featured')
+			$imgnum = get_option('dazakefeaturepicnum');
+		elseif($_POST['dazakepacks'] == 'premium'){
+			$catid = $_POST['cat'];
+			$results = get_option("dazake_category{$catid}_pic_num");
+			if($results)
+				$imgnum = $results;
+		}	
+	}
+	
+	
+    for ( $i=0; $i < $imgnum; $i++ ) {
     ?>
         <li>
         	<div class="labelwrapper">
@@ -231,7 +255,7 @@ function cp_other_fields() {
     // show the featured ad box if enabled
     if ( get_option('cp_sys_feat_price') ) {
     ?>
-
+		<!-- dazake donot show 
         <li class="withborder">
             <div class="labelwrapper">
                 <label><?php _e('Featured Listing','appthemes'); ?> <?php echo cp_pos_price(get_option('cp_sys_feat_price')); ?></label>
@@ -241,7 +265,7 @@ function cp_other_fields() {
             <?php _e('Your listing will appear in the featured slider section at the top of the front page.','appthemes'); ?>
             <div class="clr"></div>
         </li>
-
+		-->
     <?php 
     }
 
@@ -476,12 +500,23 @@ function cp_show_review($postvals) {
         <div class="clr"></div>
     </li>
 
-    <?php if(isset($_POST['featured_ad'])) : ?>
+    <?php if(isset($_POST['dazakepacks']) && ($_POST['dazakepacks'] == 'featured') ) : ?>
         <li>
         	<div class="labelwrapper">
 	            <label><?php _e('Featured Listing Fee','appthemes');?>:</label>
             </div>
             <div id="review"><?php echo cp_pos_price(number_format($postvals['cp_sys_feat_price'], 2)); ?></div>
+            <div class="clr"></div>
+        </li>
+    <?php endif; ?>
+	
+	<!-- dazake premium -->
+	<?php if(isset($_POST['dazakepacks']) && ($_POST['dazakepacks'] == 'premium') ) : ?>
+        <li>
+        	<div class="labelwrapper">
+	            <label><?php _e('Premium Listing Fee','appthemes');?>:</label>
+            </div>
+            <div id="review"><?php echo cp_pos_price(number_format($postvals['cp_sys_premium_price'], 2)); ?></div>
             <div class="clr"></div>
         </li>
     <?php endif; ?>
@@ -568,6 +603,50 @@ function cp_cost_per_listing() {
     echo $cost_per_listing;
 
 }
+
+//dazake premium listing free
+function cp_ad_dazake_premium_listing_free($catid){
+	global $wpdb;
+	if(get_option('cp_charge_ads') == 'yes') {
+		// make sure we have something if ad_pack_id is empty so no db error
+        if(empty($catid))
+            $catid = 1;
+		
+		// go get all the active ad packs and create a drop-down of options
+
+        $results = get_option("dazake_category{$_POST['cat']}_price");
+		
+		// now return the price and put the duration variable into an array
+        if(!empty($results)) {
+            return $results;
+        } else {
+            return '0.00';
+        }
+	}
+}
+
+//dazake feature listing free
+function cp_ad_dazake_feature_listing_free($catid){
+	global $wpdb;
+		// make sure we have something if ad_pack_id is empty so no db error
+        if(empty($catid))
+            $catid = 1;
+		
+		// go get all the active ad packs and create a drop-down of options
+
+        $results = get_option("dazake_category{$_POST['cat']}_price_feature");
+		
+		// now return the price and put the duration variable into an array
+        if(!empty($results)) {
+            return $results;
+        // $postvals['pack_duration'] = $results->pack_duration;
+        } else {
+            return '0.00';
+        }
+	
+}
+
+
 
 
 // give us just the ad listing fee
@@ -789,9 +868,22 @@ function cp_add_new_listing($advals) {
     // prune period defined on the CP settings page
     if ( isset( $advals['pack_duration'] ) )
         $ad_length = $advals['pack_duration'];
-    else
+    else{
         $ad_length = get_option('cp_prun_period');
+		//dazake set duration time 
+		if(isset($_POST['dazakepacks'])){
+			if($_POST['dazakepacks'] == 'free')
+				$ad_length = get_option('dazakefreetime');
+			elseif($_POST['dazakepacks'] == 'featured')
+				$ad_length = get_option('dazakefeaturetime');
+			elseif($_POST['dazakepacks'] == 'premium'){
+				$ad_length = get_option('dazakepremiumtime');
+			}   
+		}
+	}
+	
 
+		
     // set the ad listing expiration date and put into a session
     $ad_expire_date = date_i18n('m/d/Y H:i:s', strtotime('+' . $ad_length . ' days')); // don't localize the word 'days'
     $advals['cp_sys_expire_date'] = $ad_expire_date;

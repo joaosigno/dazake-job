@@ -107,5 +107,33 @@ function cp_dazake_sidebars_init() {
 }
 add_action( 'init', 'cp_dazake_sidebars_init' );
 
+//add submenu for adding local live chat
+function cp_live_chat(){
+  echo 'livechat';
+}
+// add_submenu_page( 'users.php', __('Live Chat','appthemes'), __('Live Chat','appthemes'), 'manage_options', 'live_chat', 'cp_live_chat' );
 
+add_action('admin_menu', 'register_my_custom_submenu_page');
 
+function register_my_custom_submenu_page() {
+  add_submenu_page( 'users.php', 'Live Chat', 'Live Chat', 'manage_options', 'live_chat', 'live_chat_callback' ); 
+}
+
+function live_chat_callback() {
+  if(isset($_POST['submit'])){
+      $mydata = $_POST['locallivechat'];
+      update_option( 'locallivechat', $mydata );
+  }
+  $locallivechat = get_option('locallivechat');
+  $locallivechat = stripslashes($locallivechat);
+  ?>
+  <div class="icon32" id="icon-tools"><br></div>
+  <h2>Local Live Chat Setting</h2>
+  <form action="?page=live_chat" method = "POST">
+    <p class="submit btop" >
+    <input type="submit" name = 'submit' value = "Save Changes">
+  </p>
+    <textarea style = "margin-top:20px" rows="10" cols="30" id="locallivechat" name="locallivechat"><?php echo $locallivechat ; ?></textarea>
+  </form>
+  <?php
+}

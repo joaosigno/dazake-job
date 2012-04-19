@@ -8,10 +8,10 @@
 
 		
              <?php 
-				//if ( file_exists(STYLESHEETPATH . '/featured.php') )//
-//	                include_once(STYLESHEETPATH . '/featured.php');
-//    	        else
-//        	        include_once(TEMPLATEPATH . '/featured.php');
+				// if ( file_exists(STYLESHEETPATH . '/featured.php') )//
+	   //              include_once(STYLESHEETPATH . '/featured.php');
+   	//         else
+    //    	        include_once(TEMPLATEPATH . '/featured.php');
 			?>
 <?php   if(function_exists("xtremecarousel")) {   xtremecarousel(); }?>
 

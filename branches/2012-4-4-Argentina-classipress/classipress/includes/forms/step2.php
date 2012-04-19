@@ -42,7 +42,7 @@ if ( !$error_msg ) {
             $postvals[$key] = appthemes_clean($value);
         else
             $postvals[$key] = $value;
-
+	
     // keep only numeric, commas or decimal values
     if ( !empty($_POST['cp_price']) ) {
         $postvals['cp_price'] = appthemes_clean_price($_POST['cp_price']);
@@ -60,10 +60,16 @@ if ( !$error_msg ) {
     $postvals['user_id'] = $current_user->ID;
 
     // see if the featured ad checkbox has been checked
-    if ( isset($_POST['featured_ad']) ) {
-        $postvals['featured_ad'] = $_POST['featured_ad'];
+    if(isset($_POST['dazakepacks']) && ($_POST['dazakepacks'] == 'featured') ) {
+        $postvals['featured_ad'] = True;
         // get the featured ad price into the array
-        $postvals['cp_sys_feat_price'] = get_option('cp_sys_feat_price');
+        $postvals['cp_sys_feat_price'] = cp_ad_dazake_feature_listing_free($_POST['cat']);
+    }
+	
+	// see if the dazake premium ad has been checked
+    if (isset($_POST['dazakepacks']) && ($_POST['dazakepacks'] == 'premium' )) {
+        $postvals['premium_ad'] = $_POST['dazakepacks'];
+        $postvals['cp_sys_premium_price'] = cp_ad_dazake_premium_listing_free($_POST['cat']);
     }
 
     // calculate the ad listing fee and put into a variable
@@ -103,7 +109,10 @@ if ( !$error_msg ) {
     // calculate the total cost of the ad
 	if ( isset($postvals['cp_sys_feat_price']) )
     	$postvals['cp_sys_total_ad_cost'] = cp_calc_ad_cost($_POST['cat'], $adpackid, $postvals['cp_sys_feat_price'], $_POST['cp_price'], $coupon);
-	else $postvals['cp_sys_total_ad_cost'] = cp_calc_ad_cost($_POST['cat'], $adpackid, 0, $_POST['cp_price'], $coupon);
+	elseif(isset($postvals['cp_sys_premium_price'])) 
+		$postvals['cp_sys_total_ad_cost'] = cp_calc_ad_cost($_POST['cat'], $adpackid, $postvals['cp_sys_premium_price'], $_POST['cp_price'], $coupon);
+	else
+		$postvals['cp_sys_total_ad_cost'] = cp_calc_ad_cost($_POST['cat'], $adpackid, 0, $_POST['cp_price'], $coupon);
 	
 	//UPDATE TOTAL BASED ON MEMBERSHIP
 	//check for current users active membership pack and that its not expired
@@ -237,6 +246,7 @@ if ( !$error_msg ) {
                 </p>
 
                 <input type="hidden" id="oid" name="oid" value="<?php echo $postvals['oid']; ?>" />
+                <input type="hidden" id="dazakepacks" name="dazakepacks" value="<?php echo $_POST['dazakepacks']; ?>" />
 
 	    </form>
 

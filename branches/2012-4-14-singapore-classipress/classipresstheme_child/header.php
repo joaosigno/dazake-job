@@ -98,7 +98,17 @@
         <div class="header_menu">
 
             <div class="header_menu_res">
-<a href="#"><img src="http://www.expert.com.sg/wp-content/uploads/2012/04/livechat.png" ALIGN="RIGHT"></a>
+            <?php 
+            //local live chat
+             $locallivechat = get_option('locallivechat');
+            $locallivechat = stripslashes($locallivechat);
+            if(!empty($locallivechat)){
+                echo '<div id = "locallivechat">';
+                echo $locallivechat;
+                echo '</div>';
+            }
+
+            ?>
 
                 <a href="<?php echo CP_ADD_NEW_URL ?>" class="obtn btn_orange"><?php _e('Post an Ad', 'appthemes') ?></a>
 

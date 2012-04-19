@@ -54,7 +54,16 @@ jQuery(document).ready(function ($) {
                                 <?php appthemes_before_post_title(); ?>
 
 							    <h1 class="single-ad"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
-
+<?php
+//livechat
+$meta_values = get_post_meta($post->ID, 'myplugin_new_field', true); 
+if(!empty($meta_values)){
+    $meta_values = htmlspecialchars_decode($meta_values);
+    echo '<div class = "dazake_live_chat" >';
+    echo $meta_values;
+    echo '</div>';
+ }
+?>
 							    <div class="clr"></div>
 
 							    <?php appthemes_after_post_title(); ?>
@@ -91,6 +100,22 @@ jQuery(document).ready(function ($) {
                                             // 3.0+ display the custom fields instead (but not text areas)
                                             cp_get_ad_details( $post->ID, $cat_id );
                                         ?>
+
+                                        <?php
+                                        //phone
+                                        if ( get_post_meta($post->ID, 'cp_phone_no', true) ){
+                                            $meta_phone = get_post_meta($post->ID, 'cp_phone_no', true);
+                                            echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_phone.'</li>';
+                                        }
+                                        ?>
+                                        <?php
+                                        //website
+                                        if ( get_post_meta($post->ID, 'cp_website', true) ){
+                                            $meta_phone = get_post_meta($post->ID, 'cp_phone_no', true);
+                                            echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_phone.'</li>';
+                                        }
+                                        ?>
+
 											<li>&nbsp;</li>
                                             <li id="cp_listed"><span><?php _e('Listed:', 'appthemes') ?></span> <?php the_time( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ?></li>
 

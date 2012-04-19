@@ -1,0 +1,32 @@
+1,classipress/includes/admin-options.php
+Add "Premium Packages" submenu for managing packages.
+
+2，classipress/includes/admin-post-types.php
+Add premium checkbox to quick edit and editing mode.
+
+3，classipress/includes/forms/step1.php
+   classipress/includes/forms/step2.php
+   classipress/includes/forms/step3.php
+   classipress/includes/forms/stepfunction.php
+   These are the extra added steps when then users post the ads
+   features:
+   1. Packages selection: Premium, Feature and Free
+   2. Different Packages configuration (Images nums, expired date and fees)
+
+4， classipress_child/loop-adlisting.php
+    display different style for the lists varies packages.
+
+5，classipress_child/style.css
+    for style sheet changes
+
+6， 增加classipress_child/taxonomy-ad_cat.php
+    for customed categories orders
+
+7， classipress_child/functions.php
+    for extra wordpress functions
+
+9， classipress_child/search.php
+    for customed searching orders
+
+10, classipress_child/images
+     added image

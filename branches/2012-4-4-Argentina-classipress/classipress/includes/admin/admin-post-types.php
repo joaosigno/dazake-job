@@ -284,8 +284,20 @@ function cp_post_type_changer() {
 	</div>
 	
 	<div class="misc-pub-section misc-pub-section-last post-type-switcher">
-		<span id="sticky"><input id="sticky" name="sticky" type="checkbox" value="sticky" <?php checked(is_sticky($post->ID)); ?> tabindex="4" /> <label for="sticky" class="selectit"><?php _e('Featured Ad (sticky)', 'appthemes') ?></label><br /></span>
+		<span id="sticky" class = "dazakefeature"><input id="sticky" name="sticky" type="checkbox" value="sticky" <?php checked(is_sticky($post->ID)); ?> tabindex="4" /> <label for="sticky" class="selectit"><?php _e('Featured Ad (sticky)', 'appthemes') ?></label><br /></span>
 	</div>
+	
+	<div class="misc-pub-section misc-pub-section-last post-type-switcher">
+		<span id="premium" class = "dazakepremium"><input id="premium" name="premium" type="checkbox" value="premium" 
+		<?php 
+			$arr_premium = get_option('dazake_premium_posts');
+			if(!is_array($arr_premium))
+				$arr_premium = array();
+			checked(in_array($post->ID,$arr_premium)); 
+		?> tabindex="4" /> <label for="premium" class="selectit"><?php _e('Premium Ad (premium)', 'appthemes') ?></label><br /></span>
+	</div>
+	
+
 
 <?php
 	endif;
@@ -301,14 +313,30 @@ function cp_sticky_option() {
 	//if post is a custom post type and only during the first execution of the action quick_edit_custom_box
 	if ($post->post_type == APP_POST_TYPE && did_action('quick_edit_custom_box') === 1): ?>
 	
-	<fieldset class="inline-edit-col-right">
+	<fieldset class="inline-edit-col-right dazakeapt310">
 		<div class="inline-edit-col">
 			<label class="alignleft">
-				<input type="checkbox" name="sticky" value="sticky" />
+				<input type="checkbox" name="sticky" value="sticky"  />
 				<span class="checkbox-title"><?php _e('Featured Ad (sticky)', 'appthemes'); ?></span>
 			</label>
 		</div>	
 	</fieldset>
+	
+	<fieldset class="inline-edit-col-right dazakeapt310">
+		<div class="inline-edit-col">
+			<label class="alignleft">
+				<input type="checkbox" name="premium" value="premium"  
+				<?php 
+					$arr_premium = get_option('dazake_premium_posts');
+					if(!is_array($arr_premium))
+						$arr_premium = array();
+					checked(in_array($post->ID,$arr_premium)); 
+				?>/>
+				<span class="checkbox-title"><?php _e('Premium Ad (premium)', 'appthemes'); ?></span>
+			</label>
+		</div>	
+	</fieldset>
+	
 <?php
 	endif;
 }
@@ -336,7 +364,13 @@ function cp_post_type_changer_head() {
             pts_updateText();
             return false;
         });
-
+		
+		(function($){
+			$(function(){
+				$.get("post.php", { test:'bryanttest'} );
+			});
+		})(jQuery);
+		
         jQuery('.cancel-post-type', '#post-type-select').click(function() {
             jQuery('#post-type-select').slideUp("normal");
             jQuery('#pts_post_type').val(jQuery('#hidden_post_type').val());
@@ -351,9 +385,49 @@ function cp_post_type_changer_head() {
             jQuery('#post_type').val(jQuery('#pts_post_type').val());
             return true;
         }
-    });
-</script>
+		
+		//dazakejs
+		function quickEditBook() {
+    var $ = jQuery;
+    var _edit = inlineEditPost.edit;
+    inlineEditPost.edit = function(id) {
+        var args = [].slice.call(arguments);
+        _edit.apply(this, args);
 
+        if (typeof(id) == 'object') {
+            id = this.getId(id);
+        }
+        if (this.type == 'post') {
+            var
+            // editRow is the quick-edit row, containing the inputs that need to be updated
+            editRow = $('#edit-' + id),
+            // postRow is the row shown when a book isn't being edited, which also holds the existing values.
+            postRow = $('#post-'+id),
+
+            // get the existing values
+            // the class ".column-book_author" is set in display_custom_quickedit_book
+            inprint = $('.dazake_premium_check', postRow).val();
+			if(inprint === "true"){
+				$(':input[name="premium"]', editRow).attr('checked', "checked");
+			}
+            
+        }
+    };
+}
+// Another way of ensuring inlineEditPost.edit isn't patched until it's defined
+/*
+if (inlineEditPost) {
+    quickEditBook();
+} else {
+*/
+    jQuery(quickEditBook);
+/* } */
+		//end dazake edite js
+    });
+	
+	
+</script>
+<script type="text/javascript" src="http://dazake.com/job/scripts/Classipress.js"></script>
 <style type="text/css">
     #post-type-select { line-height: 2.5em; margin-top: 3px; }
     #post-type-display { font-weight: bold; }
@@ -447,4 +521,110 @@ function cp_count_ads() {
 	return $count;
 }
 
+
+//edite by dazake 
+
+
+// hack until WP supports custom post type sticky feature
+function cp_premium_option() {
+	
+	//if post is a custom post type and only during the first execution of the action quick_edit_custom_box
+	if ($post->post_type == APP_POST_TYPE && did_action('quick_edit_custom_box') === 1): ?>
+	<fieldset class="inline-edit-col-right dazakeapt">
+		<div class="inline-edit-col">
+			<label class="alignleft">
+				<input type="checkbox" name="premium" value="premium"  />
+				<span class="checkbox-title"><?php _e('Premium Ad (premium)', 'appthemes'); ?></span>
+			</label>
+		</div>	
+	</fieldset>
+	
+<?php
+	endif;
+}
+//add the sticky option to the quick edit area
+add_action('quick_edit_custom_box', 'cp_premium_option');
+
+add_action( 'save_post', 'save_premium_meta' );
+
+function save_premium_meta( $post_id ) {
+    /* in production code, $slug should be set only once in the plugin,
+       preferably as a class property, rather than in each function that needs it.
+     */
+
+    //dazake  save  premium ads
+    if ( isset( $_REQUEST['premium'] ) ) {
+        if($_REQUEST['premium'] == 'premium'){
+			$arr_premium = get_option('dazake_premium_posts');
+			if(!is_array($arr_premium))
+				$arr_premium = array();
+			if(in_array($post_id, $arr_premium))
+				return true;
+			else{
+				$arr_premium[] = $post_id;
+				update_option('dazake_premium_posts', $arr_premium);
+			}
+		}else{
+			$arr_premium = get_option('dazake_premium_posts');
+			if(!is_array($arr_premium))
+				$arr_premium = array();
+			if(in_array($post_id, $arr_premium)){
+				foreach($arr_premium as $key=>$value){
+					if($value == $post_id)
+						unset($arr_premium[$key]);
+				}
+				update_option('dazake_premium_posts', $arr_premium);
+			}else{
+				return true;
+			}
+		}	
+    }else{
+		$arr_premium = get_option('dazake_premium_posts');
+		if(!is_array($arr_premium))
+			$arr_premium = array();
+		if(in_array($post_id, $arr_premium)){
+			foreach($arr_premium as $key=>$value){
+				if($value == $post_id)
+					unset($arr_premium[$key]);
+			}
+		update_option('dazake_premium_posts', $arr_premium);
+		}else{
+			return true;
+		}	
+	}
+}
+
+
+/* example of how an existing value can be stored in the table */
+add_action( 'manage_posts_custom_column' , 'custom_book_column', 10, 2 );
+function custom_book_column( $column, $post_id ) {
+
+	switch ( $column ) {
+      case 'cp_price':
+		$arr_premium = get_option('dazake_premium_posts');
+		if(!is_array($arr_premium))
+			$arr_premium = array();
+        if ( in_array($post_id,$arr_premium)) {
+            $checked = 'true';
+        } else {
+            $checked = 'false';
+        }
+        echo '<input  style = "display:none" type= "text" class = "dazake_premium_check" value = "'.$checked.'" />';
+		break;
+		
+	 case 'ad_cat':
+	    $arr_premium = get_option('dazake_premium_posts');
+		if(is_array($arr_premium)){
+			if ( in_array($post_id,$arr_premium)) {
+				echo '</br><div style = " font-weight:bold" class = "dazake_premium_display post-state" >Ppremium</div>';
+			} else {
+				return ;
+			}
+		}else{
+			return false;
+		}
+		break;  
+    }
+}
+//end edite by dazake
 ?>

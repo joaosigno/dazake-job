@@ -33,17 +33,7 @@
 
 			      <div class="<?php if(get_option('cp_ad_images') == 'yes') echo 'post-right'; else echo 'post-right-no-img'; ?> <?php echo get_option('cp_ad_right_class'); ?>">
 
-<?php
-//livechat
-$meta_values = get_post_meta($post->ID, 'myplugin_new_field', true); 
-if(!empty($meta_values)){
-$meta_values = htmlspecialchars_decode($meta_values);
-echo '<div class = "dazake_live_chat" >';
-echo $meta_values;
-echo '</div>';
-}
 
-?>
 
 				    <?php appthemes_before_post_title(); ?>
 

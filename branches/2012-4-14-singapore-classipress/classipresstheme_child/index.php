@@ -13,7 +13,7 @@
    	//         else
     //    	        include_once(TEMPLATEPATH . '/featured.php');
 			?>
-<?php   if(function_exists("xtremecarousel")) {   xtremecarousel(); }?>
+<?php   //if(function_exists("xtremecarousel")) {   xtremecarousel(); }?>
 
 <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar_dazake_middle') ) : else : ?> <!-- no dynamic sidebar so don't do anything --> <?php endif; ?>
 

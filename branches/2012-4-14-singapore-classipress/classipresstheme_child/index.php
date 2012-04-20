@@ -52,12 +52,12 @@
                 ?> 
 
                 <?php get_template_part( 'loop', 'ad_listing' ); ?> 
-
+              </div>
         <?php 
             if( $total_pages > 1 ){ ?> 
             <div class="paging"><a href="<?php echo $post_type_url; ?>page/2/"> <?php _e( 'View More Ads', 'appthemes' ); ?> </a></div> 
             <?php } ?> 
-              </div>
+              
             </div><!-- /block1 --> 
 
 
@@ -70,14 +70,14 @@
               <div class="undertab"><span class="big"><?php _e('Classified Ads','appthemes') ?> / <strong><span class="colour"><?php _e('Most Popular','appthemes') ?></span></strong></span></div> 
               <div class="dazake_slideup_block">
         <?php get_template_part( 'loop', 'featured' ); ?> 
-
+              </div>
         <?php global $cp_has_next_page; ?> 
         <?php if($cp_has_next_page){ ?> 
             <div class="paging"><a href="<?php echo $post_type_url; ?>page/2/?sort=popular"> <?php _e( 'View More Ads', 'appthemes' ); ?> </a></div> 
         <?php } ?> 
 
         <?php wp_reset_query(); ?> 
-              </div>
+              
             </div><!-- /block2 --> 
 
 
@@ -99,12 +99,12 @@
   
                 ?> 
                 <?php get_template_part( 'loop', 'ad_listing' ); ?> 
-
+                </div>
         <?php 
             if( $total_pages > 1 ){ ?> 
             <div class="paging"><a href="<?php echo $post_type_url; ?>page/2/?sort=Featured Listings"> <?php _e( 'View More Ads', 'appthemes' ); ?> </a></div> 
             <?php } ?> 
-                </div>
+                
             </div><!-- /block3 --> 
 
             <!-- tab 4 --> 

@@ -9,8 +9,8 @@ jQuery(document).ready(function(jQuery){
 		init: function(){
 			this.el = $("#dazake-mid-slider");
 			this.el.length = this.el.children('a').length;
-			this.width = (this.el.length+1) * 220;
-			this.space = 225;
+			this.width = (this.el.length+1) * 160;
+			this.space = 180;
 			this.interval = 2500;
 			this.t = "";
 			this.dir = true;
@@ -26,7 +26,7 @@ jQuery(document).ready(function(jQuery){
 				
 				self.el.animate({'margin-left': thisMargin-self.space});
 
-				if( Math.abs(thisMargin) ===  (self.el.length - 5) * self.space){ self.reverse(); }
+				if( Math.abs(thisMargin) >  (self.el.length - 7) * self.space){ self.reverse(); }
 			}, this.interval);
 		},
 		stop: function(){
@@ -83,7 +83,7 @@ jQuery(document).ready(function(jQuery){
 
 	
 	dazakeStart();
-	dazakeSlider.init();
+	if($("#dazake-mid-slider a").length > 5){dazakeSlider.init();}
 	$('#dazake-mid-slider').mouseover(function(){
 		dazakeSlider.stop();
 	});

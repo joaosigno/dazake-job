@@ -26,12 +26,14 @@
                   <h1 class="single dotted"><?php _e('Listings for','appthemes')?> <?php echo $term->name; ?> (<?php echo $wp_query->found_posts ?>)</h1>
 
 				  <p><?php echo $term->description; ?></p>
-<?php if (function_exists('twg_tfsp_sort'))
-twg_tfsp_sort();?>
 
                 </div><!-- /shadowblock -->
 
             </div><!-- /shadowblock_out -->
+
+				<div class = "displaynone" >
+                <?php get_template_part( 'loop', 'ad_listing' ); ?>
+				</div>
 				
 				<?php
 				if(isset($_POST['sort_order'])){
@@ -47,7 +49,9 @@ twg_tfsp_sort();?>
 					$displaytype = 'free';
 					get_template_part( 'loop', 'ad_listing' ); 
 				}
-			?>
+				
+				
+				?>
 
 
 	</div><!-- /content_left -->

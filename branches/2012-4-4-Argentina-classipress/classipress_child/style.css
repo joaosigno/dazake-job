@@ -504,7 +504,9 @@ p.lostpass {margin-bottom:-5px;}
 
 /* dazake */
 .pack{display:none;}
-
+.displaynone{
+   display:none;
+}
 /* sticky */
 .hide{display:none}
 p.post-price-sticky {background-color:#fff; float:left; font:bold 17px Arial,Helvetica,sans-serif;margin:0;padding:3px 6px 2px;text-shadow:0 1px 0 #FFFFFF;-khtml-border-radius: 0 4px 4px 0; -moz-border-radius: 0 4px 4px 0; -webkit-border-radius: 0 4px 4px 0; border-radius: 0 4px 4px 0;-moz-box-shadow: 1px 1px 5px #B7B7B7;-khtml-box-shadow: 1px 1px 5px #B7B7B7;-webkit-box-shadow: 1px 1px 5px #b7b7b7; box-shadow: 1px 1px 5px #B7B7B7;}

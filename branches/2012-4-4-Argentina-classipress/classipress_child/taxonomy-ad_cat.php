@@ -25,24 +25,22 @@
                   <div id="catrss"><a href="<?php echo get_term_link($term, $taxonomy); ?>feed/"><img src="<?php bloginfo('template_url'); ?>/images/rss.png" width="16" height="16" alt="<?php echo $term->name; ?> <?php _e('RSS Feed', 'appthemes') ?>" title="<?php echo $term->name; ?> <?php _e('RSS Feed', 'appthemes') ?>" /></a></div>
                   <h1 class="single dotted"><?php _e('Listings for','appthemes')?> <?php echo $term->name; ?> (<?php echo $wp_query->found_posts ?>)</h1>
 
-				  <p><?php echo $term->description; ?></p><?php if (function_exists('twg_tfsp_sort'))
+				  <p><?php echo $term->description; ?></p>
+<?php if (function_exists('twg_tfsp_sort'))
 twg_tfsp_sort();?>
-				 
 
                 </div><!-- /shadowblock -->
 
             </div><!-- /shadowblock_out -->
-
-
-			<?php
+				
+				<?php
 				if(isset($_POST['sort_order'])){
 					$displaytype = 'all';
-					get_template_part( 'loop', 'ad_listing' ); 
+					get_template_part( 'loop', 'ad_listing' );
 				}else{
 					$displaytype = 'feature';
 					get_template_part( 'loop', 'ad_listing' ); 
 
-					global $displaytype ;
 					$displaytype = 'premium';
 					get_template_part( 'loop', 'ad_listing' ); 
 
@@ -50,6 +48,8 @@ twg_tfsp_sort();?>
 					get_template_part( 'loop', 'ad_listing' ); 
 				}
 			?>
+
+
 	</div><!-- /content_left -->
 
 

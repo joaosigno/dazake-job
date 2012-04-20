@@ -43,4 +43,8 @@ Version: 3.1.8
 #locallivechat{
   float:right;
   margin-top: -5px;
+} 
+
+.dazake_live_chat_page{
+  float:right;
 }  

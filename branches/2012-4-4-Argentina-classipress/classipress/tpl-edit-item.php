@@ -238,9 +238,8 @@ jQuery(document).ready(function(){
                             // check and make sure images are allowed
                             if(get_option('cp_ad_images') == 'yes') {
                                 $imagecount = cp_get_ad_images($getad->ID);
-
                                 // print out image upload fields. pass in count of images allowed
-                                echo cp_ad_edit_image_input_fields($imagecount);
+                                echo cp_ad_dazake_edit_image_input_fields($imagecount , $getad);
                             }
 
                         } else { ?>

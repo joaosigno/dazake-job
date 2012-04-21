@@ -955,6 +955,55 @@ function cp_ad_edit_image_input_fields($imagecount) {
 }
 
 
+//dazake edite image
+// calculates total number of image input upload boxes
+// minus the number of existing images
+function cp_ad_dazake_edit_image_input_fields($imagecount ,$post) {
+    $disabled = '';
+
+    // get the free
+    $maximages = get_option('dazakefreepicnum');
+    
+    if(dazake_is_premiun($post->ID)){
+        $pinumname = "dazake_category{$post->term_id}_pic_num";
+        $imagepremium = get_option($pinumname);
+        if(!empty($imagepremium))
+            $maximages = max($maximages,$imagepremium);
+    }
+
+    if(is_sticky($post->ID)){
+        $imagefeature = get_option('dazakefeaturetime');
+        if(!empty($imagefeature))
+            $maximages = max($maximages,$imagefeature);
+    }
+
+    // figure out how many image upload fields we need
+    $imageboxes = ($maximages - $imagecount);
+
+    // now loop through and print out the upload fields
+    for ( $i = 0; $i < $imageboxes; $i++ ) :
+        $next = $i + 1;
+        if ( $i > 0 ) $disabled = 'disabled="disabled"';
+    ?>
+        <li>
+            <div class="labelwrapper">
+                <label><?php _e('Add Image','appthemes') ?>:</label>
+            </div>
+                <?php echo "<input type=\"file\" name=\"image[]\" id=\"upload$i\" class=\"fileupload\" onchange=\"enableNextImage(this,$next)\" $disabled" . ' />'; ?>
+            <div class="clr"></div>
+        </li>
+    <?php
+    endfor;
+    ?>
+
+    <p class="small"><?php printf(__('You are allowed %s image(s) per ad.','appthemes'), $maximages) ?> <?php echo get_option('cp_max_image_size') ?><?php _e('KB max file size per image.','appthemes') ?> <?php _e('Check the box next to each image you wish to delete.','appthemes') ?></p>
+    <div class="clr"></div>
+
+<?php
+}
+
+//end dazake edite image
+
 // make sure it's an image file and then upload it
 function cp_image_upload($upload) {
     if ( cp_file_is_image( $upload['tmp_name'] ) ) {

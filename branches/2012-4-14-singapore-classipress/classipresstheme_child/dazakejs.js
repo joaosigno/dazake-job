@@ -9,7 +9,7 @@ jQuery(document).ready(function(jQuery){
 		init: function(){
 			this.el = $("#dazake-mid-slider");
 			this.el.length = this.el.children('a').length;
-			this.width = (this.el.length+1) * 160;
+			this.width = (this.el.length+2) * 200;
 			this.space = 180;
 			this.interval = 2500;
 			this.t = "";

@@ -1,0 +1,55 @@
+2012/01/16
+
+XTREME CAROUSEL V1.2 SLIDER PLUGIN FOR CLASSIPRESS
+
+See examples at: 
+http://store.classipro.com/
+
+
+INSTRUCTIONS:
+
+1. Upload the "xtremecarousel" to your plugins folder
+2. Activate the "xtremecarousel" plugin
+3a. Look at your themes/classipress/index.php file, lines 9 to 14:
+
+	<?php
+		if ( file_exists(STYLESHEETPATH . '/featured.php') )
+			include_once(STYLESHEETPATH . '/featured.php');
+		else
+			include_once(TEMPLATEPATH . '/featured.php');
+	?>
+
+3b. And change it for:
+
+	<?php if (function_exists('xtremecarousel')) xtremecarousel(); ?>
+
+	<?php // Comment the default CP Slider
+		// if ( file_exists(STYLESHEETPATH . '/featured.php') )
+		// include_once(STYLESHEETPATH . '/featured.php');
+		// else
+		// include_once(TEMPLATEPATH . '/featured.php');
+	?>
+
+If you also like to show the slider on your category pages now we've already built this feature into the last 1.1 update. This means you'll have your featured ads on category pages filtered per the category being showed.
+4. To achieve this you just need to look for your themes/classipress/taxonomy-ad_cat.php file and add:
+
+        <?php if (function_exists('xtremecarousel')) xtremecarousel(); ?>
+
+… after line 14. So the code must look like:
+
+        <div id="breadcrumb">
+
+          <?php if ( function_exists('cp_breadcrumb') ) cp_breadcrumb(); ?>
+
+        </div>
+        
+        <?php if (function_exists('xtremecarousel')) xtremecarousel(); ?>
+
+        <!-- left block -->
+        <div class="content_left">
+
+
+Enjoy!
+
+The ClassiPRO Team
+http://classipro.com

@@ -1,0 +1,84 @@
+/*
+add_action('wp_ajax_nopriv_count_posts', 'count_posts');
+add_action('wp_ajax_count_posts', 'count_posts');
+
+function count_posts() {
+		
+	global $wpdb;	
+	$values = $_POST['val'];
+	$controls = $_POST['ctrl'];
+	
+	for ($i=0;$i<count($controls);$i++)
+		$controls[$i][value] = $values[$i][value];
+	
+	$q = test($controls);
+	$c = $wpdb->get_var($wpdb->prepare($q));
+	echo $c;
+	//echo $q;
+	//wp_reset_query();
+	die();
+}
+
+function test($controls)
+{
+	global $wpdb;
+	
+	$select = "SELECT COUNT(*) FROM $wpdb->posts";
+	//$joins =  
+}
+// TODO: Refactor this function because is not easy to maintain
+
+function obj2sql_where($params)
+{
+	global $wpdb;
+	
+	
+	// SELECT+FROM	
+	$result = "SELECT COUNT(*) FROM $wpdb->posts";
+	for ($i=0;$i<count($params);$i++)
+	// JOIN	
+	for ($i=0;$i<count($params);$i++)
+	{
+		if (!empty($params[$i][value]))
+		{	
+			$temp = explode("-", $params[$i][name]);
+			
+			// is Category
+			if ($temp[1] == "cat")
+			{
+				$table = 'm'.$i;
+				$rel = 'rel'.$i;
+				$tax = 'tax'.$i;
+				$result.= " JOIN $wpdb->term_relationships $rel ON $rel.object_id=id JOIN  $wpdb->term_taxonomy $tax ON $tax.term_taxonomy_id=$rel.term_taxonomy_id JOIN $wpdb->terms $table ON $table.term_id=$tax.term_id AND $tax.taxonomy='ad_cat'";
+			}
+			else
+				$result.= " JOIN wp_postmeta m".$i." ON m".$i.".post_id=id";
+			
+		}
+	}
+	
+	// WHERE
+	$result.= " WHERE 1=1 AND (post_status='publish' OR post_status='private') AND post_type='ad_listing'";
+	for ($i=0;$i<count($params);$i++)
+	{
+			if (!empty($params[$i][value]))	
+			{
+				$cf_name = explode("-", $params[$i][name]);
+				if ($cf_name[1] == 'cat')
+					$result.= " AND (m".$i.".name='".$params[$i][value]."')";
+				elseif ($cf_name[1] == 'cp_price')
+				{
+					list($min, $max) = explode("-",$params[$i][value]);
+					
+					if (strlen($min)>0) $where.= " AND (m".$i.".meta_key='".$cf_name[1]."' AND m".$i.".meta_value >= ".$min.")";
+					if (strlen($max)>0) $where.= " AND (m".$i.".meta_key='".$cf_name[1]."' AND m".$i.".meta_value <= ".$max.")";
+					$result.=$where;
+				}
+				else
+					$result .= " AND (m".$i.".meta_key='".$cf_name[1]."' AND m".$i.".meta_value='".$params[$i][value]."')";
+				
+			}
+	}
+	return $result;
+}
+*/

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Write your own functions or modify functions, actions, and filters using this file.
  * LIST YOUR FUNCTIONS (optional):
@@ -13,11 +14,11 @@
 function my_scripts_method() {
       $dazakejsurl =  get_bloginfo('stylesheet_url');
       $dazakejsurl = str_replace('style.css', 'dazakejs.js',$dazakejsurl);
-	wp_enqueue_script(
-		'dazakejs',
-		$dazakejsurl,
-		array('scriptaculous')
-	);
+  wp_enqueue_script(
+    'dazakejs',
+    $dazakejsurl,
+    array('scriptaculous')
+  );
 }    
 
 
@@ -85,7 +86,7 @@ function cp_dazake_sidebars_init() {
     if ( !function_exists('register_sidebars') )
         return;
     register_sidebar(array(
-        'name'          => __('Dazake Head Sidebar','appthemes'),
+        'name'          => __('Head Sidebar','appthemes'),
         'id'            => 'sidebar_dazake_head',
         'description'   => __('This is the head ClassiPress sidebar add by child theme.','appthemes'),
         'before_widget' => '<div class="shadowblock_out" id="%2$s"><div id="dazake_header_wi">',
@@ -95,7 +96,7 @@ function cp_dazake_sidebars_init() {
     ));
 
     register_sidebar(array(
-        'name'          => __('Dazake Middle Sidebar','appthemes'),
+        'name'          => __('Middle Sidebar','appthemes'),
         'id'            => 'sidebar_dazake_middle',
         'description'   => __('This is the middle ClassiPress sidebar add by child theme.','appthemes'),
         'before_widget' => '<div class="dazakeblockout shadowblock_out" id="%2$s"><div class="shadowblockdir"><div id="dazake_middle_wi">',

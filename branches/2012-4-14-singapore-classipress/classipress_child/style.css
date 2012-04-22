@@ -88,3 +88,11 @@ form.custom_search.widget .selectBox-dropdown{
 .btn_orange{
   float:right;
 }
+
+p#rb_xtrmcarousel_inside{
+  margin-top:0px;
+}
+
+.footer_main_res .right, .footer_menu{
+  display:none;
+}

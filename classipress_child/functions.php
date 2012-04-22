@@ -85,28 +85,11 @@ function myplugin_save_postdata( $post_id ) {
 function cp_dazake_sidebars_init() {
     if ( !function_exists('register_sidebars') )
         return;
-    register_sidebar(array(
-        'name'          => __('Head Sidebar','appthemes'),
-        'id'            => 'sidebar_dazake_head',
-        'description'   => __('This is the head ClassiPress sidebar add by child theme.','appthemes'),
-        'before_widget' => '<div class="shadowblock_out" id="%2$s"><div id="dazake_header_wi">',
-        'after_widget'  => '</div><!-- /shadowblock --></div><!-- /shadowblock_out -->',
-        'before_title'  => '<h2 class="dotted">',
-        'after_title'   => '</h2>',
-    ));
-
-    register_sidebar(array(
-        'name'          => __('Middle Sidebar','appthemes'),
-        'id'            => 'sidebar_dazake_middle',
-        'description'   => __('This is the middle ClassiPress sidebar add by child theme.','appthemes'),
-        'before_widget' => '<div class="dazakeblockout shadowblock_out" id="%2$s"><div class="shadowblockdir"><div id="dazake_middle_wi">',
-        'after_widget'  => '</div><!-- /shadowblock --></div></div><!-- /shadowblock_out -->',
-        'before_title'  => '<h2 class="dotted">',
-        'after_title'   => '</h2>',
-    ));
+   
 
 }
-add_action( 'init', 'cp_dazake_sidebars_init' );
+
+add_action( 'wp_register_sidebar_widget', 'cp_dazake_sidebars_init' );
 
 //add submenu for adding local live chat
 function cp_live_chat(){

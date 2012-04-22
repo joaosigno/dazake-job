@@ -972,7 +972,7 @@ function cp_ad_dazake_edit_image_input_fields($imagecount ,$post) {
     }
 
     if(is_sticky($post->ID)){
-        $imagefeature = get_option('dazakefeaturetime');
+        $imagefeature = get_option('dazakefeaturepicnum');
         if(!empty($imagefeature))
             $maximages = max($maximages,$imagefeature);
     }

@@ -85,7 +85,7 @@ function cp_dazake_sidebars_init() {
     if ( !function_exists('register_sidebars') )
         return;
     register_sidebar(array(
-        'name'          => __('Head Sidebar','appthemes'),
+        'name'          => __('Dazake Head Sidebar','appthemes'),
         'id'            => 'sidebar_dazake_head',
         'description'   => __('This is the head ClassiPress sidebar add by child theme.','appthemes'),
         'before_widget' => '<div class="shadowblock_out" id="%2$s"><div id="dazake_header_wi">',
@@ -95,7 +95,7 @@ function cp_dazake_sidebars_init() {
     ));
 
     register_sidebar(array(
-        'name'          => __('Middle Sidebar','appthemes'),
+        'name'          => __('Dazake Middle Sidebar','appthemes'),
         'id'            => 'sidebar_dazake_middle',
         'description'   => __('This is the middle ClassiPress sidebar add by child theme.','appthemes'),
         'before_widget' => '<div class="dazakeblockout shadowblock_out" id="%2$s"><div class="shadowblockdir"><div id="dazake_middle_wi">',

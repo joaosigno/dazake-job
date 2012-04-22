@@ -61,7 +61,7 @@ jQuery(document).ready(function(jQuery){
 
 	function addLast(first){
 			last = '<div class="post-block-out" style="display:block">'+first+'</div>';
-			if($('.dazake_slideup_block').hasClass('dazake-fixed') && $('.paging')){
+			if($('.dazake_slideup_block').hasClass('dazake-fixed') && $('.dazake_slideup_block').find('.paging').length !== 0){
 				$('.paging').before(last);	
 				if ($('.dazakeactive').queue("fx").length == 0){
 					$('.dazakeactive div:last').show();

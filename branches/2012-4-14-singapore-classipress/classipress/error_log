@@ -1,0 +1,2 @@
+[03-Apr-2012 19:02:14] PHP Fatal error:  Call to undefined function  get_header() in /home2/myaustra/public_html/expertcom/wp-content/themes/classipress/index.php on line 1
+[10-Apr-2012 19:00:44] PHP Fatal error:  Call to undefined function  get_header() in /home2/myaustra/public_html/expertcom/wp-content/themes/classipresstheme/index.php on line 1

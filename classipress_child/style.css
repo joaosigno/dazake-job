@@ -40,11 +40,6 @@ Version: 3.1.8
   margin:0px 10px;
 }
 
-#locallivechat{
-  float:right;
-  margin-top: -5px;
-} 
-
 .dazake_live_chat_page{
   float:right;
 }  
@@ -62,4 +57,34 @@ Version: 3.1.8
   border:5px solid #ddd;
   width:150px;
   height:105px;
+}
+
+form.custom_search.widget .searchform-input-wrapper input{
+  width:150px;
+}
+
+form.custom_search.widget .selectBox-dropdown{
+  min-width:164px;
+  width:164px;
+}
+
+.content_left .dazake_live_chat{
+  position:relative;
+  height:0;
+  top:-40px;
+}
+
+.content_left .post-block-out .dazake_live_chat{
+  top:-10px;
+}
+
+#locallivechat{
+  height:12px;
+  width:105px;
+  float:right;
+  margin-top:-10px;
+}
+
+.btn_orange{
+  float:right;
 }

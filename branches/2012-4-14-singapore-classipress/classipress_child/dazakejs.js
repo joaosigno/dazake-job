@@ -10,31 +10,38 @@ jQuery(document).ready(function(jQuery){
 			this.el = $("#dazake-mid-slider");
 			this.el.length = this.el.children('a').length;
 			this.width = (this.el.length+2) * 200;
-			this.space = 180;
-			this.interval = 2500;
+			this.interval = 3000;
 			this.t = "";
-			this.dir = true;
 			this.el.css('width',this.width);
+			self = this;
 			this.start();
+			
 		},
+		
 		start: function(){
-			var self = this;
-
-			this.t = setInterval(function(){
-				var thisMargin = parseInt(self.el.css('margin-left'));
-				// console.log(self.el.length);
-				
-				self.el.animate({'margin-left': thisMargin-self.space});
-
-				if( Math.abs(thisMargin) >  (self.el.length - 7) * self.space){ self.reverse(); }
-			}, this.interval);
+			self.t = setInterval(self.removeFirst, self.interval);
+			self.removeFirst();
 		},
+
 		stop: function(){
-			clearInterval(this.t);
+			clearInterval(self.t);
 		},
-		reverse: function(){
-			// this.dir = !this.dir;
-			this.el.animate({'margin-left': 0});
+
+		removeFirst: function(){
+			self.temp = $("#dazake-mid-slider a:first");
+			$("#dazake-mid-slider a:first").animate({
+				'width': 0
+			}, function(){
+				$(this).remove();
+				dazakeSlider.addToLast(self.temp);
+			});
+			
+		},
+
+		addToLast: function(last){
+			self.el.append(last);	
+
+			$("#dazake-mid-slider a:last").css('width', '180');
 		}
 	}
 
@@ -65,7 +72,6 @@ jQuery(document).ready(function(jQuery){
 					$('.dazakeactive div:last').show();
 				}
 			}
-			
 	}
 
 	function dazakeStop()
@@ -91,6 +97,7 @@ jQuery(document).ready(function(jQuery){
 
 	
 	dazakeStart();
+
 	if($("#dazake-mid-slider a").length > 5){dazakeSlider.init();}
 	$('#dazake-mid-slider').mouseover(function(){
 		dazakeSlider.stop();

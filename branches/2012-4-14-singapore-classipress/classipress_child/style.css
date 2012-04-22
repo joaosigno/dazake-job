@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+Theme Name: ClassiPress - Child Theme
+Theme URI: http://appthemes.com/
+Description: Child Theme for ClassiPress
+Author: Micheal of Dazake
+Author URI: http://www.dazake.com/
+E-mail: dazakecn@gmail.com
+Template: classipress
+Version: 3.1.8
+*/
+
+@import url("../classipress/style.css");
+
+.post-price,.tag-head{
+  display:none;
+}
+
+.dazake_live_chat{
+  float:right;
+}  
+
+#dazake_header_wi{
+  width:468px;
+  height:80px;
+}
+
+.dazakeblockout{
+  height:190px;
+  background:#fff;
+}
+
+#dazake_middle_wi{
+  overflow:hidden
+}
+#dazake_middle_wi .ads li{
+  float:left;
+  margin:0px 10px;
+}
+
+#locallivechat{
+  float:right;
+  margin-top: -5px;
+} 
+
+.dazake_live_chat_page{
+  float:right;
+}  
+
+#dazake_middle_wi{
+  overflow-x:hidden;
+}
+
+#dazake-mid-slider{
+  width:10000px;
+}
+
+#dazake-mid-slider img{
+  margin:40px 10px;
+  border:5px solid #ddd;
+  width:150px;
+  height:105px;
+}

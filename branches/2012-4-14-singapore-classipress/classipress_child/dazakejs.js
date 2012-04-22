@@ -54,10 +54,18 @@ jQuery(document).ready(function(jQuery){
 
 	function addLast(first){
 			last = '<div class="post-block-out" style="display:block">'+first+'</div>';
-			$('.dazakeactive').append(last);	
-			if ($('.dazakeactive').queue("fx").length == 0){
-				$('.dazakeactive div:last').show();
+			if($('.dazake_slideup_block').hasClass('dazake-fixed')){
+				$('.paging').before(last);	
+				if ($('.dazakeactive').queue("fx").length == 0){
+					$('.dazakeactive div:last').show();
+				}
+			}else{
+				$('.dazakeactive').append(last);	
+				if ($('.dazakeactive').queue("fx").length == 0){
+					$('.dazakeactive div:last').show();
+				}
 			}
+			
 	}
 
 	function dazakeStop()

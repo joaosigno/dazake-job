@@ -39,7 +39,7 @@
 
             </div><!-- /shadowblock_out -->
 
-                <div class="dazake_slideup_block dazakeactive">
+                <div class="dazake_slideup_block dazakeactive dazake-fixed">
                 <?php get_template_part( 'loop', 'ad_listing' ); ?>
                 </div>
 

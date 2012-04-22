@@ -65,6 +65,26 @@ function cp_sidebars_init() {
         'before_title'  => '<h2 class="dotted">',
         'after_title'   => '</h2>',
     ));
+
+        register_sidebar(array(
+        'name'          => __('Head Dazake Sidebar','appthemes'),
+        'id'            => 'sidebar_dazake_head',
+        'description'   => __('This is the head ClassiPress sidebar add by child theme.','appthemes'),
+        'before_widget' => '<div class="shadowblock_out" id="%2$s"><div id="dazake_header_wi">',
+        'after_widget'  => '</div><!-- /shadowblock --></div><!-- /shadowblock_out -->',
+        'before_title'  => '<h2 class="dotted">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('Middle Dazake Sidebar','appthemes'),
+        'id'            => 'sidebar_dazake_middle',
+        'description'   => __('This is the middle ClassiPress sidebar add by child theme.','appthemes'),
+        'before_widget' => '<div class="dazakeblockout shadowblock_out" id="%2$s"><div class="shadowblockdir"><div id="dazake_middle_wi">',
+        'after_widget'  => '</div><!-- /shadowblock --></div></div><!-- /shadowblock_out -->',
+        'before_title'  => '<h2 class="dotted">',
+        'after_title'   => '</h2>',
+    ));
 }
 add_action( 'init', 'cp_sidebars_init' );
 

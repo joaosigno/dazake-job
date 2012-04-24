@@ -114,7 +114,7 @@ if(!empty($meta_values)){
                                         if ( get_post_meta($post->ID, 'cp_website', true) ){
                                             $meta_website = get_post_meta($post->ID, 'cp_website', true);
                                             if(!empty($meta_website))
-                                            echo '<li class = "cp_website" ><span>Website: </span>'.$meta_website.'</li>';
+                                            echo '<li class = "cp_website" ><span>Website: </span><a href="'.$meta_website.'"></a></li>';
                                         }
                                         ?>
 

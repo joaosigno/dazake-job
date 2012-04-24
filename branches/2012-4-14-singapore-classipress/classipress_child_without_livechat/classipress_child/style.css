@@ -14,12 +14,9 @@ Version: 3.1.8
 
 @import url("../classipress/style.css");
 
-.post-price,.tag-head{
-  display:none;
-}
-
 .dazake_live_chat{
   float:right;
+  display: none;
 }  
 
 #dazake_header_wi{
@@ -42,6 +39,7 @@ Version: 3.1.8
 
 .dazake_live_chat_page{
   float:right;
+  display: none;
 }  
 
 #dazake_middle_wi{

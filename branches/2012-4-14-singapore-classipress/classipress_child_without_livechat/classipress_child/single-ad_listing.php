@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
 $meta_values = get_post_meta($post->ID, 'myplugin_new_field', true); 
 if(!empty($meta_values)){
     $meta_values = htmlspecialchars_decode($meta_values);
-    echo '<div class = "dazake_live_chat" >';
+    echo '<div class = "dazake_live_chat"  class = "displaynone"  >';
     echo $meta_values;
     echo '</div>';
  }

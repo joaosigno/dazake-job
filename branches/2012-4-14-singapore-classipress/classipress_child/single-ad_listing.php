@@ -88,7 +88,7 @@ if(!empty($meta_values)){
                                                 <li><span><?php _e('URL:','appthemes'); ?></span> <?php echo appthemes_make_clickable( get_post_meta( $post->ID, 'cp_adURL', true ) ); ?></li>
 											<li>&nbsp;</li>
                                             <li><span><?php _e('Listed:', 'appthemes') ?></span> <?php the_time( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ?></li>
-                                            <li><span><?php _e('Expires:', 'appthemes') ?></span><?php _e('Expires:', 'appthemes') ?></li>
+                                            <li id="cp_expires"><span><a href = "http://www.advertiser.expert.com.sg" ><?php _e( 'Expires: Advertiser , activate your ad here', 'appthemes' ) ?></a></span></li>
 
                                         <?php
                                         } else {
@@ -127,7 +127,7 @@ if(!empty($meta_values)){
                                         } // end legacy check
                                         ?>
 
-                                            <li id="cp_expires"><span><a href = "http://www.advertiser.expert.com.sg" ><?php _e( 'Expires: Advertiser , activate your ad here', 'appthemes' ) ?></a></span></li>
+                                            
 
                                     </ul>
 

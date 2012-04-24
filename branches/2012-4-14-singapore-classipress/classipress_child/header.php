@@ -25,7 +25,6 @@
 		    <?php if ( get_option('cp_debug_mode') == 'yes' ) { ?><div class="debug"><h3><?php _e('Debug Mode On','appthemes'); ?></h3><?php print_r($wp_query->query_vars); ?></div><?php } ?>
 
             <?php appthemes_before_header(); ?>
-            
             <!-- HEADER -->
     <div class="header">
 
@@ -34,6 +33,7 @@
             <div class="header_top_res">
 
                 <p>
+                <a href="<?php echo home_url() ; ?> ">Advertise With Us </a>| <a href=" <?php echo home_url() ; ?>/contact-us/">Contact Us</a>
                 <?php echo cp_login_head(); ?>
 
                 <a href="<?php if (get_option('cp_feedburner_url')) echo get_option('cp_feedburner_url'); else echo get_bloginfo_rss('rss2_url').'?post_type='.APP_POST_TYPE; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/icon_rss.gif" width="16" height="16" alt="rss" class="srvicon" /></a>
@@ -138,5 +138,4 @@
            
             <?php appthemes_after_header(); ?>
 
-	        <?php include_once( TEMPLATEPATH . '/includes/theme-searchbar.php' ); ?>
-
+	        <?php include_once( dirname( __FILE__ ) . '/theme-searchbar.php' ); ?>

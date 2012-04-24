@@ -105,14 +105,16 @@ if(!empty($meta_values)){
                                         //phone
                                         if ( get_post_meta($post->ID, 'cp_phone_no', true) ){
                                             $meta_phone = get_post_meta($post->ID, 'cp_phone_no', true);
-                                            echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_phone.'</li>';
+                                            if(!empty($meta_phone))
+                                                echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_phone.'</li>';
                                         }
                                         ?>
                                         <?php
                                         //website
                                         if ( get_post_meta($post->ID, 'cp_website', true) ){
-                                            $meta_phone = get_post_meta($post->ID, 'cp_phone_no', true);
-                                            echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_phone.'</li>';
+                                            $meta_website = get_post_meta($post->ID, 'cp_website', true);
+                                            if(!empty($meta_website))
+                                            echo '<li class = "cp_phone_no" ><span>Phone: </span>'.$meta_website.'</li>';
                                         }
                                         ?>
 

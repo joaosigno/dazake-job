@@ -33,7 +33,7 @@
             <div class="header_top_res">
 
                 <p>
-                <span id = "dazake_head_front"><a style="color:#fff" href="<?php echo home_url() ; ?> ">Advertise With Us </a>| <a style="color:#fff" href=" <?php echo home_url() ; ?>/contact-us/">Contact Us</a>|</span>
+                <span id = "dazake_head_front"><a style="color:#fff" href="http://www.advertiser.expert.com.sg">Advertise With Us </a>| <a style="color:#fff" href=" <?php echo home_url() ; ?>/contact-us/">Contact Us</a>|</span>
                 <?php echo cp_login_head(); ?>
 
                 <a href="<?php if (get_option('cp_feedburner_url')) echo get_option('cp_feedburner_url'); else echo get_bloginfo_rss('rss2_url').'?post_type='.APP_POST_TYPE; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/icon_rss.gif" width="16" height="16" alt="rss" class="srvicon" /></a>

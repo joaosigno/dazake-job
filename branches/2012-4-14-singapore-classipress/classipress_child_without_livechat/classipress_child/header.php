@@ -103,7 +103,7 @@
              $locallivechat = get_option('locallivechat');
             $locallivechat = stripslashes($locallivechat);
             if(!empty($locallivechat)){
-                echo '<div id = "locallivechat">';
+                echo '<div id = "locallivechat" class = "displaynone" >';
                 echo $locallivechat;
                 echo '</div>';
             }

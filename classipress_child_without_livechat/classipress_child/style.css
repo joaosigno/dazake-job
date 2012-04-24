@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+Theme Name: ClassiPress - Child Theme
+Theme URI: http://appthemes.com/
+Description: Child Theme for ClassiPress
+Author: Micheal of Dazake
+Author URI: http://www.dazake.com/
+E-mail: dazakecn@gmail.com
+Template: classipress
+Version: 3.1.8
+*/
+
+@import url("../classipress/style.css");
+
+.post-price,.tag-head{
+  display:none;
+}
+
+.dazake_live_chat{
+  float:right;
+}  
+
+#dazake_header_wi{
+  width:468px;
+  height:80px;
+}
+
+.dazakeblockout{
+  height:190px;
+  background:#fff;
+}
+
+#dazake_middle_wi{
+  overflow:hidden
+}
+#dazake_middle_wi .ads li{
+  float:left;
+  margin:0px 10px;
+}
+
+.dazake_live_chat_page{
+  float:right;
+}  
+
+#dazake_middle_wi{
+  overflow-x:hidden;
+}
+
+#dazake-mid-slider{
+  width:10000px;
+}
+
+#dazake-mid-slider img{
+  margin:40px 10px;
+  border:5px solid #ddd;
+  width:150px;
+  height:105px;
+}
+
+form.custom_search.widget .searchform-input-wrapper input{
+  width:150px;
+}
+
+form.custom_search.widget .selectBox-dropdown{
+  min-width:164px;
+  width:164px;
+}
+
+.content_left .dazake_live_chat{
+  position:relative;
+  height:0;
+  top:-40px;
+}
+
+.content_left .post-block-out .dazake_live_chat{
+  top:-10px;
+}
+
+#locallivechat{
+  height:12px;
+  width:105px;
+  float:right;
+  margin-top:-10px;
+}
+
+.btn_orange{
+  float:right;
+}
+
+p#rb_xtrmcarousel_inside{
+  margin-top:0px;
+}
+
+.footer_main_res .right, .footer_menu{
+  display:none;
+}

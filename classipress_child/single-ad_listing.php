@@ -98,7 +98,7 @@ if(!empty($meta_values)){
                                             <?php endif; ?>
                                             <?php
                                             // 3.0+ display the custom fields instead (but not text areas)
-                                            cp_get_ad_details( $post->ID, $cat_id );
+                                            cp_dazake_get_ad_details( $post->ID, $cat_id );
                                         ?>
 
                                         <?php

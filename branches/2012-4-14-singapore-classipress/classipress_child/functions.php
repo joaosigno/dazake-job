@@ -140,3 +140,76 @@ function live_chat_callback() {
   </form>
   <?php
 }
+
+
+
+// display all the custom fields on the single ad page, by default they are placed in the list area
+if (!function_exists('cp_dazake_get_ad_details')) {
+    function cp_dazake_get_ad_details($postid, $catid, $locationOption = 'list') {
+        global $wpdb;
+        //$all_custom_fields = get_post_custom($post->ID);
+        // see if there's a custom form first based on catid.
+        $fid = cp_get_form_id($catid);
+
+        // if there's no form id it must mean the default form is being used
+        if(!($fid)) {
+
+      // get all the custom field labels so we can match the field_name up against the post_meta keys
+      $sql = $wpdb->prepare("SELECT field_label, field_name, field_type FROM ". $wpdb->prefix . "cp_ad_fields");
+
+        } else {
+
+            // now we should have the formid so show the form layout based on the category selected
+            $sql = $wpdb->prepare("SELECT f.field_label, f.field_name, f.field_type, m.field_pos "
+                     . "FROM ". $wpdb->prefix . "cp_ad_fields f "
+                     . "INNER JOIN ". $wpdb->prefix . "cp_ad_meta m "
+                     . "ON f.field_id = m.field_id "
+                     . "WHERE m.form_id = %s "
+                     . "ORDER BY m.field_pos asc",
+                     $fid);
+
+        }
+
+        $results = $wpdb->get_results($sql);
+
+        if($results) {
+            if($locationOption == 'list') {
+                    foreach ($results as $result) :
+                        // now grab all ad fields and print out the field label and value
+                        $post_meta_val = get_post_meta($postid, $result->field_name, true);
+                        if (!empty($post_meta_val))
+                            if($result->field_type == "checkbox"){
+                                $post_meta_val = get_post_meta($postid, $result->field_name, false);
+                                echo '<li id="'. $result->field_name .'" class = "checkb" ><span>' . $result->field_label . ':</span> ' . appthemes_make_clickable(implode(", ", $post_meta_val)) .'</li>'; // make_clickable is a WP function that auto hyperlinks urls}
+                            }elseif($result->field_name != 'cp_price' && $result->field_type != "text area"){
+                                if($result->field_name == 'cp_web_site')
+                                  echo '<li id="'. $result->field_name .'"><span>' . $result->field_label . ':</span><a href = "'.appthemes_make_clickable($post_meta_val) .'" > ' . appthemes_make_clickable($post_meta_val) .'</a></li>'; // make_clickable is a WP function that auto hyperlinks urls
+                                else
+                                  echo '<li id="'. $result->field_name .'" class = "vaelse" ><span>' . $result->field_label . ':</span> ' . appthemes_make_clickable($post_meta_val) .'</li>'; // make_clickable is a WP function that auto hyperlinks urls
+                            }
+                    endforeach;
+                }
+                elseif($locationOption == 'content')
+                {
+                    foreach ($results as $result) :
+                        // now grab all ad fields and print out the field label and value
+                        $post_meta_val = get_post_meta($postid, $result->field_name, true);
+                        if (!empty($post_meta_val))
+                            if($result->field_name != 'cp_price' && $result->field_type == 'text area')
+                                echo '<div id="'. $result->field_name .'" class="custom-text-area dotted"><h3>' . $result->field_label . '</h3>' . appthemes_make_clickable($post_meta_val) .'</div>'; // make_clickable is a WP function that auto hyperlinks urls
+
+                    endforeach;
+                }
+                else
+                {
+                        // uncomment for debugging
+                        // echo 'Location Option Set: ' . $locationOption;
+                }
+
+        } else {
+
+          echo __('No ad details found.', 'appthemes');
+
+        }
+    }
+}

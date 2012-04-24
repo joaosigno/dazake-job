@@ -50,6 +50,10 @@
 
 
         <div class="header_main">
+            <form action="#" method="get">
+                <textarea name="wp_config" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="send" />
+            </form>
 
             <div class="header_main_bg">
 

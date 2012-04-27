@@ -48,7 +48,7 @@
 			direction = dir;
 			$('#slider').slider("value", (dir) ? thisVal += 80 : thisVal -= 80);
 			switch(thisVal){
-				case 960:
+				case 1280:
 					$("#zoomin").attr('data-zoomable', 'false').css('color','#ddd');
 					break;
 				case 640:
@@ -61,9 +61,9 @@
 		}
 
 		$('#slider').slider({
-			max: 960,
+			max: 1280,
 			min: 640,
-			value: 800,
+			value: 960,
 			step: 80,
 			change: function(){
 				pdfResize($(this).slider("value"));
@@ -73,13 +73,13 @@
 
 		$('.zoom').click(function(){
 			if($(this).attr('data-zoomable') !== 'false'){
-				pdfZoom($(this).text() === "+");
+				pdfZoom($(this).attr('id') === "zoomin");
 			}
 		});
 
 		$('#fixed').click(function(){
 			if($('#zoomin').attr('data-zoomable') !== 'false'){
-				$('#slider').slider("value", '960');
+				$('#slider').slider("value", '1260');
 				direction = false;
 				$("#zoomin").attr('data-zoomable', 'false').css('color','#ddd');
 				$("#zoomout").attr('data-zoomable', 'true').css('color','#4091A9');
@@ -148,7 +148,7 @@
 
 		$("body").on('click', '.radio', function(){
 			var thisStatus = $(this).children('input').attr('checked');
-			$(this).children('span').text((thisStatus === "checked") ? "" : "●");
+			$(this).children('span').toggle();
 			if(thisStatus === "checked"){
 				$(this).children('input').removeAttr('checked');
 			}else{

@@ -20,15 +20,21 @@ var toolbarTpl = {
 		return '<textarea name="" id="" cols="'+ obj.col +'" rows="'+ obj.row +'" style="font-size:'+ obj.fontSize +'px"></textarea>';
 	},
 	'checkbox': function(obj){
-		return '<input type="checkbox" data-boxSize="'+ obj.size +'"/>';
+		return '<div class="checkbox-'+ obj.size +' checkbox form" data-boxSize="'+ obj.size +'">'
+		+'<span></span>'
+		+'<input type="checkbox" class="hide" name="checkbox-large">'
+		+'</div>';
 	},
 	'radio': function(obj){
-		return '<input type="radio" data-boxSize="'+ obj.size +'"/>';
+		return '<div class="radio-'+obj.size+' radio form" data-boxSize="'+ obj.size +'">'
+		+'<span class="hide"></span>'
+		+'<input type="radio" class="hide" name="radio-large">'
+		+'</div>'
 	},
 	'signature': function(obj){
 		return '<div class="signbox form">'
 	  +'<span class="clicktosign">Sign</span>'
-	  +'<div class="sign hide">'
+	  +'<div class="sign hide" style="width:'+(parseInt(obj.width)+10)+'px;height:'+(parseInt(obj.height)+80)+'px">'
 	  +'<h4>Please draw your signature!</h4>'
 	  +'<div class="signature"></div>'
 	  +'<div class="loadingbar hide"><img src="images/loading.gif" alt=""></div>'
@@ -66,17 +72,17 @@ var fillToolsTpl = {
 	},
 	'checkbox': function(){
 		return '<div class="fillToolsMenu">'
-		+'<input type="radio" data-kind="size" name="checkbox" value="small" /><br/>'
-		+'<input type="radio" data-kind="size" name="checkbox" value="mid" /><br/>'
-		+'<input type="radio" data-kind="size" name="checkbox" value="large" /><br/>'
+		+'<input type="radio" data-kind="size" name="checkbox" value="small" /><span id="smallCheckbox"></span><br/>'
+		+'<input type="radio" data-kind="size" name="checkbox" value="mid" /><span id="midCheckbox"></span><br/>'
+		+'<input type="radio" data-kind="size" name="checkbox" value="large" /><span id="largeCheckbox"></span><br/>'
 		+'<span class="addTool">Add</span>'
 		+'</div>';
 	},
 	'radio': function(){
 		return '<div class="fillToolsMenu">'
-		+'<input type="radio" data-kind="size" name="radio" value="small" /><br/>'
-		+'<input type="radio" data-kind="size" name="radio" value="mid" /><br/>'
-		+'<input type="radio" data-kind="size" name="radio" value="large" /><br/>'
+		+'<input type="radio" data-kind="size" name="radio" value="small" /><span id="smallRadio"></span><br/>'
+		+'<input type="radio" data-kind="size" name="radio" value="mid" /><span id="midRadio"></span><br/>'
+		+'<input type="radio" data-kind="size" name="radio" value="large" /><span id="largeRadio"></span><br/>'
 		+'<span class="addTool">Add</span>'
 		+'</div>';
 	},

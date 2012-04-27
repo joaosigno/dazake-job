@@ -41,11 +41,7 @@
 			}, function(){
 				$('#pdf').jScrollPane();
 			});
-
-			
-
 		}
-
 
 		function pdfZoom(dir){
 			var thisVal = $("#slider").slider("value");
@@ -104,12 +100,13 @@
 		});
 
 		$('#form1').empty().load('form1.html', function(){
-			$("#signature").jSignature({
+			$(".signature").jSignature({
 				width:620,
 				height:150,
 				lineWidth:3
 			});
 			$('#datepicker').datepicker();
+			$('body').trigger('addSignature');
 		});
 		
 
@@ -160,26 +157,79 @@
 		});
 
 		//signature
-
-		$("body").on('click', '#signbox #clicktosign', function(){
-			$('#signpic').detach();
-			$('#sign').show();
+		$('body').on('addSignature', function(){
+			$('.signbox').each(function(){
+				var $parent = $(this);
+				$parent
+					.find('.clicktosign')
+						.bind('click', function(){
+							$parent.find('.signpic').detach().end().find('.sign').show();
+						})
+						.end()
+					.find('.signcancel')
+						.bind('click', function(){
+							$parent.find('.sign').hide();
+						})
+						.end()
+					.find('.signclear')
+						.bind('click', function(){
+							$parent.find('.signature').jSignature('clear');
+						})
+						.end()
+					.find('.signok')
+						.bind('click', function(){
+							$parent.find('.sign').hide();
+							var img = '<img src="'+$parent.find(".signature").jSignature('getData')+'" class="signpic" />';
+							$parent.append(img);
+						});
+			})
 		});
 
-		$("body").on('click', '#signcancel', function(){
-			$('#sign').hide();
+		$('.fillTools span').click(function(){
+			//add dropdown menu to filltools at the first time
+			$(this).parent('.fillTools').siblings('.fillTools').children('.fillToolsMenu').hide();
+			// $('.fillToolsMenu').hide();
+			if(!$(this).siblings('.fillToolsMenu').hasClass('addMenu')){
+				var thisType = $(this).data('type'),
+						thisTpl = fillToolsTpl[thisType]();
+				$(thisTpl).addClass('addMenu').insertAfter($(this)).hide().slideDown();
+				// $(this).after(thisTpl).addClass('addMenu').hide();
+			//toggle the menu
+			}else{
+				$(this).siblings('.fillToolsMenu').slideToggle();
+			}
 		});
 
-		$("body").on('click', '#signclear', function(){
-			$("#signature").jSignature('clear');
+		$('#pdfbox').on('mouseover', '.toolbox', function(){
+			if(!$(this).hasClass('active')){
+				$(this).find('.editPanel').show();
+			};
 		});
 
-		$("body").on('click', '#signok', function(){
-			$('#sign').hide();
-			var img = '<img src="'+$("#signature").jSignature('getData')+'" id="signpic" />';
-			$('#signbox').append(img);
+		$('#pdfbox').on('mouseout', '.toolbox', function(){
+			if(!$(this).hasClass('active')){
+				$(this).find('.editPanel').hide();
+			};
 		});
 
+		//add a filltool
+		$('.fillTools').on('click', '.addTool', function(){
+			$(this).parent('.fillToolsMenu').hide();
+			var $parent = $(this).parents('.fillToolsMenu'),
+					arg = {'type': $parent.siblings('span').data('type')};
+
+			//loop the value of the menu and save to arg object
+			for (var i = 0; i < $parent.children('input').length; i++){
+				var thisInput = $($parent.children('input')[i]);
+
+				if(thisInput.attr('type') === 'radio' && thisInput.attr('checked') === undefined){thisInput = ''}	
+				if(thisInput !== ''){
+					arg[thisInput.data('kind')] = thisInput.val();
+				}
+			}
+
+			new Toolbar(arg);
+		});
 		
 	})
 })(jQuery);

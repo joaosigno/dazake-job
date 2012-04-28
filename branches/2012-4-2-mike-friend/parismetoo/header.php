@@ -29,6 +29,7 @@
 	
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+	<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/less" href="<?php echo get_template_directory_uri() ?>/css/style.less" media="all">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

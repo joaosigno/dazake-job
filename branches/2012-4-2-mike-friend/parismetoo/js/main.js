@@ -6,6 +6,9 @@
     return console.log(o);
   };
 
-  k('hello world, welcome to dazake');
+  $(function() {
+    $('.qqcontact').tooltip();
+    return k('hello world, welcome to dazake');
+  });
 
 }).call(this);

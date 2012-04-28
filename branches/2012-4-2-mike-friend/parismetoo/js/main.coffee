@@ -1,4 +1,7 @@
 k = (o) ->
 	console.log(o)
 
-k 'hello world, welcome to dazake'
+$ ->
+
+	$('.qqcontact').tooltip();
+	k 'hello world, welcome to dazake'

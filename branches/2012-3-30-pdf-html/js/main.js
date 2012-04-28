@@ -39,7 +39,9 @@
 				'width': size,
 				'margin-left': -(size / 2)
 			}, function(){
-				$('#pdf').jScrollPane();
+				$('img').load(function(){
+					$('#pdf').jScrollPane();
+				});
 			});
 		}
 

@@ -1,0 +1,3 @@
+.tooltip.top .tooltip-arrow, .tooltip.right .tooltip-arrow, .tooltip.bottom .tooltip-arrow, .tooltip.left .tooltip-arrow {display:none}
+.tooltip.top {margin-top:5px}
+.tooltip.bottom {margin-top:-5px}

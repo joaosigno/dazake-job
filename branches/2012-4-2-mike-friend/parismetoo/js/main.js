@@ -2,13 +2,19 @@
 (function() {
   var k;
 
-  k = function(o) {
-    return console.log(o);
-  };
+  k = function(o) {};
 
   $(function() {
     $('.qqcontact').tooltip();
-    return k('hello world, welcome to dazake');
+    return $('.no-opacity .cover img').bind('mouseover', function() {
+      return $(this).css({
+        'opacity': '0.5'
+      });
+    }).bind('mouseout', function() {
+      return $(this).css({
+        'opacity': '1'
+      });
+    });
   });
 
 }).call(this);

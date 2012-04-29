@@ -31,7 +31,9 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/less" href="<?php echo get_template_directory_uri() ?>/css/style.less" media="all">
-
+	<!--[if IE 6]>
+	<link href="<?php echo get_template_directory_uri() ?>/css/ie6.min.css" rel="stylesheet">
+	<![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="application-name" content="<?php bloginfo( 'name' ); ?>">
 	<meta name="msapplication-tooltip" content="<?php bloginfo( 'description' ); ?>">

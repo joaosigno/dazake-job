@@ -63,7 +63,7 @@
 				</span>
 			</div>
 			
-			<div id="menucontainer">
+			<div id="menucontainer" class="<?php if(is_home()){echo "menuActive";} ?>">
 				<?php
 					if(function_exists('wp_nav_menu')):
 							wp_nav_menu(

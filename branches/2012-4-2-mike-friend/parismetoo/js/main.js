@@ -42,7 +42,6 @@
       $(this).mouseover(function() {
         var pos;
         temp = $(this).text().toLowerCase();
-        k(menuContent[temp]);
         $(this).text(menuContent[temp]);
         pos = parseInt($('#pic' + temp).css('background-position-y'));
         return $('#pic' + temp).css({

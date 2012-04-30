@@ -8,7 +8,7 @@ $ ->
 
 	$('.qqcontact').tooltip();
 
-	# /iehack for img hover to display opacity effect
+	#iehack for img hover to display opacity effect
 	$('.no-opacity .cover img')
 		.bind 'mouseover', ->
 			$(@).css 
@@ -40,7 +40,6 @@ $ ->
 		temp = ''
 		$(@).mouseover ->
 			temp = $(@).text().toLowerCase()
-			k menuContent[temp]
 			$(@).text(menuContent[temp])
 			pos = parseInt $('#pic'+temp).css 'background-position-y'
 			$('#pic'+temp).css

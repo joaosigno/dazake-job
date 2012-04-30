@@ -2,17 +2,60 @@
 (function() {
   var k;
 
-  k = function(o) {};
+  k = function(o) {
+    return console.log(o);
+  };
 
   $(function() {
+    var ieHack, menuContent;
     $('.qqcontact').tooltip();
-    return $('.no-opacity .cover img').bind('mouseover', function() {
+    $('.no-opacity .cover img').bind('mouseover', function() {
       return $(this).css({
         'opacity': '0.5'
       });
     }).bind('mouseout', function() {
       return $(this).css({
         'opacity': '1'
+      });
+    });
+    ieHack = function(el) {
+      if (window.PIE) {
+        return $(el).each(function() {
+          return PIE.attach(this);
+        });
+      }
+    };
+    ieHack('.cover');
+    ieHack('#qqcontact');
+    menuContent = {
+      'home': '首页',
+      'about': '关于',
+      'works': '作品',
+      'price': '价格',
+      'flow': '流程',
+      'gallery': '风情赏',
+      'contact': '联系'
+    };
+    return $('#menu li a').each(function() {
+      var temp;
+      temp = '';
+      $(this).mouseover(function() {
+        var pos;
+        temp = $(this).text().toLowerCase();
+        k(menuContent[temp]);
+        $(this).text(menuContent[temp]);
+        pos = parseInt($('#pic' + temp).css('background-position-y'));
+        return $('#pic' + temp).css({
+          'background-position-y': pos + 90
+        });
+      });
+      return $(this).mouseout(function() {
+        var pos;
+        $(this).text(temp);
+        pos = parseInt($('#pic' + temp).css('background-position-y'));
+        return $('#pic' + temp).css({
+          'background-position-y': pos - 90
+        });
       });
     });
   });

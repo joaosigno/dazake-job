@@ -52,4 +52,57 @@
 	</head>
 
 <body <?php body_class(); ?>>
+	<!-- <embed src="<?php bloginfo('template_url'); ?>/music/helene.mp3" autostart="true" loop="true" hidden="true"> -->
+	<div class="container">
+		<!-- #header -->
+		<div id="header">
+			<div id="logoarea">
+				<span class="span4 offset4">
+					Parismetoo
+					<!-- <img src="" alt="" id="logoimg"> -->
+				</span>
+			</div>
+			
+			<div id="menucontainer">
+				<?php
+					if(function_exists('wp_nav_menu')):
+							wp_nav_menu(
+									array(
+									'menu' =>'primary_nav',
+									'container'=>'',
+									'depth' => 1,
+									'menu_id' => 'menu' )
+							);
+					else:
+				?>
+					<ul id="menu">
+						<?php wp_list_pages('title_li=&depth=1'); ?>
+					</ul>
+				<?php
+					endif;
+				?>
+				<ul id="picmenu">
+					<li><span id="pichome" class="eachpicmenu"></span></li>
+					<li><span id="picabout" class="eachpicmenu"></span></li>
+					<li><span id="picworks" class="eachpicmenu"></span></li>
+					<li><span id="picprice" class="eachpicmenu"></span></li>
+					<li><span id="picflow" class="eachpicmenu"></span></li>
+					<li><span id="picgallery" class="eachpicmenu"></span></li>
+					<li><span id="piccontact" class="eachpicmenu"></span></li>
+				</ul>
+			</div>
+			<div id="qqcontact">
+				<div class="row">
+					<div class="span3 offset9">
+						<span>点我吧:</span>
+						<a href="" ><img id="qqboy" class="qqcontact" title="hello" src="<?php bloginfo('template_url'); ?>/images/qqboy.png" alt=""></a>
+						<a href="" ><img id="qqgirl" class="qqcontact" title="hello" src="<?php bloginfo('template_url'); ?>/images/qqgirl.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end #header -->
+
+		<!-- #main -->
+		<div id="main">
 	

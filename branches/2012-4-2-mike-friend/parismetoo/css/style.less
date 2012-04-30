@@ -5,6 +5,11 @@
 @pink: #FF466C;
 @lightblue: #94DCFF;
 
+
+embed{
+	float: left;
+}
+
 .cover{
 	height:240px;
 	background:#fff;
@@ -13,7 +18,6 @@
 	text-align:center;
 	overflow: hidden;
 	box-shadow:0px 1px 2px #999;
-
 
 	img{
 		width:293px;
@@ -63,10 +67,9 @@ body{
 }
 
 #header{
-	height:200px;
+	height:240px;
 	background:#fff;
-	border-bottom:1px solid @lightgrey;
-	box-shadow:0px 1px 1px #ddd;
+	margin-bottom:50px;
 
 	#logoarea{
 		height:140px;
@@ -87,34 +90,80 @@ body{
 		}
 	}
 
-	#menu{
-		height:40px;
+	#menucontainer{
+		height:80px;
+		border-bottom:2px solid #ddd;
 
-		ul{
+		ul#menu{
 			background:#f5f5f5;
-			height:100%;
+			height:40px;
 			margin:0px;
+			width:100%;
 
-			a{
+			li{
+				list-style:none;
+				text-align:center;
+				line-height:40px;
+
+				a{
+					float:left;
+					width:134px;
+					color:#666;
+					font-weight:bold;
+					text-shadow:1px 1px 1px #fff;
+					text-transform:uppercase;
+					-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+					   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+					    -ms-transition: all 0.3s ease-out;  /* IE10? */
+					     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+					        transition: all 0.3s ease-out;  
+
+					&:hover{
+						text-decoration:none;
+						color:@pink;
+						background:#fff;
+						}
+				}
+			}
+		}
+
+		ul#picmenu{
+			height:40px;
+			margin-left:0px;
+
+			li{
 				float:left;
+				list-style:none;
 				width:134px;
-				color:@pink;
-				-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
-				   -moz-transition: all 0.3s ease-out;  /* FF4+ */
-				    -ms-transition: all 0.3s ease-out;  /* IE10? */
-				     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
-				        transition: all 0.3s ease-out;  
-
-				&:hover{
-					text-decoration:none;
-					color:@lightblue;
-					background:#fff;
+				text-align:center;
+				.eachpicmenu{
+					width:40px;
+					height:40px;
+					float:left;
+					margin-left:47px;
+					background:url('../images/menu/menu.png');
 				}
 
-				li{
-					list-style:none;
-					text-align:center;
-					line-height:40px;
+				#pichome{
+					background-position: 0 -810px;
+				}
+				#picabout{
+					background-position: 0 -90px;
+				}
+				#picworks{
+					background-position: 0 -1170px;
+				}
+				#picprice{
+					background-position: 0 -990px;
+				}
+				#picflow{
+					background-position: 0 -450px;
+				}
+				#picgallery{
+					background-position: 0 -630px;
+				}
+				#piccontact{
+					background-position: 0 -270px;
 				}
 			}
 		}
@@ -125,10 +174,20 @@ body{
 		background:#fff;
 		line-height:40px;
 		text-align:right;
+		box-shadow:0px 1px 1px #ddd;
+
+		&:hover span{
+			color:@pink;
+		}
+
+		#qqgirl{
+			margin-top:-4px;
+		}
 
 		span{
 			font-weight:bold;
 			color:grey;
+			line-height:30px;
 		}
 
 		a{
@@ -142,8 +201,64 @@ body{
 }
 
 #main{
-	#showcase{
-		height:1000px;
+
+	#works{
+		.worksCate{
+			margin-top:80px;
+
+			.cateTitle{
+				text-align:center;
+				margin-left:0px;
+				border-bottom:1px solid #C2C2C2;
+				padding-bottom:20px;
+
+				h3{
+					color: #fff;
+					height:63px;
+					margin-left:300px;
+					line-height:50px;
+					text-align:center;
+					text-shadow:1px 1px 1px #333;
+					background:#fff;
+					background:url('../images/ribbon.png')
+				}
+			}
+
+			.row{
+				margin-top:1px solid #F0F0F0;
+			}
+		}
+	}
+
+	#about-us{
+		color:@grey;
+		text-shadow:1px 1px 1px #fff;
+
+		.aboutContentArea{
+			margin-top:20px;
+			margin-bottom:70px;
+
+			.aboutRight{
+				margin-left:100px;
+				
+				p{
+					line-height:25px;
+				}
+			}
+
+			img{
+				width:300px;
+				height:200px;
+				border:5px solid #fff;
+				box-shadow:0px 1px 1px #666;
+			}
+
+			h3{
+				margin-left:20px;
+				margin-bottom:15px;
+				text-indent:50px;
+			}
+		}
 	}
 }
 
@@ -151,8 +266,24 @@ body{
 	height:60px;
 	text-align:center;
 	color:@grey;
+	margin-top:50px;
+	line-height:60px;
 	text-shadow:1px 1px 1px #fff;
 	text-transform:uppercase;
+
+	a{
+
+		img{
+			width:20px;
+			margin-top:-8px;
+
+			&:hover{
+				opacity: 0.5;
+				-moz-opacity: 0.5;
+				filter:alpha(opacity=5);
+			}
+		}
+	}
 }
 
 

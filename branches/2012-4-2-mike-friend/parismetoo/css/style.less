@@ -10,6 +10,82 @@ embed{
 	float: left;
 }
 
+.hide{
+	// display: none;
+}
+
+#slideTop{
+
+	.eachPackage{
+		text-align:center;
+		background:#fff;
+		padding-top:10px;
+		border-radius:3px;
+		box-shadow:0px 1px 1px #aaa;
+		cursor: pointer;
+		-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+		   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+		    -ms-transition: all 0.3s ease-out;  /* IE10? */
+		     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+		        transition: all 0.3s ease-out;  
+
+
+		&:hover{
+			background:#333;
+		}
+
+		&:hover h4{
+			color:#fff;
+		}
+
+		img{
+			width:150px;
+			border:4px solid #fff;
+		}
+
+		h4{
+			height:50px;
+			line-height:50px;
+		}
+	}
+}
+
+#slideContent{
+	margin-top:50px;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	padding:20px 0px;
+	min-height:350px;
+	width:32850px;
+
+	.slideContent{
+		float:left;
+				
+		h3{
+			height:40px;
+		}
+
+		.priceLeft{
+
+			img{
+				width:300px;
+				height:200px;
+				border:5px solid #fff;
+				box-shadow:0px 1px 1px #666;
+			}
+		}
+
+		.priceRight{
+			margin-left:100px;
+		}
+	}
+}
+
+.slideContent>div{
+	margin-bottom:50px;
+	border-bottom:1px dashed #ddd;
+}
+
 .cover{
 	height:240px;
 	background:#fff;
@@ -104,6 +180,7 @@ body{
 				list-style:none;
 				text-align:center;
 				line-height:40px;
+				float:left;
 
 				a{
 					float:left;
@@ -201,6 +278,15 @@ body{
 }
 
 #main{
+	.pageTitle{
+		height:40px;
+		line-height:40px;
+		text-align:center;
+		color:#666;
+		text-shadow:1px 1px 1px #fff;
+		border-bottom:1px dashed #999;
+		margin-bottom:10px;
+	}
 
 	#works{
 		.worksCate{
@@ -257,6 +343,41 @@ body{
 				margin-left:20px;
 				margin-bottom:15px;
 				text-indent:50px;
+			}
+		}
+	}
+
+	#price{
+		overflow-x:hidden;
+	}
+
+	#flow{
+		overflow-x:hidden;
+	}
+
+	#contact{
+		margin-left:0px;
+
+		#contactDetail{
+			background:#fff;
+			height:470px;
+			margin:2px 0px 20px;
+			box-shadow:0px 1px 1px #aaa;
+			text-indent:10px;
+			padding:10px 0px;
+
+			.eachContactDetail{
+
+				label{
+					width:70px;
+					height:40px;
+					line-height:40px;
+					text-align:right;
+					display: inline;
+				}
+			}
+			.mapp-container{
+				margin:0px;
 			}
 		}
 	}

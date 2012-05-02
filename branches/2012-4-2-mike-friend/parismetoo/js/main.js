@@ -26,7 +26,11 @@
       }
     };
     ieHack('.cover');
+    ieHack('img');
     ieHack('#qqcontact');
+    ieHack('.eachPackage');
+    ieHack('#about-us');
+    ieHack('#contactDetail');
     menuContent = {
       'home': '首页',
       'about': '关于',
@@ -36,7 +40,7 @@
       'gallery': '风情赏',
       'contact': '联系'
     };
-    return $('#menu li a').each(function() {
+    $('#menu li a').each(function() {
       var temp;
       temp = '';
       $(this).mouseover(function() {
@@ -55,6 +59,13 @@
         return $('#pic' + temp).css({
           'background-position-y': pos - 90
         });
+      });
+    });
+    return $('.eachPackage').click(function() {
+      var showItem;
+      showItem = parseInt($(this).data('slide'));
+      return $('#slideContent').animate({
+        'margin-left': showItem
       });
     });
   });

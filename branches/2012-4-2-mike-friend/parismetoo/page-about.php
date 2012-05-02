@@ -6,7 +6,7 @@ Template Name: page-about.php
 <?php get_header(); ?>
 	
 	<div id="about-us">
-
+		
 		<div class="titleArea row">
 			<span class="row"><h2 id="aboutTitle" class="span4 offset4">Comment ça se passe ?</h2></span>
 			<p class="content row"></p>

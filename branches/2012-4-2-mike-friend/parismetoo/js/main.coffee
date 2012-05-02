@@ -23,8 +23,12 @@ $ ->
 		then $(el).each ->
 			PIE.attach(@)
 
-	ieHack('.cover')
-	ieHack('#qqcontact')
+	ieHack '.cover'
+	ieHack 'img'
+	ieHack '#qqcontact'
+	ieHack '.eachPackage'
+	ieHack '#about-us'
+	ieHack '#contactDetail'
 
 	#menu hover change background
 	menuContent = 
@@ -51,6 +55,12 @@ $ ->
 			$('#pic'+temp).css
 				'background-position-y': pos-90
 
+	$('.eachPackage').click ->
+		showItem = parseInt $(@).data 'slide'
+		$('#slideContent').animate
+			'margin-left': showItem
+		
+		
 
 
 

@@ -1,0 +1,21 @@
+.bookshelf .wrap>h2, .bookshelf .wrap>i, .bookshelf .wrap .tablenav, .wrap>h2, .wrap>i, .nr-add-grouping h3, .nr-add-grouping>p, .nr-add-grouping:last-child{
+  display:none;
+}
+
+#main ul{
+  padding:0;
+  margin:0px;
+  height:50px;
+}
+#main ul li{
+  float:left;
+  list-style:none;
+  margin:10px;
+  background:#fff;
+  padding:0px 5px;
+  border-radius:5px;
+}
+
+.bookshelf td{
+  vertical-align:top;
+}

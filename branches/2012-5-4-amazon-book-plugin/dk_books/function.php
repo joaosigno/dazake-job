@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Hanldes the editprofile shortcode
  *
@@ -44,5 +44,13 @@ function dk_profile_book() {
 
 add_shortcode( 'dk_profile_book', 'dk_profile_book' );
 
-
+function dazake_load_script() {
+	if (!is_admin()) {
+		/**
+		 * load stylesheet
+		 */
+		wp_enqueue_style( 'bootstrap', plugins_url( 'dk_books/css/style.css' , dirname(__FILE__) )  );
+	}
+}
+add_action('init', 'dazake_load_script');
 ?>

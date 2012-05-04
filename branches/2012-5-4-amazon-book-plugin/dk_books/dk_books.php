@@ -12,5 +12,8 @@ Version: 1.0
 Author URI: http://micheal.dazake.com
 */
 
+// Include other functionality
+require_once dirname(__FILE__) . '/function.php';
+
 
 ?>

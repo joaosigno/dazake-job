@@ -150,16 +150,19 @@ if ( !function_exists('dk_book_add_fun') ) {
             wp_nonce_field('now-reading-add');
 
         echo '
-			<p><label for="isbn"><acronym title="International Standard Book Number">ISBN</acronym>:</label><br />
-			<input type="text" name="u_isbn" id="isbn" size="25" value="' . $results[0]['asin'] . '" /></p>
 
-			<p><strong>' . __("or", NRTD) . '</strong></p>
+			
 
 			<p><label for="title">' . __("Title", NRTD) . ':</label><br />
 			<input type="text" name="u_title" id="title" size="50" value="' . $results[0]['title'] . '" /></p>
 
+			<p><strong>' . __("or", NRTD) . '</strong></p>
+
 			<p><label for="title">' . __("Author", NRTD) . ' (' . __("optional", NRTD) . '):</label><br />
 			<input type="text" name="u_author" id="author" size="50" value="' . $results[0]['author'] . '" /></p>
+
+			<p><label for="isbn"><acronym title="International Standard Book Number">ISBN</acronym>:</label><br />
+			<input type="text" name="u_isbn" id="isbn" size="25" value="' . $results[0]['asin'] . '" /></p>
 
 			<p><input class="button" type="submit" value="' . __("Search", NRTD) . '" /></p>
 

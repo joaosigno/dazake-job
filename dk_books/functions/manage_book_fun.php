@@ -94,7 +94,7 @@ function dk_book_manage()
 					<img style="float:left; margin-right: 10px;" id="book-image-0" alt="Book Cover" src="' . $existing->image . '" />
 				</div>
 
-				<h3>' . __("Book", NRTD) . ' ' . $existing->id . ':<br /> <cite>' . $existing->title . '</cite><br /> by ' . $existing->author . '</h3>
+				<h3><cite>' . $existing->title . '</cite><br /> by ' . $existing->author . '</h3>
 
 				<table class="form-table" cellspacing="2" cellpadding="5">
 
@@ -215,31 +215,10 @@ function dk_book_manage()
 
 			// Started Reading Date.
 			$started = ( nr_empty_date($existing->started) ) ? '' : date($dateTimeFormat, strtotime($existing->started));
-            echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						<label for="started[]">' . __("Started", NRTD) . '</label>
-					</th>
-					<td>
-						<input type="text" id="started-0" name="started[]" value="' . htmlentities($started, ENT_QUOTES, "UTF-8") . '" />
-					</td>
-				</tr>
-
-				';
 
 			// Finished Reading Date.
 			$finished = ( nr_empty_date($existing->finished) ) ? '' : date($dateTimeFormat, strtotime($existing->finished));
-            echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						<label for="finished[]">' . __("Finished", NRTD) . '</label>
-					</th>
-					<td>
-						<input type="text" id="finished-0" name="finished[]" value="' . htmlentities($finished, ENT_QUOTES, "UTF-8") . '" />
-					</td>
-				</tr>
-
-				';
+     
 
 			// Image URL.
             echo '
@@ -255,102 +234,11 @@ function dk_book_manage()
 				';
 
 			// Tags.
-            echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						<label for="tags[]">' . __("Tags", NRTD) . '</label>
-					</th>
-					<td>
-						<input type="text" name="tags[]" value="' . htmlspecialchars($tags, ENT_QUOTES, "UTF-8") . '" /><br />
-						<small>' . __("A comma-separated list of keywords that describe the book.", NRTD) . '</small>
-					</td>
-				</tr>
-
-				';
-
 			// Link to Post.
-            echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						<label for="posts[]">' . __("Link to post", NRTD) . '</label>
-					</th>
-					<td>
-						<input type="text" name="posts[]" value="' . intval($existing->post) . '" /><br />
-						<small>' . __("If you wish, you can link this book to a blog entry by entering that entry's ID here. The entry will be linked to from the book's library page.", NRTD) . '</small>
-					</td>
-				</tr>';
+
 				
-				// Post Option.
-				/*
-				echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						<label for="post_op">' . __("Post Option", NRTD) . '</label>
-					</th>
-					<td>
-						<select name="post_op[]" id="post_op">
-							';
-				$post_op_idx = 0;
-				foreach ( (array) $nr_post_options as $post_op => $name ) {
-					$selected = '';
-					if ($existing->post_op == $post_op_idx)
-					{
-						$selected = ' selected="selected"';
-					}
-
-					echo '
-									<option value="' . $post_op_idx . '"' . $selected . '>' . $name . '</option>
-								';
-					$post_op_idx++;
-				}
-				echo '
-						</select>
-					</td>
-				</tr>';
-				*/
 				
-				// Meta Data.
-				echo '
-				<tr class="form-field">
-					<th valign="top" scope="row">
-						Meta Data
-					</th>
-					<td>
-						<p><a href="#" onclick="addMeta(\'0\'); return false;">' . __("Add another field", NRTD) . ' +</a></p>
-								<table>
-									<thead>
-										<tr>
-											<th scope="col">' . __("Key", NRTD) . ':</th>
-											<th scope="col">' . __("Value", NRTD) . ':</th>
-											<th scope="col"></th>
-										</tr>
-									</thead>
-									<tbody id="book-meta-table-0" class="book-meta-table">
-										';
-					foreach ( (array) $meta as $key => $val ) {
-						$url = get_option('siteurl') . "/wp-content/plugins/now-reading-redux/admin/edit.php?action=deletemeta&id={$existing->id}&key=" . urlencode($key);
-						if ( function_exists('wp_nonce_url') )
-							$url = wp_nonce_url($url, 'now-reading-delete-meta_' . $existing->id . $key);
-
-						echo '
-												<tr>
-													<td><textarea name="keys-0[]" class="key">' . htmlspecialchars($key, ENT_QUOTES, "UTF-8") . '</textarea></td>
-													<td><textarea name="values-0[]" class="value">' . htmlspecialchars($val, ENT_QUOTES, "UTF-8") . '</textarea></td>
-													<td><a href="' . $url . '">' . __("Delete", NRTD) . '</a></td>
-												</tr>
-											';
-					}
-					echo '
-										<tr>
-											<td><textarea name="keys-0[]" class="key"></textarea></td>
-											<td><textarea name="values-0[]" class="value"></textarea></td>
-										</tr>
-									</tbody>
-								</table>
-
-					</td>
-				</tr>
-				';
+				
 
 			// Rating.
             echo '
@@ -492,7 +380,7 @@ function dk_book_manage()
 					<i>Version: ' . NOW_READING_VERSION . '</i>
 
 						<form method="get" action="" onsubmit="location.href += \'&q=\' + document.getElementById(\'q\').value; return false;">
-							<p class="search-box"><label class="hidden" for="q">' . __("Search Books", NRTD) . ':</label> <input type="text" name="q" id="q" value="' . htmlentities($_GET['q']) . '" /> <input class="button" type="submit" value="' . __('Search Books', NRTD) . '" /></p>
+							<p class="search-box"><label class="hidden" for="q"></label> <input type="text" name="q" id="q" value="' . htmlentities($_GET['q']) . '" /> <input class="button" type="submit" value="' . __('Search Books', NRTD) . '" /></p>
 						</form>
 
 							<ul>
@@ -547,24 +435,7 @@ function dk_book_manage()
 
 				echo '
 					<table class="widefat post fixed" cellspacing="0">
-						<thead>
-							<tr>
-								<th></th>
-								<th class="manage-column column-title"><a class="manage_books" href="'. $title_sort_link .'">Book</a></th>
-								<th class="manage-column column-author"><a class="manage_books" href="'. $author_sort_link .'">Author</a></th>
-								<th><a class="manage_books" href="'. $status_sort_link .'">Status</a></th>
-								<th><a class="manage_books" href="'. $started_sort_link .'">Started</a></th>
-								<th><a class="manage_books" href="'. $finished_sort_link .'">Finished</a></th>';
-
-				if (!$options['hideAddedDate'])
-				{
-					echo '
-								<th><a class="manage_books" href="'. $added_sort_link .'">Added</a></th>';
-				}
-
-				echo '
-							</tr>
-						</thead>
+						
 						<tbody>
 				';
 
@@ -615,13 +486,7 @@ function dk_book_manage()
 							' .( ( nr_empty_date($book->finished) ) ? '' : date($dateTimeFormat, strtotime($book->finished)) ) . '
 							</td>';
 
-						if (!$options['hideAddedDate'])
-						{
-							echo '
-							<td>
-							' . ( ( nr_empty_date($book->added) ) ? '' : date($dateTimeFormat, strtotime($book->added)) ) . '
-							</td>';
-						}
+						
 
 					echo '
 						</tr>

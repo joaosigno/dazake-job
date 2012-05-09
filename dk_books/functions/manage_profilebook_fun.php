@@ -7,7 +7,7 @@
 /**
  * Creates the manage admin page, and deals with the creation and editing of reviews.
  */
-function dk_book_manage()
+function dk_book_profilemanage()
 {
     global $wpdb, $nr_statuses, $nr_post_options, $userdata;
 
@@ -22,7 +22,7 @@ function dk_book_manage()
         $nr_url = new nr_url();
         $nr_url->load_scheme($options['menuLayout']);
 
-         $nr_url->urls['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
+        $nr_url->urls['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
         $nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) ;
 
         $nr_url->multiple['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
@@ -46,6 +46,7 @@ function dk_book_manage()
 		</div>
 		';
     }
+
 
     if (!empty($_GET['deleted']))
 	{
@@ -318,20 +319,20 @@ function dk_book_manage()
 				else
 					$search = '';
 
-				if ( empty($_GET['p']) )
+				if ( empty($_GET['pagedk']) )
 					$page = 1;
 				else
-					$page = intval($_GET['p']);
+					$page = intval($_GET['pagedk']);
 
 				if ( empty($_GET['o']) )
 					$order = 'desc';
 				else
 					$order = urlencode($_GET['o']);
 
-				if ( empty($_GET['s']) )
+				if ( empty($_GET['started']) )
 					$orderby = 'started';
 				else
-					$orderby = urlencode($_GET['s']);
+					$orderby = urlencode($_GET['started']);
 
 				// Filter by Author.
 				if (empty($_GET['author']))
@@ -363,28 +364,37 @@ function dk_book_manage()
 				$numpages = ceil(total_books(0, 0, $userdata->ID) / $perpage);
 
 				$pages = '<span class="displaying-num">' . __("Pages", NRTD) . '</span>';
+				$nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) ;
 
 				if ( $page > 1 ) {
 					$previous = $page - 1;
-					$pages .= " <a class='page-numbers prev' href='{$nr_url->urls['manage']}&p=$previous&s=$orderby&o=$order'>&laquo;</a>";
+					
+					$pages .= " <a class='page-numbers prev' href='{$nr_url->urls['manage']}&pagedk=$previous&started=$orderby&o=$order'>&laquo;</a>";
 				}
 
 				for ( $i = 1; $i <= $numpages; $i++) {
 					if ( $page == $i )
 						$pages .= "<span class='page-numbers current'>$i</span>";
 					else
-						$pages .= " <a class='page-numbers' href='{$nr_url->urls['manage']}&p=$i&s=$orderby&o=$order'>$i</a>";
+						$pages .= " <a class='page-numbers' href='{$nr_url->urls['manage']}&pagedk=$i&started=$orderby&o=$order'>$i</a>";
 				}
 
 				if ( $numpages > $page ) {
 					$next = $page + 1;
-					$pages .= " <a class='page-numbers next' href='{$nr_url->urls['manage']}&p=$next&s=$orderby&o=$order'>&raquo;</a>";
+					$pages .= " <a class='page-numbers next' href='{$nr_url->urls['manage']}&pagedk=$next&started=$orderby&o=$order'>&raquo;</a>";
 				}
 
 				echo '
 				<div class="wrap">
 
-dkaction							<ul>
+					<h2>Now Reading Redux</h2>
+					<i>Version: ' . NOW_READING_VERSION . '</i>
+
+						<form method="get" action="" onsubmit="location.href += \'&q=\' + document.getElementById(\'q\').value; return false;">
+							<p class="search-box"><label class="hidden" for="q"></label> <input type="text" name="q" id="q" value="' . htmlentities($_GET['q']) . '" /> <input class="button" type="submit" value="' . __('Search Books', NRTD) . '" /></p>
+						</form>
+
+							<ul>
 				';
 				if (!empty($_GET['q']) || !empty($_GET['author']) || !empty($_GET['status']))
 				{
@@ -395,7 +405,7 @@ dkaction							<ul>
 
 				echo '
 								<li><a href="' . library_url(0) . '">' . __('View library', NRTD) . '</a></li>
-								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
+								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '&dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
 							</ul>
 
 						<div class="tablenav">
@@ -467,7 +477,7 @@ dkaction							<ul>
 								<strong>' . stripslashes($book->title) . '</strong>
 								<div class="row-actions">
 									<a href="' . book_permalink(0, $book->id) . '">' . __('View', NRTD) . '</a> |
-										<a href="' . get_page_link(intval($_GET['page_id'])) . '?dkaction=manage&amp;action=editsingle&amp;id=' . $book->id . '">' . __('Edit', NRTD) . '</a> | <a href="' . $delete . '" onclick="return confirm(\'' . __("Are you sure you wish to delete this book permanently?", NRTD) . '\')">' . __("Delete", NRTD) . '</a>
+										<a href="' . get_page_link(intval($_GET['page_id'])) . '&dkaction=manage&amp;action=editsingle&amp;id=' . $book->id . '">' . __('Edit', NRTD) . '</a> | <a href="' . $delete . '" onclick="return confirm(\'' . __("Are you sure you wish to delete this book permanently?", NRTD) . '\')">' . __("Delete", NRTD) . '</a>
 								</div>
 							</td>
 

@@ -54,4 +54,9 @@ function dazake_load_script() {
 }
 add_action('init', 'dazake_load_script');
 
+//show in userprofile
+function dk_userprofile_book() {
+	require_once dirname(__FILE__) . '/functions/manage_profilebook_fun.php';
+	require_once dirname(__FILE__) . '/templates/manage_profilebook_tpl.php';
+}
 ?>

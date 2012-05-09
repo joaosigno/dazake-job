@@ -10,6 +10,9 @@ if ( !function_exists('dk_book_add_fun') ) {
  */
     function dk_book_add_fun() {
 
+	if ( !current_user_can('publish_posts') )
+	    die ( __('Cheatin&#8217; uh?') );
+
         $_POST = stripslashes_deep($_POST);
 
         global $wpdb;

@@ -376,14 +376,7 @@ function dk_book_manage()
 				echo '
 				<div class="wrap">
 
-					<h2>Now Reading Redux</h2>
-					<i>Version: ' . NOW_READING_VERSION . '</i>
-
-						<form method="get" action="" onsubmit="location.href += \'&q=\' + document.getElementById(\'q\').value; return false;">
-							<p class="search-box"><label class="hidden" for="q"></label> <input type="text" name="q" id="q" value="' . htmlentities($_GET['q']) . '" /> <input class="button" type="submit" value="' . __('Search Books', NRTD) . '" /></p>
-						</form>
-
-							<ul>
+dkaction							<ul>
 				';
 				if (!empty($_GET['q']) || !empty($_GET['author']) || !empty($_GET['status']))
 				{
@@ -394,7 +387,7 @@ function dk_book_manage()
 
 				echo '
 								<li><a href="' . library_url(0) . '">' . __('View library', NRTD) . '</a></li>
-								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '&dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
+								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
 							</ul>
 
 						<div class="tablenav">
@@ -466,7 +459,7 @@ function dk_book_manage()
 								<strong>' . stripslashes($book->title) . '</strong>
 								<div class="row-actions">
 									<a href="' . book_permalink(0, $book->id) . '">' . __('View', NRTD) . '</a> |
-										<a href="' . get_page_link(intval($_GET['page_id'])) . '&dkaction=manage&amp;action=editsingle&amp;id=' . $book->id . '">' . __('Edit', NRTD) . '</a> | <a href="' . $delete . '" onclick="return confirm(\'' . __("Are you sure you wish to delete this book permanently?", NRTD) . '\')">' . __("Delete", NRTD) . '</a>
+										<a href="' . get_page_link(intval($_GET['page_id'])) . '?dkaction=manage&amp;action=editsingle&amp;id=' . $book->id . '">' . __('Edit', NRTD) . '</a> | <a href="' . $delete . '" onclick="return confirm(\'' . __("Are you sure you wish to delete this book permanently?", NRTD) . '\')">' . __("Delete", NRTD) . '</a>
 								</div>
 							</td>
 

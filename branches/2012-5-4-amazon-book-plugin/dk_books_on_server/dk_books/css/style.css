@@ -1,0 +1,42 @@
+.bookshelf .wrap>h2, .bookshelf .wrap>i, .bookshelf .wrap .tablenav, .wrap>h2, .wrap>i, .nr-add-grouping h3, .nr-add-grouping>p, .nr-add-grouping:last-child{
+  display:none;
+}
+
+#main ul{
+  padding:0;
+  margin:0px;
+  height:50px;
+}
+#main ul li{
+  float:left;
+  list-style:none;
+  margin:10px;
+  background:#fff;
+  padding:0px 5px;
+  border-radius:5px;
+}
+
+.bookshelf td{
+  vertical-align:top;
+}
+
+h3.dk_books_title{
+  font-size:13px;
+  margin-top:5px;
+}
+
+.manage-book{
+  display:block;
+  padding:5px 0px;
+  clear:both;
+}
+
+.manage-book td{
+  float:left;
+  margin:0px 10px;
+  max-width:120px;
+}
+.manage-book img{
+  width:60px;
+  margin:5px;
+}

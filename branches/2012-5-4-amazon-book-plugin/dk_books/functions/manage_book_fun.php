@@ -11,6 +11,16 @@ function dk_book_manage()
 {
     global $wpdb, $nr_statuses, $nr_post_options, $userdata;
 
+    unset($nr_statuses);
+    $nr_statuses['unread'] = 'Reading now';
+    $nr_statuses['rcd'] = 'I recommend';
+    $nr_statuses['nrecd'] = "I wouldn't recommend";
+    $nr_statuses['beachr'] = 'My beach reads';
+    $nr_statuses['rainyr'] = 'My rainy day reads';
+    $nr_statuses['goodr'] = 'My feel-good reads';
+    $nr_statuses['comr'] = 'My commute reads';
+    $nr_statuses['pastr'] = 'Past reads';
+
     get_currentuserinfo();
 
     $_POST = stripslashes_deep($_POST);
@@ -75,13 +85,12 @@ function dk_book_manage()
 
     switch ($action)
 	{
-		// Edit Book.
+	// Edit Book.
         case 'editsingle':
         {
-			$id = intval($_GET['id']);
+	$id = intval($_GET['id']);
             $existing = get_book($id);
             $meta = get_book_meta($existing->id);
-
             $tags = join(get_book_tags($existing->id), ',');
 
             echo '
@@ -158,6 +167,7 @@ function dk_book_manage()
 					<td>
 						<select name="status[]" id="status-0">
 							';
+
 				foreach ( (array) $nr_statuses as $status => $name ) {
 					$selected = '';
 					if ( $existing->status == $status )
@@ -240,14 +250,6 @@ function dk_book_manage()
 				</tr>
 
 				';
-
-			// Tags.
-			// Link to Post.
-
-				
-				
-				
-
 			// Rating.
             echo '
 				<tr class="form-field">
@@ -313,25 +315,25 @@ function dk_book_manage()
 
 
 			if ( $count ) {
-				if ( !empty($_GET['q']) )
-					$search = '&search=' . urlencode($_GET['q']);
+				if ( !empty($_GET['dkq']) )
+					$search = '&search=' . urlencode($_GET['dkq']);
 				else
 					$search = '';
 
-				if ( empty($_GET['p']) )
+				if ( empty($_GET['dkp']) )
 					$page = 1;
 				else
-					$page = intval($_GET['p']);
+					$page = intval($_GET['dkp']);
 
-				if ( empty($_GET['o']) )
+				if ( empty($_GET['dko']) )
 					$order = 'desc';
 				else
-					$order = urlencode($_GET['o']);
+					$order = urlencode($_GET['dko']);
 
-				if ( empty($_GET['s']) )
+				if ( empty($_GET['dks']) )
 					$orderby = 'started';
 				else
-					$orderby = urlencode($_GET['s']);
+					$orderby = urlencode($_GET['dks']);
 
 				// Filter by Author.
 				if (empty($_GET['author']))
@@ -354,10 +356,10 @@ function dk_book_manage()
 				if ($options['multiuserMode']) {
 					$reader = "&reader=".$userdata->ID;
 				} else {
-					$reader = '';
+					$reader = "&reader=".$userdata->ID;//always multiuser mode
 				}
 
-				$books = get_books("num=-1&status=all&orderby={$orderby}&order={$order}{$search}{$pageq}{$reader}{$author}{$status}");
+				$books = dk_get_books("num=-1&status=all&orderby={$orderby}&order={$order}{$search}{$pageq}{$reader}{$author}{$status}");
 				$count = count($books);
 
 				$numpages = ceil(total_books(0, 0, $userdata->ID) / $perpage);
@@ -366,25 +368,24 @@ function dk_book_manage()
 
 				if ( $page > 1 ) {
 					$previous = $page - 1;
-					$pages .= " <a class='page-numbers prev' href='{$nr_url->urls['manage']}&p=$previous&s=$orderby&o=$order'>&laquo;</a>";
+					$pages .= " <a class='page-numbers prev' href='{$nr_url->urls['manage']}&dkp=$previous&dks=$orderby&dko=$order'>&laquo;</a>";
 				}
 
 				for ( $i = 1; $i <= $numpages; $i++) {
 					if ( $page == $i )
 						$pages .= "<span class='page-numbers current'>$i</span>";
 					else
-						$pages .= " <a class='page-numbers' href='{$nr_url->urls['manage']}&p=$i&s=$orderby&o=$order'>$i</a>";
+						$pages .= " <a class='page-numbers' href='{$nr_url->urls['manage']}&dkp=$i&dks=$orderby&dko=$order'>$i</a>";
 				}
 
 				if ( $numpages > $page ) {
 					$next = $page + 1;
-					$pages .= " <a class='page-numbers next' href='{$nr_url->urls['manage']}&p=$next&s=$orderby&o=$order'>&raquo;</a>";
+					$pages .= " <a class='page-numbers next' href='{$nr_url->urls['manage']}&dkp=$next&dks=$orderby&dko=$order'>&raquo;</a>";
 				}
 
 				echo '
 				<div class="wrap">
-
-dkaction							<ul>
+						<ul>
 				';
 				if (!empty($_GET['q']) || !empty($_GET['author']) || !empty($_GET['status']))
 				{
@@ -394,8 +395,7 @@ dkaction							<ul>
 				}
 
 				echo '
-								<li><a href="' . library_url(0) . '">' . __('View library', NRTD) . '</a></li>
-								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
+								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
 							</ul>
 
 						<div class="tablenav">

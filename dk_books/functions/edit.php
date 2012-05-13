@@ -8,8 +8,8 @@ require '../../../../wp-config.php';
 
 $_POST = stripslashes_deep($_POST);
 
-if ( !current_user_can('publish_posts') )
-    die ( __('Cheatin&#8217; uh?') );
+// if ( !current_user_can('publish_posts') )
+//     die ( __('Cheatin&#8217; uh?') );
 
 $action = $_POST['action'];
 nr_reset_vars(array('action'));
@@ -28,6 +28,27 @@ switch ($action)
 
         wp_redirect($_SERVER['HTTP_REFERER'] . '&deleted=1');
         die;
+        break;
+
+    case 'statusupdate':
+        // check_admin_referer('now-reading-edit');
+        $count = intval($_POST['count']);
+        if ( $count > total_books(0, 0) )
+            die;
+
+        $updated = 0;
+
+        $id = intval($_POST['id']);
+        $status         = $wpdb->escape($_POST['status']);
+
+        $query = "
+            UPDATE {$wpdb->prefix}now_reading
+            SET
+                b_status = '$status'
+            WHERE
+                b_id = $id
+                ";
+            $result = $wpdb->query($query);
         break;
 
     case 'update':

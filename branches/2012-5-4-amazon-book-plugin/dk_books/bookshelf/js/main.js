@@ -46,7 +46,7 @@
         $width = $el.width();
         status = $el.parents('.dk-category').data('status');
         return $el.css({
-          width: $width + 120
+          width: $width + 100
         });
       },
       stop: function(evt, ui) {

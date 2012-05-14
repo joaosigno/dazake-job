@@ -25,7 +25,7 @@
       k(this.status);
       return $.ajax({
         type: "POST",
-        url: "http://127.0.0.1/test/wordpress9/wp-content/plugins/dk_books/functions/edit.php",
+        url: $('#dk-bookshelf').data('url'),
         data: {
           action: 'statusupdate',
           id: this.id,
@@ -36,17 +36,16 @@
     getContainerWidth('.dk-container-in');
     bookId = 0;
     status = "";
-    return $('.dk-category').sortable({
+    return $('.dk-container-in').sortable({
       items: '.dk-book',
       revert: true,
-      connectWith: '.dk-category',
+      connectWith: '.dk-container-in',
       receive: function(evt, ui) {
-        var $container, $el, $width;
+        var $el, $width;
         $el = $(evt.target);
-        $container = $el.find('.dk-container-in');
-        $width = $container.width();
-        status = $el.data('status');
-        return $container.css({
+        $width = $el.width();
+        status = $el.parents('.dk-category').data('status');
+        return $el.css({
           width: $width + 120
         });
       },

@@ -43,6 +43,7 @@
 
 .dk-container-in{
 	height:140px;
+	min-width:500px;
 	padding:10px;
 }
 

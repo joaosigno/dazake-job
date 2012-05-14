@@ -1,6 +1,3 @@
-
-
-
 $ ->
 	##public functions##
 	k = (o) ->
@@ -41,21 +38,20 @@ $ ->
 	bookId = 0
 	status = ""
 
-	$('.dk-category')
+	$('.dk-container-in')
 		.sortable
 			items: '.dk-book'
 			revert: true
-			connectWith: '.dk-category'
+			connectWith: '.dk-container-in'
 			receive: (evt, ui) ->
 				$el = $(evt.target)
-				$container = $el.find('.dk-container-in')
-				$width = $container.width()
-				status = $el.data('status')
-				$container.css
+				# $container = $el.find('.dk-container-in')
+				$width = $el.width()
+				status = $el.parents('.dk-category').data('status')
+				$el.css
 					width: $width + 120
 			stop: (evt, ui) ->
 				bookId = ui.item.data('id')
-
 				syncData(bookId, status)
 
 

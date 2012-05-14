@@ -12,7 +12,8 @@ function dk_book_manage()
     global $wpdb, $nr_statuses, $nr_post_options, $userdata;
 
     unset($nr_statuses);
-    $nr_statuses['unread'] = 'Reading now';
+    $nr_statuses['unread'] = 'New Book';
+    $nr_statuses['reading'] = 'Reading now';
     $nr_statuses['rcd'] = 'I recommend';
     $nr_statuses['nrecd'] = "I wouldn't recommend";
     $nr_statuses['beachr'] = 'My beach reads';

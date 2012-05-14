@@ -25,7 +25,7 @@
       k(this.status);
       return $.ajax({
         type: "POST",
-        url: "test/test.php",
+        url: $('#dk-bookshelf').data('url'),
         data: {
           action: 'statusupdate',
           id: this.id,

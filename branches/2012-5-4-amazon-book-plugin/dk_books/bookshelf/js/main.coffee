@@ -49,7 +49,7 @@ $ ->
 				$width = $el.width()
 				status = $el.parents('.dk-category').data('status')
 				$el.css
-					width: $width + 120
+					width: $width + 100
 			stop: (evt, ui) ->
 				bookId = ui.item.data('id')
 				syncData(bookId, status)

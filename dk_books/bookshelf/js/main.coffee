@@ -26,7 +26,7 @@ $ ->
 
 		$.ajax
 			type: "POST"
-			url: "test/test.php" #this is the url to the edit.php
+			url: $('#dk-bookshelf').data('url') #this is the url to the edit.php
 			data:
 				action: 'statusupdate'
 				id: @id

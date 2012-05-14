@@ -13,7 +13,7 @@
 	$nr_statuses['pastr'] = 'Past reads';
 ?>
 
-<div id="dk-bookshelf">
+<div id="dk-bookshelf" data-url="<?php echo plugins_url( '/functions/edit.php' , dirname(__FILE__) )?>">
 	<div id="dk-navi">
 		<a href="">Manage Books</a>
 	</div>

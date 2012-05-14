@@ -21,6 +21,8 @@
 }
 
 
+
+/*bookshelf css*/
 *{
   margin:0px;
   padding:0px;
@@ -65,13 +67,15 @@
 }
 
 .dk-container-in{
-  height:180px;
+  height:140px;
+  min-width:500px;
+  padding:10px;
 }
 
 .dk-book{
   height:100px;
   float:left;
-  margin:10px;
+  margin-right:10px;
 }
 
 .dk-book img, .dk-book span{
@@ -92,3 +96,4 @@
   overflow: hidden;      
   text-overflow:ellipsis;
 }
+/*end bookshelf css*/

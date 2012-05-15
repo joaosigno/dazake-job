@@ -1,0 +1,174 @@
+<!-- 报表1 -->
+<form id="pagerForm" method="post" action="<{url controller='salesreport' action='repsale'}>">
+	<input type="hidden" name="pageNum" value="<{$page.cid}>" />
+	<input type="hidden" name="numPerPage" value="<{$page.size}>" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='salesreport' action='repsale'}>" method="post">
+	<div class="searchBar subBar">
+		<ul class="pageFormContent">
+			<p>
+				<label>From起始日期：</label>
+				<input name="formdate" value="<{$formdate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p>
+				<label>To截止日期：</label>
+				<input name="todate" value="<{$todate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<div class="divider"></div>
+			<ul class="subBar">
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">Filter检索</button></div></div></li>
+			<li><a class="button" href="<{url controller='salesreport' action='repsaleSearch'}>" target="navTab" rel="repsaleSearch" title="Advance Filter高级检索" width="500" height="350"><span>Advance Filter高级检索</span></a></li>
+			</ul>
+		</ul>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="icon" href="<{url controller='excel' action='repsale' orderField=$orderField orderDirection=$orderDirection formdate=$formdate todate=$todate}>"><span>Export to Excel</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="220%" layoutH="174">
+		<thead>
+			<tr>
+			    <!--0--><th width="10"></th>
+				<!--1--><th width="100" orderField="FOrderBillNo"           <{if $orderField=='FOrderBillNo'}>          class="<{$orderDirection}>" <{/if}>>SO No.销售订单号</th>
+				<!--2--><th width="120" orderField="FBillNo"                <{if $orderField=='FBillNo'}>               class="<{$orderDirection}>" <{/if}>>GDN No.出库单号</th>
+				<!--3--><th width="120" orderField="FDate"                  <{if $orderField=='FDate'}>                 class="<{$orderDirection}>" <{/if}>>Date销售日期</th>
+				<!--4--><th width="70" orderField="FCustomerNumber"        <{if $orderField=='FCustomerNumber'}>       class="<{$orderDirection}>" <{/if}>>Customer Code客户代码</th>
+	        	<!--5--><th width="180" orderField="FCustomerName"          <{if $orderField=='FCustomerName'}>         class="<{$orderDirection}>" <{/if}>>Customer Name客户名称</th>
+				<!--6--><th width="90" orderField="FCustomerType"          <{if $orderField=='FCustomerType'}>         class="<{$orderDirection}>" <{/if}>>Customer Category客户分类</th>
+				<!--7--><th width="60" orderField="FArea"                  <{if $orderField=='FArea'}>                 class="<{$orderDirection}>" <{/if}>>Sales Region销售区域</th>
+				<!--8--><th width="60" orderField="FDeptName"             <{if $orderField=='FDeptName'}>             class="<{$orderDirection}>" <{/if}>>Branches部门</th>
+				<!--9--><th width="60" orderField="FEmpIDName"             <{if $orderField=='FEmpIDName'}>            class="<{$orderDirection}>" <{/if}>>Sales Representative业务员</th>
+				<!--10--><th width="120" orderField="FFullNumber"            <{if $orderField=='FFullNumber'}>           class="<{$orderDirection}>" <{/if}>>Product Code商品代码</th>
+				<!--11--><th width="120" orderField="FItemName"              <{if $orderField=='FItemName'}>             class="<{$orderDirection}>" <{/if}>>Product Name商品名称</th>
+				<!--12--><th width="120" orderField="FItemModel"             <{if $orderField=='FItemModel'}>            class="<{$orderDirection}>" <{/if}>>SKU规格型号</th>
+				<!--13--><th width="120" orderField="FBrand"                 <{if $orderField=='FBrand'}>                class="<{$orderDirection}>" <{/if}>>Brand所属品牌</th>
+				<!--14<--><th width="120" orderField="FType"                 <{if $orderField=='FType'}>                  class="<{$orderDirection}>" <{/if}>>Product Category商品分类</th>
+				<!--15<--><th width="120" orderField="FTypeEn"                 <{if $orderField=='FTypeEn'}>             class="<{$orderDirection}>" <{/if}>>English Category英文商品分类</th>
+				<!--16--><th width="60" orderField="FSaleStyleName"         <{if $orderField=='FSaleStyleName'}>        class="<{$orderDirection}>" <{/if}>>Sales Category销售分类</th>
+				<!--17--><th width="50" orderField="FUnitIDName"            <{if $orderField=='FUnitIDName'}>           class="<{$orderDirection}>" <{/if}>>Unit销售单位</th>
+				<!--18--><th width="105" orderField="FSaleAmountIncludeTax"  <{if $orderField=='FSaleAmountIncludeTax'}> class="<{$orderDirection}>" <{/if}>  align="right">Revenue (inc. Tax)销售收入（含税）</th>
+				<!--19--><th width="105" orderField="FSaleAmount"            <{if $orderField=='FSaleAmount'}>           class="<{$orderDirection}>" <{/if}>  align="right">Revenue (exc. VAT)销售收入（不含税）</th>
+				<!--20--><th width="90" orderField="FAmount"                <{if $orderField=='FAmount'}>               class="<{$orderDirection}>" <{/if}>  align="right">COGS成本</th>
+				<!--21--><th width="80" orderField="FProfit"                <{if $orderField=='FProfit'}>               class="<{$orderDirection}>" <{/if}>  align="right">Prime Margin毛利</th>
+				<!--22--><th width="70" orderField="FProfitRate"            <{if $orderField=='FProfitRate'}>           class="<{$orderDirection}>" <{/if}> align="right">PM%毛利率</th>
+				<!--23--><th width="70" orderField="FSaleAmount"            <{if $orderField=='FSaleAmount'}>           class="<{$orderDirection}>" <{/if}>  align="right">Sales Weight%销售比重</th>
+				<!--24--><th width="70" orderField="FProfit"                <{if $orderField=='FProfit'}>               class="<{$orderDirection}>" <{/if}> align="right">SW%毛利比重</th>
+				<!--25--><th width="50" orderField="FExplanation"            <{if $orderField=='FExplanation'}>           class="<{$orderDirection}>" <{/if}>>Explanation摘要</th>
+				<!--26--><th width="50" orderField="FNote"            <{if $orderField=='FNote'}>           class="<{$orderDirection}>" <{/if}>>Note备注</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$data item=row}>
+		    <tr target="sid_user" rel="<{$row.FOrderBillNo}>">
+			    <!--0--><td></td>
+				<!--1--><td><{$row.FOrderBillNo}></td>
+				<!--2--><td><{$row.FBillNo}></td>
+				<!--3--><td><{$row.FVDate}></td>
+				<!--4--><td><{$row.FCustomerNumber}></td>
+				<!--5--><td><{$row.FCustomerName}></td>
+				<!--6--><td><{$row.FCustomerType}></td>
+				<!--7--><td><{$row.FArea}></td>
+				<!--8--><td><{$row.FDeptName}></td>
+				<!--9--><td><{$row.FEmpIDName}></td>
+				<!--10--><td><{$row.FFullNumber}></td>
+				<!--11--><td><{$row.FItemName}></td>
+				<!--12--><td><{$row.FItemModel}></td>
+				<!--13--><td><{$row.FBrand}></td>
+				<!--14--><td><{$row.FType}></td>
+				<!--15--><td><{$row.FTypeEn}></td>
+				<!--16--><td><{$row.FSaleStyleName}></td>
+				<!--17--><td><{$row.FUnitIDName}></td>
+				<!--18--><td><{$row.FSaleAmountIncludeTax|number_format:2:'.':','}></td>
+				<!--19--><td><{$row.FSaleAmount|number_format:2:'.':','}></td>
+				<!--20--><td><{$row.FAmount|number_format:2:'.':','}></td>
+				<!--21--><td><{$row.FProfit|number_format:2:'.':','}></td>
+				<!--22--><td><{$row.FProfitRate*100|string_format:'%.2f'}>%</td>
+				<!--23--><td><{if $allFSaleAmount!=0}><{assign var="perFSaleAmount" value=$row.FSaleAmount/$allFSaleAmount*100}><{$perFSaleAmount|string_format:'%.2f'}>%<{/if}></td>
+				<!--24--><td><{if $allFProfit!=0}><{assign var="perFProfit" value=$row.FProfit/$allFProfit*100}><{$perFProfit|string_format:'%.2f'}>%<{/if}></td>
+				<!--25--><td><{$row.FExplanation}></td>
+				<!--26--><td><{$row.FNote}></td>
+			</tr>
+			<{/foreach}>
+			<tr style="background:#FFFFED">
+			    <!--0--><td></td>
+				<!--1--><td><center>Total by Page本页合计</center></td>
+				<!--2--><td></td>
+				<!--3--><td></td>
+				<!--4--><td></td>
+				<!--5--><td></td>
+				<!--6--><td></td>
+				<!--7--><td></td>
+				<!--8--><td></td>
+				<!--9--><td></td>
+				<!--10--><td></td>
+				<!--11--><td></td>
+				<!--12--><td></td>
+				<!--13--><td></td>
+				<!--14--><td></td>
+				<!--15--><td></td>
+				<!--16--><td></td>
+				<!--17--><td></td>
+				<!--18--><td><{_count data=$data col='FSaleAmountIncludeTax' format='%.2f' datatype='money'}></td>
+				<!--19--><td><{_count data=$data col='FSaleAmount' format='%.2f' datatype='money'}></td>
+				<!--20--><td><{_count data=$data col='FAmount' format='%.2f' datatype='money'}></td>
+				<!--21--><td><{_count data=$data col='FProfit' format='%.2f' datatype='money'}></td>
+				<!--22--><td></td>
+				<!--23--><td></td>
+				<!--24--><td></td>
+				<!--25--><td></td>
+				<!--26--><td></td>
+			</tr>
+			<tr style="background:#FFFACD;color:#556B2F">
+			    <!--0--><td></td>
+				<!--1--><td><center>Total总计</center></td>
+				<!--2--><td></td>
+				<!--3--><td></td>
+				<!--4--><td></td>
+				<!--5--><td></td>
+				<!--6--><td></td>
+				<!--7--><td></td>
+				<!--8--><td></td>
+				<!--9--><td></td>
+				<!--10--><td></td>
+				<!--11--><td></td>
+				<!--12--><td></td>
+				<!--13--><td></td>
+				<!--14--><td></td>
+				<!--15--><td></td>
+				<!--16--><td></td>
+				<!--17--><td></td>
+				<!--18--><td><{_count data=$alldata col='FSaleAmountIncludeTax' format='%.2f' datatype='money'}></td>
+				<!--19--><td><{_count data=$alldata col='FSaleAmount' format='%.2f' datatype='money'}></td>
+				<!--20--><td><{_count data=$alldata col='FAmount' format='%.2f' datatype='money'}></td>
+				<!--21--><td><{_count data=$alldata col='FProfit' format='%.2f' datatype='money'}></td>
+				<!--22--><td><{if $allFSaleAmount!=0}><{assign var="perFProfitTotal" value=$allFProfit/$allFSaleAmount*100}><{$perFProfitTotal|string_format:'%.2f'}>%<{/if}></td>
+				<!--23--><td><{if $allFSaleAmount!=0}><{assign var="perFSaleAmountTotal" value=$allFSaleAmount/$allFSaleAmount*100}><{$perFSaleAmountTotal|string_format:'%.2f'}>%<{/if}></td>
+				<!--24--><td><{if $allFProfit!=0}><{assign var="perFProfitTotal1" value=$allFProfit/$allFProfit*100}><{$perFProfitTotal1|string_format:'%.2f'}>%<{/if}></td>
+				<!--25--><td></td>
+				<!--26--><td></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="10" <{if $page.size==1}>selected<{/if}>>10</option>
+				<option value="20" <{if $page.size==20}>selected<{/if}>>20</option>
+				<option value="50" <{if $page.size==50}>selected<{/if}>>50</option>
+				<option value="100" <{if $page.size==100}>selected<{/if}>>100</option>
+				<option value="200" <{if $page.size==200}>selected<{/if}>>200</option>
+				<option value="<{$page.count}>" <{if $page.size==$page.count}>selected<{/if}>>全部</option>
+			</select>
+			<span>条，共<{$page.count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$page.count}>" numPerPage="<{$page.size}>" pageNumShown="10" currentPage="<{$page.cid}>"></div>
+	</div>
+</div>

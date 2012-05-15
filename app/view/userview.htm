@@ -1,0 +1,51 @@
+<!-- 查看用户 -->
+<div class="pageContent">
+	<form method="post" action="<{php}>echo url('user','useredit');<{/php}>" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<input name="UserID" value="<{$user.UserID}>" type="hidden" size="30" readonly="readonly"/>
+		<div class="pageFormContent" layoutH="56">   
+	     	<h3>用户资料</h3>
+			<div class="divider"></div>
+			<p>	
+				<label>姓：</label>
+				<input name="FirstName" value="<{$user.FirstName}>" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+				<label>账号：</label>
+				<input name="Username" value="<{$user.Username}>" <{if $user.Username<>''}> readonly="readonly" <{/if}> type="text" size="30" minlength="1" maxlength="20" class="required" />
+			</p>
+			<p>	
+				<label>名</label>
+				<input name="LastName" value="<{$user.LastName}>" type="text" size="30" class="textInput" />
+			</p>
+			<{if $user.Username==''}>
+			<p>
+				<label>密码：</label>
+				<input name="password" value="<{$user.password}>" size="30"  minlength="1" maxlength="20" class="required"/>
+			</p>
+			<{else}>
+				<input name="password" value="<{$user.password}>"  type="hidden" />
+			<{/if}>
+			<p>
+			<label>昵称：</label>
+				<input name="DisplayName" value="<{$user.DisplayName}>" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+				<label>电子邮箱：</label>
+				<input name="Email" value="<{$user.Email}>"  type="text" size="30" />
+			</p>
+			<p>
+				<label>账号类型：</label>
+				<select class="combox" name="IsSuperUser">
+		        <option value="1" <{if $user.IsSuperUser==1}>selected<{/if}> >管理员</option>
+		        <option value="0" <{if $user.IsSuperUser==0}>selected<{/if}> >普通会员</option>
+	            </select>
+			</p>		
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 保 存 </button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close"> 取 消 </button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

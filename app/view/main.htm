@@ -1,0 +1,168 @@
+<{include file="header.htm"}>
+	<div id="layout">
+	    <!-- 主菜单 header -->
+		<div id="header">
+			<div class="headerNav">	
+				<ul class="nav">
+					<li><a href="<{url controller='form'  action='changepwd'}>" target="dialog" width="540" height="350">Change Password修改密码</a></li>
+					<li><a href="<{url controller='login' action='logout'}>">Exit退出</a></li>
+				</ul>
+				<ul class="themeList" id="themeList">
+					<li theme="default"><div class="selected">蓝色</div></li>
+					<li theme="green"><div>绿色</div></li>
+					<li theme="purple"><div>紫色</div></li>
+					<li theme="silver"><div>银色</div></li>
+					<li theme="azure"><div>天蓝</div></li>
+				</ul>
+			</div>
+		</div>
+        <!-- 主菜单 navMenu -->
+		<div id="leftside">
+			<div id="sidebar_s">
+				<div class="collapse">
+					<div class="toggleCollapse"><div></div></div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div class="toggleCollapse"><h2>Menu主菜单</h2><div>收缩</div></div>
+				<div class="accordion" fillSpace="sidebar">
+					<div class="accordionHeader">
+						<h2><span>Folder</span>Report Management报表中心</h2>
+					</div>
+					<div class="accordionContent">
+						<ul class="tree treeFolder">
+							<li><a>Sales Report销售报表</a>
+								<ul>
+							     	<{foreach from=$RepAct item=row}>
+									<{if $row=='repsale'}>
+									<li><a href="<{url controller='salesreport' action='repsale'}>"           target="navTab" rel="repsale"  fresh="false">Detail Sales Report销售明细表</a></li>
+									<{/if}>
+									<{if $row=='repsaleFCustomerType'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFCustomerType'}>" target="navTab" rel="repsaleFCustomerType"  fresh="false">Daily Sales By Channel销售日报表-客户分类</a></li>
+									<{/if}>
+									<{if $row=='repsaleFBrand'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFBrand'}>"    target="navTab" rel="repsaleFBrand"  fresh="false">Daily Sales By Brand销售日报表-所属品牌</a></li>
+									<{/if}>
+									<{if $row=='repsaleFType'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFType'}>"    target="navTab" rel="repsaleFType"  fresh="false">Daily Sales By Category销售日报表-商品分类</a></li>
+									<{/if}>
+									<{if $row=='repsaleFArea'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFArea'}>"     target="navTab" rel="repsaleFArea"  fresh="false">Daily Sales By Region销售日报表-区域</a></li>
+									<{/if}>
+									<{if $row=='repsaleFDeptName'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFDeptName'}>"   target="navTab" rel="repsaleFDeptName"  fresh="false">Daily Sales By Branches销售日报表-部门</a></li>
+									<{/if}>
+									<{if $row=='repsaleFEmpIDName'}>
+									<li><a href="<{url controller='salesreport' action='repsaleFEmpIDName'}>"      target="navTab" rel="repsaleFEmpIDName"  fresh="false">Daily Sales By Reps销售日报表-业务员</a></li>
+								    <{/if}>
+									<{if $row=='repsaleCombine'}>
+									<li><a href="<{url controller='salesreport' action='repsaleCombine'}>"      target="navTab" rel="repsaleCombine"  fresh="false">Daily Sales销售日报表-组合表</a></li>
+								    <{/if}>
+									<{/foreach}>
+								</ul>
+							</li>
+						</ul>
+						<ul class="tree treeFolder">
+							<li><a>Store Report库存报表</a>
+								<ul>
+							     	<{foreach from=$RepAct item=row}>
+									<{if $row=='repDeliveryDetail'}>
+									<li><a href="<{url controller='salesreport' action='DeliveryDetail'}>"        target="navTab" rel="kc"  fresh="false">Delivery Report发货明细表</a></li>
+									<{/if}>
+									<{/foreach}>
+								</ul>
+							</li>
+						</ul>
+						<ul class="tree treeFolder">
+							<li><a>Settlement Report结算报表</a>
+								<ul>
+							     	<{foreach from=$RepAct item=row}>
+									<{if $row=='repReceivables'}>
+									<li><a href="<{url controller='salesreport' action='Receivable'}>"           target="navTab" rel="repReceivable"  fresh="false">Receivables Report收款报表</a></li>
+									<{/if}>
+									<{/foreach}>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="accordionHeader">
+						<h2><span>Folder</span>Sys Setup系统设置</h2>
+					</div>
+					<div class="accordionContent">
+						<ul class="tree treeFolder">
+							<li><a>User Management用户管理</a>
+								<ul>
+								    <{if $SE.IsSuperUser}>
+									<li><a href="<{url controller='user' action='userlist'}>" target="navTab" rel="userlist"  fresh="false">User Management用户管理</a></li>
+									<li><a href="<{url controller='user' action='useradd'}>" target="navTab" rel="useradd"  fresh="false">Add User添加用户</a></li>
+									<li><a href="<{url controller='user' action='userImport'}>" target="navTab"  rel="userImport" fresh="true"  >Import User导入用户</a></li>
+									<{/if}>
+									<li><a href="<{url controller='form'  action='changepwd'}>" target="dialog" width="540" height="350">Change Password修改密码</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="tree treeFolder">
+							<li><a>Report Management报表管理</a>
+								<ul>
+								    <{if $SE.IsSuperUser}>
+									<li><a href="<{url controller='reportmanage' action='replist'}>" target="navTab" rel="reportlist"  fresh="true">Report Management报表管理</a></li>
+									<li><a href="<{url controller='reportmanage' action='repadd'}>" target="navTab" rel="reportadd"  fresh="false">Add Report添加报表</a></li>
+									<{/if}>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- 主界面 -->
+		<div id="container">
+			<div id="navTab" class="tabsPage">
+				<div class="tabsPageHeader">
+				    <!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
+					<div class="tabsPageHeaderContent">
+						<ul class="navTab-tab">
+							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">我的主页</span></span></a></li>
+						</ul>
+					</div>
+					<!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
+					<div class="tabsLeft">left</div>
+					<!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
+					<div class="tabsRight">right</div>
+					<div class="tabsMore">more</div>
+				</div>
+				<ul class="tabsMoreList">
+					<li><a href="javascript:;">我的主页</a></li>
+				</ul>
+				<div class="navTab-panel tabsPageContent">
+					<div class="page">
+						<div class="accountInfo">
+							<div class="alertInfo">
+								<p>用户类型：<{if $SE.IsSuperUser==1}>管理员<{else}>普通会员<{/if}></p>
+								<p>当前时间：<{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}></p>
+							</div>
+							<div class="right">	    
+							    <p>欢迎，<b><{$SE.USERNAME}></b></p>
+								<p>登录时间：<{$SE.TIME}></p>
+							</div>
+						</div>
+						<div class="pageFormContent" layoutH="80" style="margin-right:230px">
+						</div>
+						<div style="width:230px;position: absolute;top:60px;right:0" layoutH="80"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 任务栏 taskbar -->
+		<div id="taskbar" style="left:0px; display:none;">
+			<div class="taskbarContent">
+				<ul></ul>
+			</div>
+			<div class="taskbarLeft taskbarLeftDisabled" style="display:none;">taskbarLeft</div>
+			<div class="taskbarRight" style="display:none;">taskbarRight</div>
+		</div>
+		<div id="splitBar"></div>
+		<div id="splitBarProxy"></div>
+	</div>
+<{include file="footer.htm"}>

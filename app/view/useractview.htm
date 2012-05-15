@@ -1,0 +1,47 @@
+<!-- 用户权限 -->
+<div class="pageContent">
+	<form method="post" action="<{php}>echo url('user','useractsave');<{/php}>" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<input name="UserID" value="<{$user.UserID}>" type="hidden" size="30" readonly="readonly"/>
+		<div class="pageFormContent" layoutH="55">   
+	     	<h3>销售报表权限设置</h3>
+			<div class="divider"></div>
+			<p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsale" <{foreach from=$RepAct item=row}><{if $row=='repsale'}> checked <{/if}><{/foreach}>/>销售明细表</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFCustomerType" <{foreach from=$RepAct item=row}><{if $row=='repsaleFCustomerType'}> checked <{/if}><{/foreach}>/>销售明细表-客户分类</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFBrand" <{foreach from=$RepAct item=row}><{if $row=='repsaleFBrand'}> checked <{/if}><{/foreach}>/>销售明细表-所属品牌</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFType" <{foreach from=$RepAct item=row}><{if $row=='repsaleFType'}> checked <{/if}><{/foreach}>/>销售明细表-商品分类</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFArea" <{foreach from=$RepAct item=row}><{if $row=='repsaleFArea'}> checked <{/if}><{/foreach}>/>销售明细表-区域</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFDeptName" <{foreach from=$RepAct item=row}><{if $row=='repsaleFOffice'}> checked <{/if}><{/foreach}>/>销售明细表-部门</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleFEmpIDName" <{foreach from=$RepAct item=row}><{if $row=='repsaleFEmpIDName'}> checked <{/if}><{/foreach}>/>销售明细表-业务员</label></p>
+			<p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repsaleCombine" <{foreach from=$RepAct item=row}><{if $row=='repsaleCombine'}> checked <{/if}><{/foreach}>/>销售组合表</label></p>
+		    <p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repDeliveryDetail" <{foreach from=$RepAct item=row}><{if $row=='repDeliveryDetail'}> checked <{/if}><{/foreach}>/>发货明细表</label></p>
+			<p><label style="width:200px"><input type="checkbox" name="RepAct[]" value="repReceivables" <{foreach from=$RepAct item=row}><{if $row=='repReceivables'}> checked <{/if}><{/foreach}>/>收款报表</label></p>
+			<p>
+			<label style="float:left"><input type="checkbox" class="checkboxCtrl" group="RepAct[]" />全选</label>
+			</p>
+			<div class="divider"></div>
+			<p>	
+				<label>姓：</label>
+				<input name="FirstName" value="<{$user.FirstName}>" readonly="readonly" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+				<label>账号：</label>
+				<input name="Username" value="<{$user.Username}>" readonly="readonly" type="text" size="30" class="textInput" />
+			</p>
+			<p>	
+				<label>名</label>
+				<input name="LastName" value="<{$user.LastName}>" readonly="readonly"type="text" size="30" class="textInput" />
+			</p>
+			<p>
+			<label>昵称：</label>
+				<input name="DisplayName" value="<{$user.DisplayName}>" readonly="readonly" type="text" size="30" class="textInput" />
+			</p>
+			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 保 存 </button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close"> 取 消 </button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,55 @@
+<!-- 用户列表 -->
+<form id="pagerForm" method="post" action="<{url controller='reportmanage' action='replist'}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="<{url controller='reportmanage' action='repadd'}>" target="navTab" rel="reportadd"><span>添加报表</span></a></li>
+			<li><a class="delete" href="<{url controller='reportmanage' action='repdelete'}>&ID={r_id}" target="ajaxTodo" title="确定要删除吗?"><span>删除报表</span></a></li>
+			<li><a class="edit" href="<{url controller='reportmanage' action='repview'}>&ID={r_id}" target="navTab" rel="reportview"><span>编辑报表</span></a></li>
+		    <li><a class="set" href="<{url controller='reportmanage' action='fldlist'}>&ID={r_id}" target="navTab" rel="fldlist"><span>字段管理</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="75">
+		<thead>
+			<tr>
+			    <th width="20"></th>
+				<th width="30">自编号</th>
+				<th width="200" orderField="RepName" <{if $orderField=='RepName'}> class="<{$orderDirection}>" <{/if}>>报表名称</th>
+				<th width="150" orderField="Caption" <{if $orderField=='Caption'}> class="<{$orderDirection}>" <{/if}>>报表标题</th>
+				<th width="150" orderField="Controller" <{if $orderField=='Controller'}> class="<{$orderDirection}>" <{/if}>>控制器 Controller</th>
+				<th width="150" orderField="Fun" <{if $orderField=='Fun'}> class="<{$orderDirection}>" <{/if}>>方法名称 action</th>
+				<th width="150" >备注</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$rep item=row}>
+			<tr target="r_id" rel="<{$row.ID}>">
+			    <td></td>
+				<td><{$row.ID}></td>
+				<td><{$row.RepName}></td>
+				<td><{$row.Caption}></td>
+				<td><{$row.Controller}></td>
+				<td><{$row.Fun}></td>
+				<td><{$row.Memo}></td>
+			</tr>
+            <{/foreach}>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="20">10</option>
+				<option value="50">20</option>
+				<option value="100">50</option>
+			</select>
+			<span>条，共<{$rep|@count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$rep|@count}>" numPerPage="20" pageNumShown="1" currentPage="1"></div>
+	</div>
+</div>

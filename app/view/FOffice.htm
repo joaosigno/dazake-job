@@ -1,0 +1,22 @@
+<div class="pageContent">
+	<table class="table" layoutH="5" targettype="dialog" width="98%">
+		<thead>
+			<tr>
+				<th width="80%">办事处</th>
+				<th width="20%">选中</th>
+			</tr>
+		</thead>				
+		<tbody>
+		    <{foreach from=$data item=row}>
+			<tr>
+			    <td><{$row.FOffice}></td>
+				<td>
+					<a class="btnSelect" href="javascript:$.bringBack({name:'<{$row.FOffice}>'})" title="点击选择"></a>
+				</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+	</table>
+
+	
+</div>

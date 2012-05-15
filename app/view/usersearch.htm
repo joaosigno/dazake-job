@@ -1,0 +1,50 @@
+<!-- 查看用户 -->
+<form id="pagerForm" method="post" action="">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="icon" href="<{url controller='user' action='userexcel'}>"><span>导出EXCEL</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="138">
+		<thead>
+			<tr>
+				<th width="80"></th>
+				<th width="120">ID</th>
+				<th width="100">code</th>
+				<th width="100">用户名称</th>
+				<th width="100">密码</th>
+	        	<th width="100">邮箱</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$users item=user}>
+			<tr target="sid_user" rel="1">
+				<td></td>
+				<td><{$user.id}></td>
+				<td><{$user.code}></td>
+				<td><{$user.username}></td>
+				<td><{$user.password}></td>
+				<td><{$user.email}></td>
+			</tr>
+            <{/foreach}>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="20">10</option>
+				<option value="50">20</option>
+				<option value="100">50</option>
+			</select>
+			<span>条，共<{$users|@count}>条</span>
+		</div>
+		
+		<div class="pagination" targetType="navTab" totalCount="<{$users|@count}>" numPerPage="20" pageNumShown="1" currentPage="1"></div>
+
+	</div>
+</div>

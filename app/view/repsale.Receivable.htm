@@ -1,0 +1,130 @@
+<!-- 报表1 -->
+<form id="pagerForm" method="post" action="<{url controller='report' action='repsalebyarea'}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+	<input type="hidden" name="orderField" value="${param.orderField}" />
+	<input type="hidden" name="orderDirection" value="${param.orderDirection}" />
+</form>
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='report' action='repsalebyarea'}>" method="post">
+	<div class="searchBar">
+		<ul class="pageFormContent">
+			<p>
+				<label>办事处：</label>
+				<input type="text" class="textInput required" name="FDeptName.name" value="<{$FDeptName}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FOffice" width="350" height="400" href="<{url controller='form'  action='FDeptName'}>" lookupGroup="" lookupName="FDeptName" maxable="false" resizable="false">部门</a>	
+			</p>
+			<p>
+				<label>销售员：</label>
+				<input type="text" class="textInput required" name="FEmpIDName.name" value="<{$FEmpIDName}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FEmpIDName" width="350" height="400" href="<{url controller='form'  action='FEmpIDName'}>" lookupGroup="" lookupName="FEmpIDName" maxable="false" resizable="false"><hi:text key="查找带回"/></a>	
+			</p>
+			<p>
+				<label>客户类型：</label>
+				<input type="text" class="textInput required" name="FCustomerType.name" value="<{$FCustomerType}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FCustomerType" width="400" height="450" href="<{url controller='form'  action='FCustomerType'}>" lookupGroup="" lookupName="FCustomerType" maxable="false" resizable="false">客户分类列表</a>		
+			</p>
+			<p>
+				<label>客户代码：</label>
+				<input type="text" class="textInput required" name="FCustomers" value="<{$FCustomers}>" size="30"/>
+			</p>
+			<p>
+				<a><input value="0" <{if $FSaleStyleName==0}>checked<{/if}> type="radio" name="FSaleStyleName" />All全部</a>
+		        <a><input value="1" <{if $FSaleStyleName==1}>checked<{/if}> type="radio" name="FSaleStyleName" />现销</al>
+		        <a><input value="2" <{if $FSaleStyleName==2}>checked<{/if}> type="radio" name="FSaleStyleName" />赊销</a>			
+			</p>
+			<div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div>
+		</ul>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="icon" href="<{url controller='user' action='userexcel'}>"><span>导出EXCEL</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="160%" layoutH="170">
+		<thead>
+			<tr>
+			    <th width="40"></th>
+				<th width="100" orderField="fbranch"              <{if $orderField=='fbranch'}> class="<{$orderDirection}>" <{/if}>>办事处</th>
+				<th width="50" orderField="fempname"       <{if $orderField=='fempname'}> class="<{$orderDirection}>" <{/if}>>销售员</th>
+				<th width="50" orderField="fnumber"            <{if $orderField=='fnumber'}> class="<{$orderDirection}>" <{/if}>>客户代码</th>
+				<th width="180" orderField="fname"           <{if $orderField=='fname'}> class="<{$orderDirection}>" <{/if}>>客户名称</th>
+				<th width="50" orderField="ftype"    <{if $orderField=='ftype'}> class="<{$orderDirection}>" <{/if}>>客户类型</th>
+	        	<th width="50" orderField="fsalestyle"      <{if $orderField=='fsalestyle'}> class="<{$orderDirection}>" <{/if}>>销售方式</th>
+				<th width="100" orderField="fsumamount"          <{if $orderField=='fsumamount'}> class="<{$orderDirection}>" <{/if}> align="right">总收款额</th>
+				<th width="100" orderField="fpremonth"            <{if $orderField=='fpremonth'}> class="<{$orderDirection}>" <{/if}> align="right">本月应收款</th>
+				<th width="100" orderField="fthismonth"            <{if $orderField=='fthismonth'}> class="<{$orderDirection}>" <{/if}> align="right">本月到期</th>
+				<th width="100" orderField="fdelayamount"            <{if $orderField=='fdelayamount'}> class="<{$orderDirection}>" <{/if}> align="right">过期款</th>
+				<th width="100" orderField="fdelay30"            <{if $orderField=='fdelay30'}> class="<{$orderDirection}>" <{/if}> align="right">Over0-30天</th>
+				<th width="100" orderField="fdelay30_60"            <{if $orderField=='fdelay30_60'}> class="<{$orderDirection}>" <{/if}> align="right">Over30-60天</th>
+				<th width="100" orderField="fdelay60_90"            <{if $orderField=='fdelay60_90'}> class="<{$orderDirection}>" <{/if}> align="right">Over60-90天</th>
+				<th width="100" orderField="fdelay90_120"            <{if $orderField=='fdelay90_120'}> class="<{$orderDirection}>" <{/if}> align="right">Over90-120天</th>
+				<th width="100" orderField="fdelay120_180"            <{if $orderField=='fdelay120_180'}> class="<{$orderDirection}>" <{/if}> align="right">Over120-180天</th>
+				<th width="100" orderField="fdelay180"            <{if $orderField=='fdelay180'}> class="<{$orderDirection}>" <{/if}> align="right">Over180天以上</th>
+				<th width="100" orderField="fnamount"            <{if $orderField=='fnamount'}> class="<{$orderDirection}>" <{/if}> align="right">未到期</th>
+				<th width="100" orderField="fcheckamount"            <{if $orderField=='fcheckamount'}> class="<{$orderDirection}>" <{/if}> align="right">本月已收款</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$data item=row}>
+		    <tr target="sid_user" rel="<{$row.FOrderBillNo}>">
+			    <td></td>
+				<td><{$row.fbranch}></td>
+				<td><{$row.fempname}></td>
+				<td><{$row.fnumber}></td>
+				<td><{$row.fname}></td>
+				<td><{$row.ftype}></td>
+				<td><{$row.fsalestyle}></td>
+				<td><{$row.fsumamount|string_format:'%.2f'}></td>
+				<td><{$row.fpremonth|string_format:'%.2f'}></td>
+				<td><{$row.fthismonth|string_format:'%.2f'}></td>
+				<td><{$row.fdelayamount|string_format:'%.2f'}></td>
+				<td><{$row.fdelay30|string_format:'%.2f'}></td>
+				<td><{$row.fdelay30_60|string_format:'%.2f'}></td>
+				<td><{$row.fdelay60_90|string_format:'%.2f'}></td>
+				<td><{$row.fdelay90_120|string_format:'%.2f'}></td>
+				<td><{$row.fdelay120_180|string_format:'%.2f'}></td>
+				<td><{$row.fdelay180|string_format:'%.2f'}></td>
+				<td><{$row.fnamount|string_format:'%.2f'}></td>
+				<td><{$row.fcheckamount|string_format:'%.2f'}></td>
+			</tr>
+			<{/foreach}>
+			<tr style="background:#FFFAF0">
+			    <td>合计</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="10" <{if $page.size==1}>selected<{/if}>>10</option>
+				<option value="20" <{if $page.size==20}>selected<{/if}>>20</option>
+				<option value="50" <{if $page.size==50}>selected<{/if}>>50</option>
+			</select>
+			<span>条，共<{$page.count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$page.count}>" numPerPage="<{$page.size}>" pageNumShown="<{$page.pagecount}>" currentPage="<{$page.cid}>"></div>
+	</div>
+</div>

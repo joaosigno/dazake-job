@@ -15,7 +15,7 @@
 
 <div id="dk-bookshelf" data-url="<?php echo plugins_url( '/functions/edit.php' , dirname(__FILE__) )?>">
 	<div id="dk-navi">
-		<a href="">Manage Books</a>
+		<a href="http://www.wonderbookland.com/managebook">Manage Books</a>
 	</div>
 
 	<?php foreach($nr_statuses as $key => $value) :?>

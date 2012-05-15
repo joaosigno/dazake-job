@@ -44,16 +44,13 @@
 
 <div id="footer" class="justify">
 	
-	<a href="<?php echo site_url(); ?>/?page_id=98" id="contact_us">Contact Us</a>
+	<p id="copyright">Copyright &copy; Ztem Stone Creations. All rights reserved.</p>	
 	<div id="footer_logo">
 	<a id="twitter" href="https://twitter.com/#!/ZtemStone">
-		<img src="<?php bloginfo('template_directory'); ?>/images/twitter_icon.png" alt="">
+		<img src="<?php bloginfo('template_directory'); ?>/images/twitter_icon.jpg" alt="">
 	</a>
 	<a id="facebook" href="http://www.facebook.com/pages/Ztem/265593056850630">
-		<img src="<?php bloginfo('template_directory'); ?>/images/facebook_icon.png" alt="">
-	</a>
-	<a id="gplus">
-		<img src="<?php bloginfo('template_directory'); ?>/images/gplus_icon.png" alt="">
+		<img src="<?php bloginfo('template_directory'); ?>/images/facebook_icon.jpg" alt="">
 	</a>
 	</div>
 	

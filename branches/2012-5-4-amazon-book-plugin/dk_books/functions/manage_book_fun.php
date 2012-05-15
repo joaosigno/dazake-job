@@ -33,12 +33,12 @@ function dk_book_manage()
         $nr_url = new nr_url();
         $nr_url->load_scheme($options['menuLayout']);
 
-         $nr_url->urls['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
-        $nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) ;
+         $nr_url->urls['add'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=add' ;
+        $nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) . 'ig=ig' ;
 
-        $nr_url->multiple['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
-        $nr_url->multiple['manage'] = get_page_link(intval($_GET['page_id'])) ;
-        $nr_url->single['add'] = get_page_link(intval($_GET['page_id'])) . '&dkaction=add' ;
+        $nr_url->multiple['add'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=add' ;
+        $nr_url->multiple['manage'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig';
+        $nr_url->single['add'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=add' ;
         $nr_url->single['manage'] = get_page_link(intval($_GET['page_id'])) ;
     }
 

@@ -101,58 +101,30 @@ body{
 /*header*/
 #header{
 	width: 1000px;
-	height: 150px;
+	height: 200px;
 }
-#logo img{
-	width: 320px;
-	position: absolute;
-	left: 0px;
-	bottom: -30px;
-	color: #666;
+
+#logo{
+	width:1000px;
+	height:150px;
 	text-align:center;
-	line-height:50px;
-	font-size:50px;
-	font-family: 'Iceberg', cursive;
 }
-/*
+
 #logo img{
 	width: 220px;
-	position: absolute;
-	left: 0px;
-	bottom: 9px;
-	color: #666;
-	text-align:center;
-	line-height:50px;
-	font-size:50px;
-	font-family: 'Iceberg', cursive;
-}
-*/
-
-#logo span{
-	color: #79D100;
+	margin-top:20px;
 }
 
 #menu{
-	width: 632px;
-	*width:702px;
-	width:634px\0;
+	width: 1000px;
 	height: 35px;
 	line-height:35px;
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
+	border-top:1px dashed #333;
+	border-bottom:1px dashed #333;
 }
 
 #menu .menu-item{
-	color: #79D100;
-}
-
-#menu .menu-item{
-/* 	width: 126px; */
 	float: left;
-	margin-left:63px;
-	*margin-left:62px;
-/* 	border: 5px solid #fff; */
 	list-style:none;
 	text-align:right;
 	-webkit-transition: all 0.5s ease-out;  /* Saf3.2+, Chrome */
@@ -162,12 +134,15 @@ body{
           transition: all 0.5s ease-out;
 }
 
+#menu .menu-item:first-child{
+	margin-left:191px;
+}
+
 #menu .menu-item a{
 	text-decoration:none;
-	color: #ACA79A;
+	color: #333;
 	font-size:14px;
-	display: block;
-/* 	font-family: 'Fresca', sans-serif; */
+	margin:0px 20px;
 	font-family: Helvetica light;
 	-webkit-transition: all 0.5s ease-out;  /* Saf3.2+, Chrome */
      -moz-transition: all 0.5s ease-out;  /* FF4+ */
@@ -177,19 +152,20 @@ body{
 }
 
 #header #menu .current-menu-item a{
-	color: #333;
+	color: #777;
 }
 
 #menu .menu-item:hover a{
-	color: #333;
+	color: #777;
 }
 
 /*main*/
 #main{
-	width: 1000px;
+	width: 998px;
 	height: auto;
-	top:34px;
+	top:10px;
 	overflow: hidden;
+	border:1px solid #333;
 }
 
 /*info*/
@@ -268,26 +244,11 @@ body{
 	line-height:40px;
 }
 
-#contact_us{
-	text-decoration:none;
-	background: #EAEAEA;
-	display: block;
-	text-align:center;
-	width: 100px;
-	height: 40px;
-	color: #999;
-	font-size:14px;
-	float: left;
-	-webkit-transition: all 0.5s ease-out;  /* Saf3.2+, Chrome */
-	 -moz-transition: all 0.5s ease-out;  /* FF4+ */
-	  -ms-transition: all 0.5s ease-out;  /* IE10? */
-	   -o-transition: all 0.5s ease-out;  /* Opera 10.5+ */
-	      transition: all 0.5s ease-out;
-}
-
-#contact_us:hover{
-	background: #ABA799;
-	color: #fff;
+#copyright{
+	font-size:12px;
+	color:#666;
+	margin-left:10px;
+	float:left;
 }
 
 #twitter,#facebook,#gplus{
@@ -296,10 +257,10 @@ body{
 }
 
 #footer_logo{
-	margin-left:20px;
+	float:right;
 }
 #footer_logo img{
-	width:25px;
+	width:28px;
 }
 /*category menu*/
 
@@ -385,19 +346,15 @@ body{
 -------------------------------------------------------------- */
 .slideshow{
 	width: 332px;
-	height: 332px;
+	height: 260px;
 	background: #fff;
 	float: left;
+	text-align:center;
 }
-
-#slideshow2{
-	margin:0px 1px;
-}
-
 .slideshow img{
-	width: 332px;
-	height: 332px;
-	position: absolute;
+	width: 276px;
+	height: 200px;
+	margin:30px 30px;
 }
 
 /* =about.php CSS. 

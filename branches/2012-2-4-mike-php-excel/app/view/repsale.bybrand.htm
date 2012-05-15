@@ -1,0 +1,146 @@
+<!-- 报表1 -->
+<form id="pagerForm" method="post" action="<{url controller='report' action='repsalebybrand'}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+	<input type="hidden" name="orderField" value="${param.orderField}" />
+	<input type="hidden" name="orderDirection" value="${param.orderDirection}" />
+</form>
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='report' action='repsalebybrand'}>" method="post">
+	<div class="searchBar">
+		<ul class="pageFormContent">
+			<p>
+				<label>品牌：</label>
+				<input type="text" class="textInput required" name="brand" value="" readonly="readonly"/>
+				<a class="btnLook" href="javascript:false" lookupGroup="" lookupName="orgLookup" maxable="false" resizable="false"><hi:text key="查找带回"/></a>		
+			</p>
+			<p></p>
+			<p>
+				<label>起始日期：</label>
+				<input name="formdate" value="<{$formdate}>" type="text" size="30" class="date" /><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p>
+				<label>截止日期：</label>
+				<input name="todate" value="<{$todate}>" type="text" size="30" class="date" /><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+		</ul>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="icon" href="<{url controller='user' action='userexcel'}>"><span>导出EXCEL</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="400%" layoutH="157">
+		<thead>
+			<tr>
+			    <th width="40"></th>
+				<th width="180" orderField="FBrand"             <{if $orderField=='FBrand'}> class="<{$orderDirection}>" <{/if}>>所属品牌</th>
+				<th width="200" orderField="FOrderBillNo"       <{if $orderField=='FOrderBillNo'}> class="<{$orderDirection}>" <{/if}>>销售订单号</th>
+				<th width="220" orderField="FBillNo"            <{if $orderField=='FBillNo'}> class="<{$orderDirection}>" <{/if}>>出库单号</th>
+				<th width="180" orderField="FOutdate"           <{if $orderField=='FOutdate'}> class="<{$orderDirection}>" <{/if}>>销售日期</th>
+				<th width="180" orderField="FCustomerNumber"    <{if $orderField=='FCustomerNumber'}> class="<{$orderDirection}>" <{/if}>>客户代码</th>
+	        	<th width="180" orderField="FCustomerName"      <{if $orderField=='FCustomerName'}> class="<{$orderDirection}>" <{/if}>>客户名称</th>
+				<th width="180" orderField="FArea"              <{if $orderField=='FArea'}> class="<{$orderDirection}>" <{/if}>>客户分类</th>
+				<th width="180" orderField="FArea"              <{if $orderField=='FArea'}> class="<{$orderDirection}>" <{/if}>>销售区域</th>
+				<th width="180" orderField="FArea"              <{if $orderField=='FArea'}> class="<{$orderDirection}>" <{/if}>>办事处</th>
+				<th width="180" orderField="FEmpIDName"         <{if $orderField=='FEmpIDName'}> class="<{$orderDirection}>" <{/if}>>业务员</th>
+				<th width="180" orderField="FFullNumber"        <{if $orderField=='FFullNumber'}> class="<{$orderDirection}>" <{/if}>>商品代码</th>
+				<th width="180" orderField="FItemName"          <{if $orderField=='FItemName'}> class="<{$orderDirection}>" <{/if}>>商品名称</th>
+				<th width="180" orderField="FItemModel"         <{if $orderField=='FItemModel'}> class="<{$orderDirection}>" <{/if}>>规格型号</th>
+				<th width="180" orderField="FBrand"             <{if $orderField=='FBrand'}> class="<{$orderDirection}>" <{/if}>>商品分类</th>
+				<th width="180" orderField="FSaleStyleName"     <{if $orderField=='FSaleStyleName'}> class="<{$orderDirection}>" <{/if}>>销售分类</th>
+				<th width="180" orderField="FUnitIDName"        <{if $orderField=='FUnitIDName'}> class="<{$orderDirection}>" <{/if}> align="right">销售单位</th>
+				<th width="180" orderField="Fauxqty"            <{if $orderField=='Fauxqty'}> class="<{$orderDirection}>" <{/if}> align="right">销售数量</th>
+				<th width="180" orderField="Fauxprice"          <{if $orderField=='Fauxprice'}> class="<{$orderDirection}>" <{/if}> align="right">销售单价（含税）</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">销售收入（含税）</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">销售收入（不含税）</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">成本</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">毛利</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">毛利率</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">销售比重</th>
+				<th width="180" orderField="Famount"            <{if $orderField=='Famount'}> class="<{$orderDirection}>" <{/if}> align="right">毛利比重</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$data item=row}>
+		    <tr target="sid_user" rel="<{$row.FOrderBillNo}>">
+			    <td></td>
+				<td><{$row.FBrand}></td>
+				<td><{$row.FOrderBillNo}></td>
+				<td><{$row.FBillNo}></td>
+				<td><{$row.FOutdate}></td>
+				<td><{$row.FCustomerNumber}></td>
+				<td><{$row.FCustomerName}></td>
+				<td><{$row.FArea}></td>
+				<td><{$row.FArea}></td>
+				<td><{$row.FArea}></td>
+				<td><{$row.FEmpIDName}></td>
+				<td><{$row.FFullNumber}></td>
+				<td><{$row.FItemName}></td>
+				<td><{$row.FItemModel}></td>
+				<td><{$row.FBrand}></td>
+				<td><{$row.FSaleStyleName}></td>
+				<td><{$row.FUnitIDName}></td>
+				<td><{$row.Fauxqty|string_format:'%d'}></td>
+				<td><{$row.Fauxprice|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+				<td><{$row.Famount|string_format:'%.2f'}></td>
+			</tr>
+			<{/foreach}>
+			<tr style="background:#FFFAF0">
+			    <td>合计</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><{_count data=$data col='Fauxqty'}></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="10" <{if $page.size==1}>selected<{/if}>>10</option>
+				<option value="20" <{if $page.size==20}>selected<{/if}>>20</option>
+				<option value="50" <{if $page.size==50}>selected<{/if}>>50</option>
+			</select>
+			<span>条，共<{$page.count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$page.count}>" numPerPage="<{$page.size}>" pageNumShown="<{$page.pagecount}>" currentPage="<{$page.cid}>"></div>
+	</div>
+</div>

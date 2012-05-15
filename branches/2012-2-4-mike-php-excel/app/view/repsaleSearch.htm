@@ -1,0 +1,59 @@
+<div class="pageContent">
+	<form  onsubmit="return navTabSearch(this);" action="<{url controller='salesreport' action='repsaleSearchList'}>" method="post">
+		<div class="pageFormContent" layoutH="56">  
+			<h3>查询条件 Filter Conditions</h3>
+	        <div class="divider"></div>
+			<p>
+				<label>From起始日期：</label>
+				<input name="formdate" value="<{$formdate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p>
+				<label>To截止日期：</label>
+				<input name="todate" value="<{$todate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<div class="divider"></div>
+			<p>
+				<label>Channel客户分类：</label>
+				<input type="text" class="textInput required" name="FCustomerType.name" value="<{$FCustomerType}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FCustomerType" width="400" height="450" href="<{url controller='form'  action='FCustomerType'}>" lookupGroup="" lookupName="FCustomerType" maxable="false" resizable="false">客户分类列表</a>		
+			</p>
+			<p>
+				<label>Brand品牌：</label>
+				<input type="text" class="textInput required" name="FBrand.name" value="<{$FBrand}>" class="textInput" size="30"/>
+				<a class="btnLook"  rel="FBrand" width="350" height="400" href="<{url controller='form'  action='FBrand'}>" lookupGroup="" lookupName="FBrand" maxable="false" resizable="false">品牌</a>		
+			</p>
+			<p>
+				<label>Category商品分类：</label>
+				<input type="text" class="textInput required" name="FType.name" value="<{$FType}>" class="textInput" size="30"/>
+				<a class="btnLook"  rel="FType" width="350" height="400" href="<{url controller='form'  action='FType'}>" lookupGroup="" lookupName="FType" maxable="false" resizable="false">商品分类</a>	
+			</p>
+			<p>
+				<label>Region区域：</label>
+				<input type="text" class="textInput required" name="FArea.name" value="<{$FArea}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FArea" width="350" height="400"  href="<{url controller='form'  action='FArea'}>" lookupGroup="" lookupName="FArea" maxable="false" resizable="false">区域</a>	
+			</p>
+			<p>
+				<label>Branches部门：</label>
+				<input type="text" class="textInput required" name="FDeptName.name" value="<{$FDeptName}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FOffice" width="350" height="400" href="<{url controller='form'  action='FDeptName'}>" lookupGroup="" lookupName="FDeptName" maxable="false" resizable="false">部门</a>	
+			</p>
+			<p>
+				<label>Reps业务员：</label>
+				<input type="text" class="textInput required" name="FEmpIDName.name" value="<{$FEmpIDName}>" class="textInput" size="30"/>
+				<a class="btnLook" rel="FEmpIDName" width="350" height="400" href="<{url controller='form'  action='FEmpIDName'}>" lookupGroup="" lookupName="FEmpIDName" maxable="false" resizable="false"><hi:text key="查找带回"/></a>	
+			</p>
+			<p>
+				<a><input value="0" <{if $FSaleStyleName==0}>checked<{/if}> type="radio" name="FSaleStyleName" />All全部</a>
+		        <a><input value="1" <{if $FSaleStyleName==1}>checked<{/if}> type="radio" name="FSaleStyleName" />现销</al>
+		        <a><input value="2" <{if $FSaleStyleName==2}>checked<{/if}> type="radio" name="FSaleStyleName" />赊销</a>			
+			</p>
+		</div>
+	</div>
+	<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">Filter检索</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">Close关闭</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

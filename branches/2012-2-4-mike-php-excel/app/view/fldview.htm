@@ -1,0 +1,73 @@
+<!-- 查看字段 -->
+<div class="pageContent">
+	<form method="post" action="<{url controller='reportmanage' action='fldsave'}>" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<input name="ID" value="<{$grid.ID}>" type="hidden" size="30" readonly="readonly"/>
+		<input name="RepID" value="<{$RepID}>" type="hidden" size="30" readonly="readonly"/>
+		<div class="pageFormContent" layoutH="56">   
+	     	<h3>编辑字段</h3>
+			<div class="divider"></div>
+			<p>	
+				<label>字段名称：</label>
+				<input name="FldName" value="<{$grid.FldName}>" type="text" size="30"  minlength="1" maxlength="50" class="required textInput" />
+			</p>
+			<p>
+				<label>字段标题：</label>
+				<input name="Caption" value="<{$grid.Caption}>"  type="text" size="30" minlength="1" maxlength="50" class="required textInput" />
+			</p>
+			<p>	
+				<label>排序字段：</label>
+				<input name="OrderField" value="<{$grid.OrderField}>" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+			<label>宽度：</label>
+				<input name="FWidth" value="<{$grid.FWidth}>" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+			<label>排序</label>
+				<input name="OrderNum" value="<{$grid.OrderNum}>" type="text" size="30" class="textInput" />
+			</p>
+			<p>
+				<label>是否可打印：</label>
+				<select class="combox" name="IsPrint">
+		        <option value="1" <{if $grid.IsPrint==1}>selected<{/if}> >是</option>
+		        <option value="0" <{if $grid.IsPrint==0}>selected<{/if}> >否</option>
+	            </select>
+			</p>
+			<p>
+				<label>是否导出EXCEL：</label>
+				<select class="combox" name="IsExcel">
+		        <option value="1" <{if $grid.IsExcel==1}>selected<{/if}> >是</option>
+		        <option value="0" <{if $grid.IsExcel==0}>selected<{/if}> >否</option>
+	            </select>
+			</p>	
+			<p>
+				<label>对齐方式：</label>
+				<select class="combox" name="Align">
+		        <option value="0" <{if $grid.Align==0}>selected<{/if}> >左对齐</option>
+		        <option value="1" <{if $grid.Align==1}>selected<{/if}> >居中对齐</option>
+			    <option value="2" <{if $grid.Align==2}>selected<{/if}> >右对齐</option>
+	            </select>
+			</p>
+			<p>
+				<label>统计类型：</label>
+				<select class="combox" name="SumType">
+				<option value="0" <{if $grid.SumType==0}>selected<{/if}> >无</option>
+		        <option value="1" <{if $grid.SumType==1}>selected<{/if}> >数量</option>
+		        <option value="2" <{if $grid.SumType==2}>selected<{/if}> >合计</option>
+				<option value="3" <{if $grid.SumType==3}>selected<{/if}> >最小值</option>
+		        <option value="4" <{if $grid.SumType==4}>selected<{/if}> >最大值</option>
+	            </select>
+			</p>
+			<p>
+				<label>显示格式：</label>
+				<input name="FormatStr" value="<{$grid.FormatStr}>" type="text" size="30" class="textInput" />
+			</p>			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 保 存 </button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close"> 取 消 </button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

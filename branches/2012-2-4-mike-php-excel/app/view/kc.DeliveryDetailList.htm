@@ -1,0 +1,110 @@
+<!-- 报表 -->
+<form id="pagerForm" method="post" action="<{url controller='kcreport' action='DeliveryDetailList'}>">
+	<input type="hidden" name="pageNum" value="<{$page.cid}>" />
+	<input type="hidden" name="numPerPage" value="<{$page.size}>" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageHeader">
+    <!-- 工具条 -->
+	<div class="panelBar">
+		<ul class="toolBar">
+		    <li><a class="icon" href="javascript:startPrint()"><span>打印 Print</span></a></li>
+			<li><a class="icon" href="<{url controller='excel' action='repsaleFCustomerType' orderField=$orderField orderDirection=$orderDirection formdate=$formdate todate=$todate FCustomer_name=$FCustomer|@rawurlencode}>"><span>Export to EXCEL</span></a></li>
+		</ul>
+	</div>
+	
+	<!-- 主表单 -->
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='kcreport' action='DeliveryDetailList'}>" method="post">
+	<!--打印主表标记-->
+	<div id="PrintMaster" class="searchBar subBar">
+	    <ul>
+		    <br><center><h2>发货明细</h2></center>
+		</ul>
+		<table width="100%">
+		<tr>
+		    <td width="40%">
+				<label>购货单位：</label>
+				<input name="FCustomer " value="<{$FCustomer}>" readonly="readonly" type="text" size="30" class="textInput" />
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+		    <td>
+			    <label>送货地址：</label>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+		    <td>
+			    <label>电话：</label>
+				
+			</td>
+			<td> 
+			    <label>传真:</label>	
+			</td>
+		</tr>
+				<tr>
+		    <td>
+			    <label>户口帐号：</label>
+			</td>
+			<td>
+			    <label>客户编号：</label>
+			</td>
+		</tr>
+		<tr>
+		    <td>
+			    <label>币种：</label>
+				
+			</td>
+			<td>
+			    <label>固定电话：</label>
+			</td>
+		</tr>
+		</table>
+		<table class="table" width="100%" layoutH="180">
+			<thead>
+				<tr>
+					<!--0--><th width="10"></th>
+					<!--1--><th width="90" orderField="FSODate"          <{if $orderField=='FSODate'}>         class="<{$orderDirection}>" <{/if}>>下单日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<{foreach from=$data item=row}>
+				<tr target="sid_user" rel="<{$row.FOrderBillNo}>">
+					<!--0--><td></td>
+					<!--1--><td><{$row.FSODate}></td>
+				</tr>
+				<{/foreach}>
+			</tbody>
+		</table>
+		<div class="panelBar">
+			<div class="pages">
+				<span>显示</span>
+				<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+					<option value="10" <{if $page.size==1}>selected<{/if}>>10</option>
+					<option value="20" <{if $page.size==20}>selected<{/if}>>20</option>
+					<option value="50" <{if $page.size==50}>selected<{/if}>>50</option>
+					<option value="100" <{if $page.size==100}>selected<{/if}>>100</option>
+					<option value="200" <{if $page.size==200}>selected<{/if}>>200</option>
+					<option value="<{$page.count}>" <{if $page.size==$page.count}>selected<{/if}>>全部</option>
+				</select>
+				<span>条，共<{$page.count}>条</span>
+			</div>	
+			<div class="pagination" targetType="navTab" totalCount="<{$page.count}>" numPerPage="<{$page.size}>" pageNumShown="10" currentPage="<{$page.cid}>"></div>
+		</div>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+    <!--打印明细标记-->
+    <div id="PrintDetail">
+	    <!--明细列表-->
+	    <table class="table" width="100%" layoutH="238">
+	        <!--处理表-->
+            <{include file="table.htm"}>
+	    </table>
+	</div>
+    <!--处理分页-->
+	<{include file="panelBar.htm"}>
+</div>

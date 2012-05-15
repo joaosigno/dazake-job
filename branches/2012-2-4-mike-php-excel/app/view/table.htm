@@ -1,0 +1,58 @@
+		<thead>
+			<tr>
+			<th width="20"></th>
+			<{foreach from=$grid item=fld}>
+				<th width="<{$fld.FWidth}>" orderField="<{$fld.OrderField}>" <{if $orderField==$fld.OrderField}>  class="<{$orderDirection}>" <{/if}><{$fld.Caption}></th>
+			<{/foreach}>
+			</tr>
+		</thead>
+		<tbody>
+		    <!--填充数据-->
+		    <{foreach from=$data item=row}>
+		    <tr>
+			    <td></td>
+				<{foreach from=$grid item=fld}>
+				<td>
+				    <{if $fld.FldName != ''}>
+				       <{assign var="FldName" value=$fld.FldName}>
+					    <{if $fld.FormatStr != ''}>
+				            <{$row.$FldName|string_format:$fld.FormatStr}>
+					    <{else}>
+					        <{$row.$FldName}>
+						<{/if}>
+					<{/if}>
+				</td>
+			    <{/foreach}>
+			</tr>
+			<{/foreach}>
+			<tr style="background:#FFFFED">
+			    <td>本页合计</td>
+				<{foreach from=$grid item=fld}>
+				<td>
+				    <{if $fld.FldName != ''}>
+						<{if $fld.SumType == 1}>
+				            <{$data|@count}>
+				        <{/if}>
+					 　 <{if $fld.SumType == 2}>
+				            <{_count data=$data col=$fld.FldName format=$fld.FormatStr}>
+				        <{/if}>
+					<{/if}>
+				</td>
+			    <{/foreach}>
+			</tr>
+			<tr style="background:#FFFACD;color:#556B2F">
+			    <td>总  计</td>
+				<{foreach from=$grid item=fld}>
+				<td>
+				    <{if $fld.FldName != ''}>
+						<{if $fld.SumType == 1}>
+				            <{$alldata|@count}>
+				       <{/if}>
+					 　<{if $fld.SumType == 2}>
+				            <{_count data=$alldata col=$fld.FldName format=$fld.FormatStr}>
+				       <{/if}>
+					<{/if}>
+				</td>
+			    <{/foreach}>
+			</tr>
+		</tbody>

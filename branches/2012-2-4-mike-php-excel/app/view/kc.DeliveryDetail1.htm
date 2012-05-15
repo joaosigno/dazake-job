@@ -1,0 +1,30 @@
+<!-- 报表1 -->
+<form id="pagerForm" method="post" action="<{url controller='kcreport' action='DeliveryDetailList'}>">
+	<input type="hidden" name="pageNum" value="<{$page.cid}>" />
+	<input type="hidden" name="numPerPage" value="<{$page.size}>" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='kcreport' action='DeliveryDetailList'}>" method="post">
+	<div class="searchBar subBar">
+		<ul class="pageFormContent">
+		    <p>
+				<label>From起始日期:</label>
+				<input name="formdate" value="<{$formdate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p>
+				<label>To截止日期:</label>
+				<input name="todate" value="<{$todate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<div class="divider"></div>
+			<p>
+				<label>Custom客户:</label>
+				<input type="text" class="textInput required" name="FCustomer.code" value="<{$FCustomer}>" class="textInput" size="30"/>
+				<a class="btnLook"  width="400" height="450" href="<{url controller='form'  action='FCustomer'}>" lookupGroup="" lookupName="FCustomer" maxable="false" resizable="false">客户表</a>		
+			</p>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">Filter检索</button></div></div></li>
+		</ul>
+	</div>
+	</form>
+</div>

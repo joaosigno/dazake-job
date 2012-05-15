@@ -1,0 +1,33 @@
+<!-- 用户列表 -->
+<form id="pagerForm" method="post" action="<{url controller='user' action='userlist'}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="<{$users|@count}>" />
+</form>
+<div class="pageContent">
+	<table class="table" width="30%" layoutH="48">
+		<thead>
+			<tr>
+			    <th width="10"></th>
+				<th width="100">账号</th>
+				<th width="100">初始密码</th>
+				<th width="100">账号类型</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$users item=user}>
+			<tr>
+			    <td></td>
+				<td><{$user.Username}></td>
+				<td><{$user.password}></td>
+				<td><{if $user.IsSuperUser==1}>管理员<{else}>普通会员<{/if}></td>
+			</tr>
+            <{/foreach}>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			导入<{$users|@count}>条记录</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$users|@count}>" numPerPage="<{$users|@count}>" pageNumShown="1" currentPage="1"></div>
+	</div>
+</div>

@@ -1,0 +1,137 @@
+*{
+  padding:0px;
+  margin:0px;
+}
+
+body{
+  background:#6CCBEA;
+}
+.hide{
+	display: none;
+}
+
+li{
+  list-style:none;
+}
+
+#name{
+	width: 100%;
+	text-align:center;
+	display: block;
+}
+
+body #header{
+  width:100%;
+  height:70px;
+  color:#fff;
+  font-size:30px;
+  line-height:70px;
+  background:#6CCBEA;
+}
+
+#header #title{
+  margin-left:300px;
+  text-decoration:none;
+  color:#fff
+}
+
+#main{
+  width:760px;
+  height:400px;
+  background:#fff;
+  position:relative;
+  left:50%;
+  margin-left:-380px;
+}
+
+#leftbox{
+  width:300px;
+  height:100%;
+  float:left;
+}
+
+#leftbox{
+  float:left;
+}
+
+#nav{
+  height:350px;
+  width:1px;
+  float:left;
+  background:#E9E9E9;
+  margin-top:25px;
+}
+*{
+  color:#555;
+}
+
+#leftbox h3{
+  color:#E9641C;
+}
+
+#logo{
+  width:200px;
+  margin:30px 45px;
+  
+}
+
+h3{
+  width:100%;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+}
+
+#info{
+  display:block;
+  position:relative;
+  left:50%;
+  margin:80px -20px;
+}
+
+#email{
+  margin-left:50px;
+}
+
+#main{
+  border:8px solid #888;
+}
+#rightbox h3{
+  text-indent:20px;
+  text-align:center;
+}
+
+#rightbox{
+	text-indent:0px;
+	*width:430px;
+}
+#portrait{
+  width:50px;
+  height:50px;
+  margin:30px 200px;
+}
+
+.pre{
+	margin-left:20px;
+}
+#email,#password,#repassword, .password2{
+  height:25px;
+  width:200px;
+  font-size:18px;
+  margin:10px 5px;
+}
+
+#submit{
+  border:none;
+  width:60px;
+  height:25px;
+  background:#5DC2DE;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  margin: 2px 20px;
+}
+#submit:hover{
+  font-weight:bold;
+  background:#51A9C3;
+}

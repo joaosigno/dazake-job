@@ -1,0 +1,2 @@
+
+$(function () {	function Navi(id) {		var command = {			type:"nav",			func:id		};						$.ajax({			type:"POST",			url:"modular/ajax_message.php",			data:{command:command},			//dataType:"json",			beforeSubmit:function () {},			success:function (data) {				Data = jQuery.parseJSON(data);				reContent(Data);				//alert(data);			}		})	}	$("#index").click(function () {		Navi($(this).attr("id"));	})	$("#prev").click(function () {		Navi($(this).attr("id"));	})	$("#next").click(function () {		Navi($(this).attr("id"));	})})

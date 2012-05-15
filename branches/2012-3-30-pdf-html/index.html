@@ -1,0 +1,94 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/jquery.signaturepad.css" media="all">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.18.custom.css" media="all">
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <div id="header">
+    <div id="banner">
+      <div id="pdftitle">This is the title</div>
+      <button>Submit</button>
+    </div>
+    <div id="toolbar">
+      <ul>
+        <li id="pre">Previous</li>
+        <li id="next">Next</li>
+        <div id="slider"></div>
+        <li id="zoomin" class='zoom'>+</li>
+        <li id="zommout" class='zoom'>-</li>
+        <li id="textbox" class="inputTools">Textbox</li>
+        <li id="checkbox" class="inputTools">Checkbox</li>
+        <li id="radio" class="inputTools">Raido</li>
+        <li id="signature">Signature</li>
+      </ul>
+    </div>
+    <div id="signbox" class="hide">
+      <canvas class="pad" width="198" height="55"></canvas>
+      <input type="hidden" name="output" class="output">
+      <div id="loadingbar" class='hide'><img src="images/loading.gif" alt=""></div>
+      <div id="signtools">
+        <span id="signok">OK</span>
+        <span id="signclear">Clear</span>
+        <span id="signcancel">Cancel</span>
+      </div>  
+    </div>
+  </div>
+  <div id="main">
+    <div id="preview">
+      <div id="preview1" class="preview"></div>
+      <div id="preview2" class="preview"></div>
+      <div id="preview3" class="preview"></div>
+    </div>
+    <div id="pdf">
+      <div id="pdfbox"></div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <!--[if lt IE 9]><script src="js/libs/flashcanvas.js"></script><![endif]-->
+  <script src="js/libs/jquery.signaturepad.js"></script>
+  <script src="js/libs/json2.js"></script>
+  <script type="text/javascript" src="js/libs/jquery-ui-1.8.18.custom.min.js"></script>
+  <!-- scripts concatenated and minified via build script -->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts -->
+</body>
+</html>

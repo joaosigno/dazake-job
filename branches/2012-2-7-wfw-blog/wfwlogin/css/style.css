@@ -1,0 +1,45 @@
+li{
+	list-style:none;
+}
+.main-right { border-top:#88d0ee 1px solid;float:left; width:183px; margin-left:20px; padding:0px 0px 0px 0px; }
+
+.right-main-inner { border-left:#88d0ee 1px solid; border-right:#88d0ee 1px solid; float:left; background-color:#FFF; width:163px; padding:9px; }
+
+.right-main-inner h2 { color:#77c9eb; font-size:22px; font-weight:bold; margin: 0 !important; }
+
+.right-main-inner h3 {  font-size:13px; font-weight: normal !important; margin-top:10px; color: #4d4d4d; }
+
+.right-main-inner #sub_login { clear:both; float:left; margin-top:15px; }
+
+#sub_login input { height:12px; font-size:12px; width:120px; border:1px #979797 solid; margin-top:8px; }
+
+#sub_login label { margin-top:10px; margin-right:10px; font-size:12px; }
+
+#sub_login submit { width:60px !important;  }
+
+#sub_login .forgot-link {  color:#77c9eb; font-size:10px;float:left; clear:both; margin-left:35px; margin-top:10px; font-weight:bold; margin-bottom:10px;   }
+
+.forgot-link a { float: left; color:#77c9eb; text-decoration:none; margin: 10px 0 5px 40px !important; }
+
+.forgot-link a:hover { text-decoration:underline; }
+
+.fpc { margin: 12px 0 0 12px; }
+.rc { margin: 12px 0 0 12px; }
+
+.main-right-bottom-inner { background:#b0dff3; padding:10px; width:163px;margin-left: 20px;}
+
+.main-right-bottom-inner .headertext { font-size:28px; color:#FFF; text-align:center; width:163px; float:left; margin-bottom:10px; }
+
+a.joinus { margin-left:25px; margin-top:10px; font-size: 11px; }
+
+.first { margin-left:33px; }
+
+.main-right-bottom { float:left; margin:10px 0px 10px 10px; }
+
+#login label { margin: 2px 0 0 0; color: #4d4d4d; font-size: 13px; font-weight: normal !important;}
+
+#login ul { float: left; padding-left: 0 !important; margin: 0 !important;}
+
+#login ul li { float: left; margin: 12px 0 5px 0; }
+
+#login input { margin: 0 0 0 10px; border: 1px solid #808080; background-color: #f2f2f2; width:110px;}

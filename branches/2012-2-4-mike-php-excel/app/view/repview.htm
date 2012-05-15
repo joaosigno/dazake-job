@@ -1,0 +1,45 @@
+<!-- 查看报表 -->
+<div class="pageContent">
+	<form method="post" action="<{url controller='reportmanage' action='repsave'}>" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<input name="ID" value="<{$rep.ID}>" type="hidden" size="30" readonly="readonly"/>
+		<div class="pageFormContent" layoutH="56">   
+	    <h3>编辑报表</h3>
+		<div class="divider"></div>
+		<dl>
+			<dt>报表名称：</dt>
+			<dd><input name="RepName" value="<{$rep.RepName}>" type="text" size="30" class="textInput required" /></dd>
+		</dl>
+		<dl>
+			<dt>报表标题：</dt>
+			<dd><input name="Caption" value="<{$rep.Caption}>" type="text" size="30" class="textInput" /></dd>
+		</dl>
+		<dl>
+		    <dt>控制器 Controller：</dt>
+			<dd><input name="Ctrl" value="<{$rep.Controller}>" type="text" size="30" class="textInput required" /></dd>
+		</dl>
+		<dl>
+		    <dt>方法名称 action：</dt>
+			<dd><input name="Fun" value="<{$rep.Fun}>" type="text" size="30" class="textInput required" /></dd>
+		</dl>
+		<dl>
+		    <dt>备注：</dt>
+			<dd><input name="Memo" value="<{$rep.Memo}>" type="text" size="30" class="textInput" /></dd>
+		</dl>
+		<dl>
+		    <dt></dt>
+			<dd></dd>
+		</dl>
+		<dl>
+			<dt>SQL语句：</dt>
+			<dd><textarea  name="SQLTXT"  rows="10" cols="95" class="required" ><{$rep.SQLTXT}></textarea></dd>
+		</dl>
+	
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 保 存 </button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close"> 取 消 </button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

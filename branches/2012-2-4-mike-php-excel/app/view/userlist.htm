@@ -1,0 +1,55 @@
+<!-- 用户列表 -->
+<form id="pagerForm" method="post" action="<{url controller='user' action='userlist'}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="<{url controller='user' action='useradd'}>" target="navTab" rel="adduser"><span>添加用户</span></a></li>
+			<li><a class="delete" href="<{url controller='user' action='userdelete'}>&UserID={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
+			<li><a class="edit" href="<{url controller='user' action='userview'}>&UserID={sid_user}" target="navTab" rel="edituser"><span>修改用户</span></a></li>
+			<li><a class="icon" href="<{url controller='user' action='useractview'}>&UserID={sid_user}" target="navTab" rel="edituser"><span>用户权限</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="100%" layoutH="75">
+		<thead>
+			<tr>
+			    <th width="20"></th>
+				<th width="30">自编号</th>
+				<th width="100" orderField="username"           <{if $orderField=='username'}> class="<{$orderDirection}>" <{/if}>>账号</th>
+				<th width="100" orderField="FirstName,LastName" <{if $orderField=='FirstName,LastName'}> class="<{$orderDirection}>" <{/if}>>姓名</th>
+				<th width="100" orderField="DisplayName"        <{if $orderField=='DisplayName'}> class="<{$orderDirection}>" <{/if}>>昵称</th>
+	        	<th width="100" orderField="Email"              <{if $orderField=='Email'}> class="<{$orderDirection}>" <{/if}>>邮箱</th>
+				<th width="100" orderField="IsSuperUser"        <{if $orderField=='IsSuperUser'}> class="<{$orderDirection}>" <{/if}>>账号类型</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$users item=user}>
+			<tr target="sid_user" rel="<{$user.UserID}>">
+			    <td></td>
+				<td><{$user.UserID}></td>
+				<td><{$user.Username}></td>
+				<td><{$user.FirstName}><{$user.LastName}></td>
+				<td><{$user.DisplayName}></td>
+				<td><{$user.Email}></td>
+				<td><{if $user.IsSuperUser==1}>管理员<{else}>普通会员<{/if}></td>
+			</tr>
+            <{/foreach}>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="20">10</option>
+				<option value="50">20</option>
+				<option value="100">50</option>
+			</select>
+			<span>条，共<{$users|@count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$users|@count}>" numPerPage="20" pageNumShown="1" currentPage="1"></div>
+	</div>
+</div>

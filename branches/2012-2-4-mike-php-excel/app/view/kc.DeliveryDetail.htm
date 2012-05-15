@@ -1,0 +1,168 @@
+<!-- 报表1 -->
+<form id="pagerForm" method="post" action="<{url controller='salesreport' action='DeliveryDetail'}>">
+	<input type="hidden" name="pageNum" value="<{$page.cid}>" />
+	<input type="hidden" name="numPerPage" value="<{$page.size}>" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="<{url controller='salesreport' action='DeliveryDetail'}>" method="post">
+	<div class="searchBar subBar">
+		<ul class="pageFormContent">
+		    <p>
+				<label>From起始日期：</label>
+				<input name="formdate" value="<{$formdate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p>
+				<label>To截止日期：</label>
+				<input name="todate" value="<{$todate}>" type="text" size="30" class="date" readonly="readonly"/><a class="inputDateButton" href="javascript:;">选择日期</a>
+			</p>
+			<p></p>
+			<p>
+				<label>查询客户代码：</label>
+				<input type="text" class="textInput required" name="FCustomers" value="<{$FCustomers}>" size="30"/>
+			</p>
+			<div class="buttonActive"><div class="buttonContent"><button type="submit">Filter检索</button></div></div>
+			<div class="divider"></div>
+			<p>
+				<label>客户代码：</label>
+				<input type="text" class="textInput" name="FCustomercode" value="<{$FCustomercode}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>客户名称：</label>
+				<input type="text" class="textInput" name="FCustomername" value="<{$FCustomername}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>送货地址：</label>
+				<input type="text" class="textInput" name="FAddress" value="<{$FAddress}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>省份：</label>
+				<input type="text" class="textInput" name="FProvince" value="<{$FProvince}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>城市：</label>
+				<input type="text" class="textInput" name="FCity" value="<{$FCity}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>电话：</label>
+				<input type="text" class="textInput" name="FTel" value="<{$FTel}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>传真：</label>
+				<input type="text" class="textInput" name="FFax" value="<{$FFax}>" readonly="readonly" size="30"/>
+			</p>
+			<p>
+				<label>币种：</label>
+				<input type="text" class="textInput" name="FRMB" value="<{$FRMB}>" readonly="readonly" size="30"/>
+			</p>
+		</ul>
+	</div>
+	</form>
+</div>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="icon" href="<{url controller='kcexcel' action='DeliveryDetail' FCustomer=$FCustomer orderField=$orderField orderDirection=$orderDirection formdate=$formdate todate=$todate|@rawurlencode}>"><span>Export to EXCEL</span></a></li>
+		</ul>
+	</div>
+	<table class="table" width="150%" layoutH="270">
+		<thead>
+			<tr>
+			    <!--0--><th width="10"></th>
+				<!--1--><th width="100" orderField="FSODate" <{if $orderField=='FSODate'}> class="<{$orderDirection}>" <{/if}> align="center">下单日期</th>
+				<!--2--><th width="100" orderField="FSONo"  <{if $orderField=='FSONo'}> class="<{$orderDirection}>" <{/if}>  align="center">订单号码</th>
+				<!--3--><th width="100" orderField="FName" <{if $orderField=='FName'}> class="<{$orderDirection}>" <{/if}>  align="center">产品名称</th>
+				<!--4--><th width="100" orderField="FSpec" <{if $orderField=='FSpec'}> class="<{$orderDirection}>" <{/if}>  align="center">规格型号</th>
+				<!--5--><th width="100" orderField="FDateShow"  <{if $orderField=='FDateShow'}>  class="<{$orderDirection}>" <{/if}>  align="center">送货日期</th>
+				<!--6--><th width="100" orderField="FDONo"   <{if $orderField=='FDONo'}> class="<{$orderDirection}>" <{/if}> align="center">送货单号</th>
+				<!--7--><th width="100" orderField="FDONote" <{if $orderField=='FDONote'}> class="<{$orderDirection}>" <{/if}>  align="center">发运信息</th>
+				<!--8--><th width="100" orderField="FInvoiceNo"  <{if $orderField=='FInvoiceNo'}> class="<{$orderDirection}>" <{/if}> align="center">发票号码</th>
+				<!--9--><th width="100" orderField="FTaxInvoiceNo"  <{if $orderField=='FTaxInvoiceNo'}> class="<{$orderDirection}>" <{/if}> align="center">税控发票号码</th>
+				<!--10--><th width="100" orderField="FQty"  <{if $orderField=='FQty'}> class="<{$orderDirection}>" <{/if}> align="right">数量</th>
+				<!--11--><th width="100" orderField="FUnitName"  <{if $orderField=='FUnitName'}> class="<{$orderDirection}>" <{/if}> align="center">单位</th>
+				<!--12--><th width="100" orderField="FPrice"  <{if $orderField=='FPrice'}> class="<{$orderDirection}>" <{/if}> align="right">不含税单价</th>
+				<!--13--><th width="100" orderField="FAllPrice"  <{if $orderField=='FAllPrice'}> class="<{$orderDirection}>" <{/if}> align="right">含税单价</th>
+				<!--14--><th width="100" orderField="FAmount"  <{if $orderField=='FAmount'}> class="<{$orderDirection}>" <{/if}> align="right">不含税金额</th>
+				<!--15--><th width="100" orderField="FAllAmount"  <{if $orderField=='FAllAmount'}> class="<{$orderDirection}>" <{/if}> align="right">价税合计</th>
+				<!--16--><th width="100" orderField="FSettleDate"  <{if $orderField=='FSettleDate'}> class="<{$orderDirection}>" <{/if}> align="center">应收日期</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <{foreach from=$data item=row}>
+		    <tr target="sid_user" rel="<{$row.ID}>">
+			    <!--0--><td></td>
+				<!--1--><td><{$row.FSODate}></td>
+				<!--2--><td><{$row.FSONo}></td>
+				<!--3--><td><{$row.FName}></td>
+				<!--4--><td><{$row.FSpec}></td>
+				<!--5--><td><{$row.FDateShow}></td>
+				<!--6--><td><{$row.FDONo}></td>
+				<!--7--><td><{$row.FDONote}></td>
+				<!--8--><td><{$row.FInvoiceNo}></td>
+				<!--9--><td><{$row.FTaxInvoiceNo}></td>
+				<!--10--><td><{$row.FQty|number_format:2:'.':','}></td>
+				<!--11--><td><{$row.FUnitName}></td>
+				<!--12--><td><{$row.FPrice|number_format:2:'.':','}></td>
+				<!--13--><td><{$row.FAllPrice|number_format:2:'.':','}></td>
+				<!--14--><td><{$row.FAmount|number_format:2:'.':','}></td>
+				<!--15--><td><{$row.FAllAmount|number_format:2:'.':','}></td>
+				<!--16--><td><{$row.FSettleDate}></td>
+			</tr>
+			<{/foreach}>
+			<tr style="background:#FFFFED">
+			    <!--0--><td></td>
+				<!--1--><td><center>本页合计</center></td>
+				<!--2--><td></td>
+				<!--3--><td></td>
+				<!--4--><td></td>
+				<!--5--><td></td>
+				<!--6--><td></td>
+				<!--7--><td></td>
+				<!--8--><td></td>
+				<!--9--><td></td>
+				<!--10--><td></td>
+				<!--11--><td></td>
+				<!--12--><td></td>
+				<!--13--><td></td>
+				<!--14--><td><{_count data=$data col='FAmount' format='%.2f' datatype='money'}></td>
+				<!--15--><td><{_count data=$data col='FAllAmount' format='%.2f' datatype='money'}></td>
+				<!--16--><td></td>
+			</tr>
+			<tr style="background:#FFFACD;color:#556B2F">
+			    <!--0--><td></td>
+				<!--1--><td><center>总  计</center></td>
+				<!--2--><td></td>
+				<!--3--><td></td>
+				<!--4--><td></td>
+				<!--5--><td></td>
+				<!--6--><td></td>
+				<!--7--><td></td>
+				<!--8--><td></td>
+				<!--9--><td></td>
+				<!--10--><td></td>
+				<!--11--><td></td>
+				<!--12--><td></td>
+				<!--13--><td></td>
+				<!--14--><td><{_count data=$alldata col='FAmount' format='%.2f' datatype='money'}></td>
+				<!--15--><td><{_count data=$alldata col='FAllAmount' format='%.2f' datatype='money'}></td>
+				<!--16--><td></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="10" <{if $page.size==1}>selected<{/if}>>10</option>
+				<option value="20" <{if $page.size==20}>selected<{/if}>>20</option>
+				<option value="50" <{if $page.size==50}>selected<{/if}>>50</option>
+				<option value="100" <{if $page.size==100}>selected<{/if}>>100</option>
+				<option value="200" <{if $page.size==200}>selected<{/if}>>200</option>
+				<option value="<{$page.count}>" <{if $page.size==$page.count}>selected<{/if}>>全部</option>
+			</select>
+			<span>条，共<{$page.count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$page.count}>" numPerPage="<{$page.size}>" pageNumShown="10" currentPage="<{$page.cid}>"></div>
+	</div>
+</div>

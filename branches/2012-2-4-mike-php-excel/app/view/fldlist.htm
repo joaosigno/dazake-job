@@ -1,0 +1,74 @@
+
+<form id="pagerForm" method="post" action="<{url controller='reportmanage' action='fldlist'}>&ID=<{$rep.ID}>">
+	<input type="hidden" name="pageNum" value="1" />
+	<input type="hidden" name="numPerPage" value="20" />
+	<input type="hidden" name="orderField" value="<{$orderField}>" />
+	<input type="hidden" name="orderDirection" value="<{$orderDirection}>" />
+</form>
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="<{url controller='reportmanage' action='fldadd'}>&RepID=<{$rep.ID}>" target="navTab" rel="reportadd"><span>添加字段</span></a></li>
+			<li><a class="delete" href="<{url controller='reportmanage' action='flddelete'}>&ID={rid}" target="ajaxTodo" title="确定要删除吗?"><span>删除字段</span></a></li>
+			<li><a class="edit" href="<{url controller='reportmanage' action='fldview'}>&RepID=<{$rep.ID}>&ID={rid}" target="navTab" rel="reportview"><span>编辑字段</span></a></li>
+		</ul>
+	</div>
+	<div class="divider"></div>		
+	<h3>报表名称：<{$rep.RepName}></h3>	<br>
+	<table class="table" width="100%" layoutH="110">
+		<thead>
+			<tr>
+				<th>排序</th>
+				<th>字段名称</th>
+				<th>字段标题</th>
+				<th>排序字段</th>	
+				<th>宽度</th>
+				<th>是否可打印</th>
+				<th >是否导出EXCEL</th>
+				<th>对齐方式</th>
+				<th>统计类型</th>
+				<th>显示格式</th>
+			</tr>
+		</thead>
+		<tbody>
+			<{assign var="i" value=1}>
+			<{foreach from=$grid item=fld}>
+			    <tr target="rid" rel="<{$fld.ID}>">
+					<td><{$i++}></td>
+					<td><{$fld.FldName}></td>
+					<td><{$fld.Caption}></td>
+					<td><{$fld.OrderField}></td>
+					<td><{$fld.FWidth}></td>				
+					<td><{if $fld.IsPrint == 1}>是<{else}>否<{/if}></td>
+					<td><{if $fld.IsExcel == 1}>是<{else}>否<{/if}></td>
+					 <td>
+						<{if $fld.Align == 0}>左对齐<{/if}>
+						<{if $fld.Align == 1}>居中对齐<{/if}>
+						<{if $fld.Align == 2}>右对齐<{/if}>
+					</td>
+					<td>
+					    <{if $fld.SumType == 0}>无<{/if}>
+						<{if $fld.SumType == 1}>数量<{/if}>
+						<{if $fld.SumType == 2}>合计<{/if}>
+						<{if $fld.SumType == 3}>最小值<{/if}>
+						<{if $fld.SumType == 4}>最大值<{/if}>
+					</td>	
+					<td><{$fld.FormatStr}></td>
+				
+			    </tr>
+			<{/foreach}>
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" change="navTabPageBreak" param="numPerPage">
+				<option value="20">10</option>
+				<option value="50">20</option>
+				<option value="100">50</option>
+			</select>
+			<span>条，共<{$grid|@count}>条</span>
+		</div>	
+		<div class="pagination" targetType="navTab" totalCount="<{$grid|@count}>" numPerPage="20" pageNumShown="1" currentPage="1"></div>
+	</div>
+</div>

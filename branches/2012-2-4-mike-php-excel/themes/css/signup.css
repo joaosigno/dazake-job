@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { padding:0; margin:0; font-size:12px; line-height:100%; font-family:Arial, sans-serif;}
+
+ul, ol { list-style:none;}
+img { border:0;}
+
+body { margin:0; text-align:center; background:#FFF url(../default/images/login_bg.png) repeat-x top;}
+
+#signup { display:block; width:950px; margin:0 auto; text-align:left;}
+#signup_header { display:block; padding-top:60px; height:80px;}
+#signup_header h2{font-size:14px;}
+#signup_content { display:block; position:relative;}
+.signupForm p { margin:17px 0;}
+.signupForm label { float:left; width:100px; padding:0 0 0 10px; line-height:25px; color:#4c4c4c; font-size:13px;}
+
+
+#signup_footer { clear:both; display:block; margin-bottom:20px; padding:10px; border-top:solid 1px #e2e5e8; color:#666; text-align:center;}
+

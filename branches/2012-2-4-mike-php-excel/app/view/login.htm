@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link href="themes/css/login.css" rel="stylesheet" type="text/css" />
+<title>用户登录</title>
+</head>
+<body>
+	<!-- 登录界面 -->
+	<div id="login">
+	<h3>用户登录</h3>
+		<div id="login_content">
+			<div class="loginForm">
+				<form name="login" method="post" action="<{url controller='login' action='login'}>">				
+					<label>用户名：</label>
+						<input type="text" maxlength="30" name="Username" class="login_input" />
+					</p>
+					<p>
+						<label>密码：</label>
+						<input type="password" maxlength="20" name="password" class="login_input" />
+					</p>
+					<p>
+						<label>验证码：</label>
+						<input class="code" name="chkcode" type="text" size="5" maxlength="4" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+						<span><img src="<{url controller='login' action='imgCode'}>" alt="" width="60" height="22" /></span>
+					</p>
+					<div class="login_bar">
+						<input type="button" value="  登 录 " onclick="CheckForm();"/>
+					</div>	
+
+				</form>
+			</div>
+		</div>
+		<div id="login_footer">Copyright &copy; 2011 star Inc. All Rights Reserved.</div>
+	</div>
+</body>
+<script  language="javascript">
+function  CheckForm()
+{  
+    var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    if  (document.login.Username.value.length  ==  0)
+	{  
+        alert("用户名不能为空.");
+        document.login.Username.focus();
+        return  false;
+    }
+	else if  (document.login.password.value.length  ==  0)
+	{  
+        alert("密码不能为空.");
+        document.login.password.focus();
+        return  false;
+    }
+	else if  (document.login.chkcode.value.length  ==  0)
+	{  
+        alert("验证码不能为空.");
+        document.login.chkcode.focus();
+        return  false;
+    }
+	else
+	{
+	    document.login.submit();
+		return  true;
+	}
+};
+
+function OnLanguageChanged(lang) 
+{
+	var url = 'index.php?controller=login&action=changelang&lang=' + lang;
+	parent.document.location.href = url;
+}
+</script>
+</html>

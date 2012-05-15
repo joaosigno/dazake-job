@@ -1,0 +1,148 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+#header{
+	width: 100%;
+	height: 30px;
+	border-bottom: 2px solid #31B2E5;
+	line-height:30px;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	background: white;
+}
+
+#header #title{
+	width: 180px;
+	text-align:center;
+	font-size:18px;
+}
+
+#title1{
+	color: #4580F6;
+}
+
+#title2{
+	color: #FF3388;
+}
+
+#title3{
+	color: #FFB000;
+}
+
+#logout{
+	position: absolute;
+	top: 0;
+	right: 0px;
+	display: block;
+	text-decoration:none;
+	color: #FF169B;
+	width: 100px;
+	text-align:center;
+}
+
+#logout:hover{
+	background: #FF169B;
+	color: white;
+}
+
+#container{
+	width: 602px;
+	height: 332px;
+	position: relative;
+	left: 50%;
+	margin-left:-301px;
+	margin-top:50px;
+	border: 1px solid #31B2E5;
+	margin-bottom:30px;
+	border-bottom: 100px solid #3A6BD5;
+}
+
+#top{
+	width: 602px;
+	height: 130px;
+	position: relative;
+	border-bottom: 2px dashed #DDDDDD;
+}
+
+#logo{
+	position: absolute;
+	left: 50%;
+	margin-left:-180px;
+	margin-top:30px;
+}
+
+#hit{
+	margin:50px 20px;
+	position: absolute;
+	right: 20px;
+	font-size:25px;
+	color: #FF0066;
+	font-weight:bold;
+}
+
+#mid{
+	width: 602px;
+	height: 300px;
+	text-align:center;
+	overflow: hidden;
+	border-bottom: 2px dashed #DDDDDD;
+}
+
+#mid img{
+	float: left;
+	margin-top:7px;
+	margin-left:10px;
+}
+
+#mid p{
+	width: 500px;
+	margin:20px 50px;
+	line-height:35px;
+	color: #FF7A22;
+	font-size:20px;
+}
+
+#bottom{
+	width: 602px;
+}
+
+#bottom input{
+	float: left;
+	display: block;
+	background: url('../img/login.png');
+	border: none;
+	width: 251px;
+	height: 52px;
+	margin:20px 175px;
+	cursor: pointer;
+	box-shadow: 0px 1px 5px #444;
+}
+
+#bottom img{
+	position: relative;
+	left: 50%;
+	margin-left:-150px;
+	border: 2px solid #ddd;
+	box-shadow: 0px 3px 5px #444;
+}
+
+#footer{
+	width: 700px;
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	margin-left:-350px;
+	height: 30px;
+	border-top: 1px dashed #ddd;
+}
+
+#footer span{
+	text-align:center;
+	display: block;
+	font-size:14px;
+	line-height:30px;
+	color: #777;	
+}

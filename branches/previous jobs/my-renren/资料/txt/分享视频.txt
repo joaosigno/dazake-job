@@ -1,0 +1,40 @@
+Array
+(
+    [0] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 10309216231
+            [feed_type] => 50
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [media_type] => video
+                            [src] => http://g4.ykimg.com/0100641F464ED345B3ACB1050B60A931BD1967-997B-5EF8-0706-FD9A526DD9DE
+                            [href] => http://v.youku.com/v_show/id_XMzI3MDg0MTI4.html
+                        )
+
+                )
+
+            [post_id] => 13704985869
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [message] => 
+            [title] => [拍客]实拍菏泽消防水穿钢板
+            [update_time] => 2011-11-30 00:20:25
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 0
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 分享了视频
+            [href] => http://share.renren.com/share/GetShare.do?id=10309216231&owner=363524545
+            [comments] => Array
+                (
+                    [count] => 0
+                )
+
+        )

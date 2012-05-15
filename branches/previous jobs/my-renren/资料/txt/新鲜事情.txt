@@ -1,0 +1,367 @@
+Array
+(
+    [0] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 2777579066
+            [feed_type] => 10
+            [attachment] => Array
+                (
+                )
+
+            [post_id] => 13744771950
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [message] => (叹气)凤飞飞(舔)恩恩
+            [update_time] => 2011-12-01 19:51:07
+            [source] => Array
+                (
+                    [text] => 尚未审核应用
+                    [href] => http://dev.renren.com/warning?id=170068
+                )
+
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 0
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 凤飞飞恩恩
+            [comments] => Array
+                (
+                    [count] => 0
+                )
+
+        )
+
+    [1] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 536334713
+            [feed_type] => 30
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [content] => 文件
+                            [raw_src] => http://fmn.rrimg.com/fmn061/20111201/1905/p_large_IWgm_070d000543b8121a.jpg
+                            [media_type] => photo
+                            [owner_id] => 363524545
+                            [media_id] => 5315226559
+                            [src] => http://fmn.rrimg.com/fmn061/20111201/1905/p_head_Gd3Y_070d000543b8121a.jpg
+                            [href] => http://photo.renren.com/photo/363524545/album-536334713?curpage=0
+                        )
+
+                )
+
+            [post_id] => 13743692400
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [title] => 手机相册
+            [update_time] => 2011-12-01 19:06:35
+            [source] => Array
+                (
+                    [text] => 尚未审核应用
+                    [href] => http://dev.renren.com/warning?id=170068
+                )
+
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 0
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 上传了1张照片
+            [href] => http://photo.renren.com/photo/363524545/album-536334713?curpage=0
+            [comments] => Array
+                (
+                    [count] => 2
+                    [comment] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 5145363255
+                                    [time] => 2011-12-01 19:36
+                                    [text] => "(淘气)"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                            [1] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 5145365141
+                                    [time] => 2011-12-01 19:37
+                                    [text] => "天空。。(困)"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 10345542991
+            [feed_type] => 32
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [raw_src] => http://fmn.rrimg.com/fmn062/20111201/1815/p_large_oson_070a00053f7f121a.jpg
+                            [media_type] => photo
+                            [owner_name] => 麦克
+                            [owner_id] => 363524545
+                            [media_id] => 5315041978
+                            [src] => http://fmn.rrimg.com/fmn062/20111201/1815/p_head_nGxc_070a00053f7f121a.jpg
+                            [href] => http://photo.renren.com/photo/363524545/photo-5315041978?
+                        )
+
+                )
+
+            [post_id] => 13742715607
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [message] => 
+            [title] => 手机相册
+            [update_time] => 2011-12-01 18:23:22
+            [source] => Array
+                (
+                    [text] => 尚未审核应用
+                    [href] => http://dev.renren.com/warning?id=170068
+                )
+
+            [description] => 上传图片。。。
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 1
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 分享了照片
+            [href] => http://photo.renren.com/photo/363524545/album-536334713
+            [comments] => Array
+                (
+                    [count] => 4
+                    [comment] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 1538729296
+                                    [time] => 2011-12-01 18:23
+                                    [text] => "苹果。"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                            [1] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 1538923746
+                                    [time] => 2011-12-01 19:43
+                                    [text] => "(调皮)"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => Array
+        (
+            [actor_id] => 247378501
+            [actor_type] => user
+            [source_id] => 435574099
+            [feed_type] => 30
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 247378501
+                            [media_id] => 4116466079
+                            [src] => http://fmn.rrfmn.com/fmn046/20110325/2335/p_head_Ndx7_73f4000107165c41.jpg
+                            [href] => http://photo.renren.com/photo/247378501/photo-4116466079
+                        )
+
+                    [1] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 247378501
+                            [media_id] => 4116466080
+                            [src] => http://fmn.rrfmn.com/fmn046/20110325/2335/p_head_7oKy_561d000ac36d5c44.jpg
+                            [href] => http://photo.renren.com/photo/247378501/photo-4116466080
+                        )
+
+                    [2] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 247378501
+                            [media_id] => 4116466081
+                            [src] => http://fmn.xnpic.com/fmn049/20110325/2335/p_head_nBzu_2254000713cb5c41.jpg
+                            [href] => http://photo.renren.com/photo/247378501/photo-4116466081
+                        )
+
+                    [3] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 247378501
+                            [media_id] => 4116466082
+                            [src] => http://fmn.rrfmn.com/fmn047/20110325/2335/p_head_gPZB_5699000292e05c43.jpg
+                            [href] => http://photo.renren.com/photo/247378501/photo-4116466082
+                        )
+
+                )
+
+            [post_id] => 8567111856
+            [headurl] => http://hdn.xnimg.cn/photos/hdn321/20100616/0915/tiny_4Jeu_109578k019118.jpg
+            [title] => Myself
+            [update_time] => 2011-03-25 23:42:54
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 1
+                    [total_count] => 0
+                )
+
+            [name] => 詹宇轩
+            [prefix] => 上传了9张照片
+            [href] => http://photo.renren.com/photo/247378501/album-435574099?curpage=0
+            [comments] => Array
+                (
+                    [count] => 11
+                    [comment] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 183109277
+                                    [time] => 2011-11-30 16:47
+                                    [text] => "Micheal我要对照片评论一下。"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                            [1] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 183119298
+                                    [time] => 2011-11-30 18:08
+                                    [text] => "Micheal我要对照片评论一下。"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [4] => Array
+        (
+            [actor_id] => 267009580
+            [actor_type] => user
+            [source_id] => 399184509
+            [feed_type] => 30
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 267009580
+                            [media_id] => 5174172319
+                            [src] => http://fmn.rrimg.com/fmn063/20111029/0105/p_head_2psF_110b0000a8a01261.jpg
+                            [href] => http://photo.renren.com/photo/267009580/photo-5174172319
+                        )
+
+                    [1] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 267009580
+                            [media_id] => 5174172323
+                            [src] => http://fmn.rrimg.com/fmn062/20111029/0105/p_head_NdtK_11030000a8391261.jpg
+                            [href] => http://photo.renren.com/photo/267009580/photo-5174172323
+                        )
+
+                    [2] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 267009580
+                            [media_id] => 5174172321
+                            [src] => http://fmn.rrimg.com/fmn063/20111029/0105/p_head_fXhs_111d0000a7fd1261.jpg
+                            [href] => http://photo.renren.com/photo/267009580/photo-5174172321
+                        )
+
+                    [3] => Array
+                        (
+                            [media_type] => photo
+                            [owner_id] => 267009580
+                            [media_id] => 5174172325
+                            [src] => http://fmn.rrimg.com/fmn062/20111029/0105/p_head_Z4lU_110a0000a8ab1261.jpg
+                            [href] => http://photo.renren.com/photo/267009580/photo-5174172325
+                        )
+
+                )
+
+            [post_id] => 13036474016
+            [headurl] => http://hdn.xnimg.cn/photos/hdn421/20110813/1850/tiny_z9R8_104116n019118.jpg
+            [title] => 我
+            [update_time] => 2011-10-29 01:10:14
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 1
+                    [total_count] => 3
+                )
+
+            [name] => 郑少萍
+            [prefix] => 上传了4张照片
+            [href] => http://photo.renren.com/photo/267009580/album-399184509?curpage=0
+            [comments] => Array
+                (
+                    [count] => 15
+                    [comment] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [uid] => 255756590
+                                    [comment_id] => 106869124
+                                    [time] => 2010-10-31 18:43
+                                    [text] => "O(∩_∩)O~还是那么漂亮"
+                                    [name] => 付强
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn321/20100123/1700/h_tiny_pOdM_7edf000415952f76.jpg
+                                )
+
+                            [1] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 183183843
+                                    [time] => 2011-11-30 23:54
+                                    [text] => "哪里的？"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

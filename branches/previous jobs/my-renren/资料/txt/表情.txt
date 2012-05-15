@@ -1,0 +1,339 @@
+Array
+(
+    [0] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/2.gif?ver=1
+            [desc] => ÚÆĞ¦
+            [emotion] => (ÚÆĞ¦)
+        )
+
+    [1] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/3.gif?ver=1
+            [desc] => ³Ô·¹
+            [emotion] => (³Ô·¹)
+        )
+
+    [2] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/4.gif?ver=1
+            [desc] => µ÷Æ¤
+            [emotion] => (µ÷Æ¤)
+        )
+
+    [3] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/5.gif?ver=1
+            [desc] => ŞÏŞÎ
+            [emotion] => (ŞÏŞÎ)
+        )
+
+    [4] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/6.gif?ver=1
+            [desc] => º¹
+            [emotion] => (º¹)
+        )
+
+    [5] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/7.gif?ver=1
+            [desc] => ¾ª¿Ö
+            [emotion] => (¾ª¿Ö)
+        )
+
+    [6] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/8.gif?ver=1
+            [desc] => ‡å-¾½ÆÈ
+            [emotion] => (‡å)
+        )
+
+    [7] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/9.gif?ver=1
+            [desc] => ¿É°®
+            [emotion] => (¿É°®)
+        )
+
+    [8] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/10.gif?ver=1
+            [desc] => ¿á
+            [emotion] => (¿á)
+        )
+
+    [9] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/11.gif?ver=1
+            [desc] => Á÷¿ÚË®
+            [emotion] => (Á÷¿ÚË®)
+        )
+
+    [10] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/13.gif?ver=1
+            [desc] => É«ÃÔÃÔ
+            [emotion] => (É«)
+        )
+
+    [11] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/14.gif?ver=1
+            [desc] => Éú²¡
+            [emotion] => (Éú²¡)
+        )
+
+    [12] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/15.gif
+            [desc] => Ì¾Æø
+            [emotion] => (Ì¾Æø)
+        )
+
+    [13] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/16.gif
+            [desc] => ÌÔÆø
+            [emotion] => (ÌÔÆø)
+        )
+
+    [14] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/17.gif
+            [desc] => Ìò
+            [emotion] => (Ìò)
+        )
+
+    [15] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/18.gif
+            [desc] => ÍµĞ¦
+            [emotion] => (ÍµĞ¦)
+        )
+
+    [16] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/19.gif?ver=1
+            [desc] => Å»ÍÂ
+            [emotion] => (ÍÂ)
+        )
+
+    [17] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/20.gif
+            [desc] => ÎÇ
+            [emotion] => (ÎÇ)
+        )
+
+    [18] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/21.gif?ver=1
+            [desc] => ÔÎ
+            [emotion] => (ÔÎ)
+        )
+
+    [19] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/23.gif
+            [desc] => ×¡×ì
+            [emotion] => (×¡×ì)
+        )
+
+    [20] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/16.gif?ver=1
+            [desc] => ´óĞ¦
+            [emotion] => (´óĞ¦)
+        )
+
+    [21] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/shy.gif
+            [desc] => º¦Ğß
+            [emotion] => (º¦Ğß)
+        )
+
+    [22] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/17.gif
+            [desc] => ·ÀÁ÷¸Ğ
+            [emotion] => (¿ÚÕÖ)
+        )
+
+    [23] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/cry.gif
+            [desc] => ¿Ş
+            [emotion] => (¿Ş)
+        )
+
+    [24] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/sleepy.gif
+            [desc] => À§
+            [emotion] => (À§)
+        )
+
+    [25] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/sad.gif
+            [desc] => ÄÑ¹ı
+            [emotion] => (ÄÑ¹ı)
+        )
+
+    [26] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/5.gif?ver=1
+            [desc] => ÉúÆø
+            [emotion] => (ÉúÆø)
+        )
+
+    [27] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/13.gif?ver=1
+            [desc] => Êé´ô×Ó
+            [emotion] => (Êé´ô×Ó)
+        )
+
+    [28] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/1.gif?ver=1
+            [desc] => Î¢Ğ¦
+            [emotion] => (Î¢Ğ¦)
+        )
+
+    [29] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/emotions/tie/1.gif
+            [desc] => ²»
+            [emotion] => (²»)
+        )
+
+    [30] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/surprise.gif
+            [desc] => ¾ªÑÈ
+            [emotion] => (¾ªÑÈ)
+        )
+
+    [31] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/kbz2.gif
+            [desc] => ¿Ù±Ç
+            [emotion] => (kb)
+        )
+
+    [32] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/shaoxiang.gif
+            [desc] => ÉÕÏã
+            [emotion] => (sx)
+        )
+
+    [33] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/geili.gif
+            [desc] => ¸øÁ¦
+            [emotion] => (gl)
+        )
+
+    [34] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/yali.gif
+            [desc] => Ñ¼Àæ
+            [emotion] => (yl)
+        )
+
+    [35] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/jj.gif
+            [desc] => ÈËÈË¾Û½¹
+            [emotion] => (ju)
+        )
+
+    [36] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/holdzhu.gif
+            [desc] => Hold×¡
+            [emotion] => (hold1)
+        )
+
+    [37] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/chrysanthemum.gif
+            [desc] => Çï¾Õ
+            [emotion] => (jh)
+        )
+
+    [38] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/cold.gif
+            [desc] => ½µÎÂ
+            [emotion] => (cold)
+        )
+
+    [39] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/sleep.gif
+            [desc] => Å¯Å¯±»ÎÑ
+            [emotion] => (bw)
+        )
+
+    [40] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/nuomi2.gif
+            [desc] => Å´Ã×
+            [emotion] => (nuomi)
+        )
+
+    [41] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/rose0314.gif
+            [desc] => Ãµ¹å»¨
+            [emotion] => (rs)
+        )
+
+    [42] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/shangbuqi.gif
+            [desc] => ÉË²»Æğ
+            [emotion] => (sbq)
+        )
+
+    [43] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/youmuyou.gif
+            [desc] => ÓĞÄ¾ÓĞ
+            [emotion] => (ymy)
+        )
+
+    [44] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/exclamation.gif
+            [desc] => ¾ªÌ¾ºÅ
+            [emotion] => (th)
+        )
+
+    [45] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/guibai.gif
+            [desc] => Ä¤°İ
+            [emotion] => (mb)
+        )
+
+    [46] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/loli.gif
+            [desc] => ÃÍ³é
+            [emotion] => (mc)
+        )
+
+    [47] => Array
+        (
+            [icon] => http://a.xnimg.cn/imgpro/icons/statusface/snow.gif
+            [desc] => Ñ©»¨
+            [emotion] => (sn)
+        )
+
+)

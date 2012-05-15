@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "common.css";
+
+
+/*微博内容*/
+#content{
+	margin-top: 10px;
+	width: 600px;
+}
+
+/*每个内容区块*/
+.contentbox{
+	border-bottom: 1px dashed #E1E3E3;
+	margin-bottom:30px;
+	padding-bottom: 10px;
+	width: 600px;
+	float: left;
+	font-size:14px;
+	text-align:justify;
+	line-height:18px;
+}
+
+.contentbox a{
+	color: #92CBC4;
+	text-decoration:none;
+}
+
+.userid, .contentbox .userid{
+	color: #307D74;	
+}
+
+.retweet .userid{
+	color:#92CBC4;
+}
+
+.contentbox .userid:hover{
+	text-decoration:underline;
+}
+
+.content-left{
+	float: left;
+	width:50px ;
+}
+
+.content-right{
+	display: inline;
+	float: left;
+	width: 540px;
+	margin-left: 10px;
+}
+
+.content_text, .content_img{
+	margin-bottom: 10px;
+	float: left;
+	clear:left;
+}
+
+.content_text span{
+	line-height:23px;
+}
+
+.content_info{
+	width: 540px;
+	float: left;
+}
+
+.content_info *{
+	font-size: 12px;
+	color: #92CBC4;
+}
+
+.content_info a:hover, .tweet_info a:hover{
+	text-decoration:underline;
+}
+
+.tweet_info{
+	float: right;
+	margin-top:2px;
+}
+
+/*带转发的*/
+.originaltweet{
+	background: #F0F0F0;
+	float: left;
+	width: 520px;
+	margin-bottom: 20px;
+	padding: 10px;
+	_padding: 5px;
+}
+
+
+
+.originaltweet *{
+	font-size: 13px;
+	line-height: 16px;
+	float: left;
+	color: #777;
+	text-align: justify;
+}
+
+.originaltweet .tweet_info a{
+	font-size:12px;
+}
+
+.tweet_info span{
+	cursor: pointer;
+}
+
+.tweet_info span:hover{
+	text-decoration:underline;
+}
+
+.retweet, .retweet_content_img{
+	margin-bottom: 20px;
+	float: left;
+}
+
+.retweet_content_info *{
+	color: #92CBC4;
+	font-size:12px;
+}
+
+.retweet_content_info{
+	width: 527px;
+}
+
+.retweet_content_info .tweet_info{
+	float: right;
+	margin-top:0px;
+}

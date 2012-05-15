@@ -1,0 +1,51 @@
+Array
+(
+    [0] => Array
+        (
+            [id] => 233783221
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn121/20111025/1635/tiny_aF8B_104704a019117.jpg
+            [name] => 汪了一
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20111025/1635/h_head_3qHi_20910004cbb32f75.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 268892220
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn121/20091215/0420/tiny_65s9_15650g019117.jpg
+            [name] => 翁太千
+            [headurl] => http://hdn.xnimg.cn/photos/hdn321/20091215/0420/h_head_uRUH_13a700003cbf2f75.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 249077927
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn121/20111008/1805/tiny_nqgD_161160c019117.jpg
+            [name] => 朱之曦Dennis
+            [headurl] => http://hdn.xnimg.cn/photos/hdn421/20111008/1805/h_head_D4iu_6155000288bc2f76.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 302970601
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn521/20111122/1235/tiny_xYNk_101355b019118.jpg
+            [name] => 林威翰
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20111122/1235/h_head_7QTw_4d32000012c92f75.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 248606342
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn521/20111121/2235/h_tiny_adlH_6f9300012fa52f76.jpg
+            [name] => 沈杉杉Fatty
+            [headurl] => http://hdn.xnimg.cn/photos/hdn521/20111121/2235/h_head_sBqc_6f9300012fa52f76.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 321322689
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn221/20110906/1915/tiny_JhZF_306216i019118.jpg
+            [name] => 薛瀚
+            [headurl] => http://hdn.xnimg.cn/photos/hdn421/20110906/1915/h_head_v4jT_5e28000004f42f76.jpg
+        )
+
+)

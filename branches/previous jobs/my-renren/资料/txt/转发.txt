@@ -1,0 +1,59 @@
+Array
+(
+    [0] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 10309026246
+            [feed_type] => 32
+            [attachment] => Array
+                (
+                    [0] => Array
+                        (
+                            [raw_src] => http://fmn.rrimg.com/fmn053/20110411/2030/p_large_Mr70_6f8e000062145c40.jpg
+                            [media_type] => photo
+                            [owner_name] => 杨翔凌
+                            [owner_id] => 256197135
+                            [media_id] => 4195041411
+                            [src] => http://fmn.rrimg.com/fmn053/20110411/2030/p_head_w3HO_6f8e000062145c40.jpg
+                            [href] => http://photo.renren.com/photo/256197135/photo-4195041411?
+                        )
+
+                )
+
+            [post_id] => 13704741465
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [message] => 
+            [title] => 丹吉尔与紫色的大西洋
+            [update_time] => 2011-11-30 00:06:04
+            [description] => 
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 0
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 分享了照片
+            [href] => http://photo.renren.com/photo/256197135/album-441159604
+            [comments] => Array
+                (
+                    [count] => 1
+                    [comment] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [uid] => 363524545
+                                    [comment_id] => 1534833851
+                                    [time] => 2011-11-30 00:06
+                                    [text] => "海水。。"
+                                    [name] => 麦克
+                                    [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                                )
+
+                        )
+
+                )
+
+        )

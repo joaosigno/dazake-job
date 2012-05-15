@@ -1,0 +1,6 @@
+网     址：http://smile-tomato.com/
+绑定 别名：www.smile-tomato.com a931556.s85.gzonet.com
+ip  地 址：124.172.156.206
+ftp 地 址：124.172.156.206
+ftp用户名：webmaster@smile-tomato.com
+ftp密  码：1020aeec

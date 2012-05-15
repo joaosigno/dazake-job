@@ -1,0 +1,5 @@
+本地测试服务器
+本次申请获得如下APP ID、API Key和Secret Key　
+APP ID：	100020472
+API Key：	6450844693976b11a4ea35b367b76f45
+Secret Key：	fe12d345e4c5328fcc2778b70b0b2889

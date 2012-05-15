@@ -1,0 +1,54 @@
+
+/*************************************
+**********initial setting*************
+**************************************/
+html, body, div, span, p, blockquote, pre,
+a, img, strong,
+b, center,
+dl, dt, dd, ol, ul, li,
+form, label, legend,
+table, tr, th, td{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	color: #444;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+	font-family:'Microsoft YaHei','黑体'，helvetica,arial,verdana,sans-serif;
+}
+
+/*ie6 css3效果hack*/
+.box-shadow{
+	box-shadow: 2px 2px 5px #444;
+	behavior: url('css/PIE.htc');
+}
+
+/*************************************
+**********initial setting*************
+**************************************/

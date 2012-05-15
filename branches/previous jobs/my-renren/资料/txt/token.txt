@@ -1,0 +1,57 @@
+Array
+(
+    [scope] =&gt; read_user_message write_guestbook send_request read_user_blog read_user_album read_user_checkin send_message read_user_status read_user_share send_invitation photo_upload publish_blog publish_comment read_user_comment create_album read_user_guestbook publish_share read_user_like_history operate_like read_user_feed read_user_photo read_user_invitation status_update publish_checkin read_user_request publish_feed
+    [expires_in] =&gt; 2593538
+    [refresh_token] =&gt; 170068|7.530c2810857411703f250a7cc1130ac1.5184000.1327726800-363524545
+    [user] =&gt; Array
+        (
+            [id] =&gt; 363524545
+            [name] =&gt; Âó¿Ë
+            [avatar] =&gt; Array
+                (
+                    [0] =&gt; Array
+                        (
+                            [type] =&gt; avatar
+                            [url] =&gt; http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_head_TX7f_4751000151cf2f75.jpg
+                        )
+
+                    [1] =&gt; Array
+                        (
+                            [type] =&gt; tiny
+                            [url] =&gt; http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+                        )
+
+                    [2] =&gt; Array
+                        (
+                            [type] =&gt; main
+                            [url] =&gt; http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_main_D1qY_4751000151cf2f75.jpg
+                        )
+
+                    [3] =&gt; Array
+                        (
+                            [type] =&gt; large
+                            [url] =&gt; http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_large_gLiI_4751000151cf2f75.jpg
+                        )
+
+                )
+
+        )
+
+    [access_token] =&gt; 170068|6.1ff5dd6269a43b27808eb614714a519e.2592000.1325134800-363524545
+)
+Array
+(
+    [renren_token] =&gt; Array
+        (
+            [session_secret] =&gt; 76802b3f078a29b210c590e287aebce4
+            [expires_in] =&gt; 2593537
+            [session_key] =&gt; 6.1ff5dd6269a43b27808eb614714a519e.2592000.1325134800-363524545
+        )
+
+    [oauth_token] =&gt; 170068|6.1ff5dd6269a43b27808eb614714a519e.2592000.1325134800-363524545
+    [user] =&gt; Array
+        (
+            [id] =&gt; 363524545
+        )
+
+)

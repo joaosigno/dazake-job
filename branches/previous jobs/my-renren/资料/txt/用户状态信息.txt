@@ -1,0 +1,99 @@
+Array
+(
+    [0] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2764013521
+            [message] => (哭)
+            [time] => 2011-11-28 19:26:33
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [1] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763946355
+            [message] => 双方所发的(生气)
+            [time] => 2011-11-28 19:10:33
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [2] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763933059
+            [message] => (叹气)(淘气)这样
+            [time] => 2011-11-28 19:07:23
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [3] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763931495
+            [message] => (谄笑)
+            [time] => 2011-11-28 19:07:00
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [4] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763928832
+            [message] => (谄笑)(谄笑)(谄笑)(谄笑)(吃饭)(吃饭)
+            [time] => 2011-11-28 19:06:22
+            [forward_count] => 0
+            [source_name] => 网站
+        )
+
+    [5] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763862368
+            [message] => 反对反对反对方 。。了解了解的身份。。
+            [time] => 2011-11-28 18:50:46
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [6] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2763856444
+            [message] => effective
+            [time] => 2011-11-28 18:49:20
+            [forward_count] => 0
+            [source_name] => 人人网本地测试
+        )
+
+    [7] => Array
+        (
+            [uid] => 363524545
+            [comment_count] => 0
+            [source_url] => 
+            [status_id] => 2741590694
+            [message] => 很想去看看雪。。
+            [time] => 2011-11-23 15:00:53
+            [forward_count] => 0
+            [source_name] => 网站
+        )
+
+)

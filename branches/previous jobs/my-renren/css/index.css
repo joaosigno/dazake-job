@@ -1,0 +1,356 @@
+@import 'reset.css';
+@import	'common.css';
+
+
+#news_box{
+	width: 380px;
+	float: left;
+}
+
+.picUploaded{
+  background:#F0F5F8;
+  min-height:150px;
+  border:1px dashed #D4D8DC;
+  border-top:none;
+  position:relative;
+}
+
+.picUploaded span{
+  color:white;
+  text-align:center;
+  width:100%;
+  display:block;
+  line-height:30px;
+  background:#205DAC;
+}
+
+#news_box .picUploaded img{
+  max-width:150px;
+  border:2px solid #D4D8DC;
+  margin-left:110px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+#news_box .picUploaded_cancel{
+  float:right;
+  width:30px;
+  position:absolute;
+  top:0;
+  right:0;
+  font-size:20px;
+  line-height:25px;
+  cursor:pointer;
+  height:30px;
+}
+
+#news_box .picUploaded_cancel:hover{
+  background:#2E7EE5;
+}
+
+.each_news{
+	border-bottom: 1px solid #E3EEF8;
+	padding-bottom: 20px;
+	width: 380px;	
+}
+
+.each_news, .col-left, .col-mid{
+	float: left;
+}
+
+.comment_share_success_float_box{
+  background:#2D7CE2;
+  height:25px;
+  text-align:center;
+  line-height:25px;
+  color:white;
+}
+
+.col-left{
+	width: 50px;
+	margin-top:10px;
+}
+
+.col-mid{
+	width: 300px;
+	margin-top:10px;
+	margin-left:10px;
+	
+}
+
+.news_content{
+	width: 310px;
+}
+
+.news_title{
+	display: block;
+	width: 310px;
+	line-height:20px;
+	font-size:14px;
+}
+
+.news_title a{
+	margin-right:5px;	
+}
+
+.news_content a{
+	text-decoration:none;
+	color: #256FB7;
+}
+
+.news_content a:hover{
+	text-decoration:underline;
+}
+
+.text_content{
+	width: 310px;
+	margin:10px 0px;
+	font-size:13px;
+	line-height:20px;
+}
+
+.pic_content{
+	float: left;
+	width: 320px;
+}
+
+.pic_content img{
+	max-width: 100px;
+	border: 2px solid #E9EBEB;
+	border-radius: 2px;
+	margin-left:2px;
+	float: left;
+}
+
+.pic_content img:hover{
+	border-color: #333;
+}
+
+.news_info{
+	width: 300px;
+	height: 25px;
+	line-height:25px;
+	color: #256FB7;
+	font-size:13px;
+	padding-left: 10px;
+	position: relative;
+}
+
+.news_info span{
+	cursor: pointer;
+	float: left;
+	margin-right:10px;
+}
+
+.news_info span:hover{
+	text-decoration:underline;
+}
+
+.like_button{
+	width: 58px;
+	height: 18px;
+	margin-top:5px;
+	background: url(../img/like.png) no-repeat;
+}
+
+.like_button span{
+	margin-left:20px;
+	margin-top:-5px;
+}
+
+
+/*当提交like后显示的状态*/
+.like_status{
+  background:#F3FAFF;
+  height:25px;
+  line-height:25px;
+  color:#555;
+  font-size:13px;
+  border-bottom:1px solid white;
+}
+
+.like_status_button{
+  width:17px;
+  height:18px;
+  float:left;
+  margin:5px 4px;
+  background:url(../img/like2.png);
+}
+
+.news_comment_box{
+	width: 310px;
+	background: #EDF4F9;
+	float: left;
+	position: relative;
+}
+
+.news_comment_area{
+	float: left;
+	width: 310px;
+}
+
+.each_news_comment{
+	border-bottom: 1px dashed #D7DEE3;
+	float: left;
+	width: 310px;
+}
+
+
+.each_news_comment img{
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin: 3px;
+}
+
+.comment_fds_name{
+	font-size:13px;
+	margin: 3px;
+	float: left;
+}
+
+.comment_fds_name a{
+	color: #256FB7;
+	text-decoration:none;
+}
+
+.comment_content{
+	float: left;
+	clear: left;
+	width: 265px;
+	margin-left:40px;
+	margin-bottom:5px;
+	font-size:13px;
+	line-height:20px;
+	color: #444;
+}
+
+.insert_comment_box{
+	width: 310px;
+	float: left;
+	position: relative;
+}
+
+.insert_comment_text{
+	display: block;
+	width: 304px;
+	float: left;
+	height:20px;
+	margin-top:5px;
+}
+
+.insert_comment_button{
+	float: right;
+	margin: 5px 2px;
+	text-align:center;
+	line-height:26px;
+	width: 50px;
+	height: 25px;
+	color: white;
+	font-size:15px;
+	background: #5386B7;
+	cursor: pointer;
+	display: none;
+}
+
+.insert_comment_button:hover{
+	background: #426D97;
+}
+
+/*评论表情*/
+.comment_biaoqing{
+	width: 50px;
+	height: 20px;
+	margin-left:8px;
+	text-align:center;
+	line-height:23px;
+	font-size:13px;
+	color: #256FB7;
+	float: left;
+	margin-top:6px;
+	cursor: pointer;
+	display: none;
+}
+
+.comment_biaoqing:hover{
+	text-decoration:underline;
+}
+
+.comment_biaoqing_logo{
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-top:3px;
+	background: url(../img/biaoqing.gif);
+}
+
+.comment_biaoqing_corner{
+	position: absolute;
+	top: -17px;	
+	left: 10px;
+	font-size:30px;
+	color: #BADCDD;
+	z-index: -1;
+}
+
+.comment_biaoqing_float_box{
+	background: #BADCDD;
+	width: 280px;
+	height: 110px;
+	position: absolute;
+	z-index: 99;
+	top: 80px;
+	left: 14px;
+	display: none;
+}
+
+.comment_biaoqing_float_box ul{
+	width: 280px;
+	height: 110px;
+}
+
+.comment_biaoqing_float_box ul li{
+	width: 24px;
+	height: 23px;
+	float: left;
+	margin: 2px;	
+}
+
+.comment_biaoqing_float_box ul li img{
+	width: 17px;
+	height: 16px;
+	margin-top:3px;
+	margin-left:3px;
+	cursor: pointer;
+}
+
+.comment_biaoqing_float_box ul li img:hover{
+	border: 1px solid #3B5898;
+}
+
+.comment_content img{
+  width:17px;
+  height:16px
+}
+
+/*脚部*/
+#footer{
+	width: 380px;
+	float: left;
+	text-align:center;
+}
+
+#loadmore{
+	width: 380px;
+	height: 30px;
+	background: #EDF4F9;
+	line-height:30px;
+	color: #5386B7;
+	cursor: pointer;
+	float: left;
+	margin: 10px;
+}
+
+#loadmore:hover{
+	font-weight:bold;
+}

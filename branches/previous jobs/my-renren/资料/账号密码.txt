@@ -1,0 +1,19 @@
+人人网账号：18998499094
+人人网密码：5201314
+
+人人网本地测试
+应用ID：  170068
+API Key：  66bab534984c43b0bf8013ed66ef8e35
+Secret Key：  cf7c0115182448c2ac10d1a1951a3e53
+
+人人网服务器端测试
+API Key：  649a731376004005ad878082ddecae35
+Secret Key：  171d5cf37f4c42ff91a989ab290297cb
+callback: http://www.tellyouwhere.com/my-renren/class/callback.php
+
+人人网本地测试服务器2
+
+应用ID：  170548
+API Key：  fc540839406b47c083b1e88046badbf5
+Secret Key：  a7827d260ab54c7cbf3f1d12e04abda9
+callback:http://localhost/xampp/my-renren/class/callback.php

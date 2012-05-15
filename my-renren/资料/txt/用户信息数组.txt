@@ -1,0 +1,15 @@
+Array
+(
+    [0] => Array
+        (
+            [uid] => 363524545
+            [tinyurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [vip] => 1
+            [sex] => 1
+            [name] => 麦克
+            [star] => 1
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_head_TX7f_4751000151cf2f75.jpg
+            [zidou] => 0
+        )
+
+)

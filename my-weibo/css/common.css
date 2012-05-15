@@ -1,0 +1,744 @@
+.hide{
+	display: none;
+}
+/*微博内容部分*/
+#main{
+	width:600px;
+	_margin-top: 10px;
+	margin-top: 30px;
+	margin-top: 50px\0;
+	margin-left: 7px;
+}
+
+@-moz-document url-prefix(){
+#main{
+	margin-top: 50px;          /*  firefox*/
+}
+}
+
+*+html #main{
+	margin-top: 40px;		/*ie7*/
+}
+
+/*导航栏*/
+#navi{
+	background: #F0F0F0;
+	height:50px;
+}
+
+#tags{
+	background: white;
+	height: 25px;
+	line-height: 25px;
+}
+
+#tags a{
+	text-decoration:none;
+	font-size:12px;
+	display: block;
+	width: 70px;
+	text-align: center;
+	float: left;
+	color: #307D74;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+#tags a:hover{
+	text-decoration: underline;
+}
+
+#navi .nowfocus a{
+	background: #f0f0f0;
+	color: #444;
+	font-weight:bold;
+}
+
+/*外部容器*/
+#container{
+	width:615px;
+	height:500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: #FDFDFD;
+}
+
+/*顶栏*/
+#topbar{
+	height: 35px;
+	width: 615px;
+	background: url('../img/nav_bg.png') repeat-x ;
+}
+
+#topbar a{
+	text-decoration:none;
+}
+
+#topbar a:hover{
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+/*sina_weibo logo*/
+#topbar #sina_logo{
+	display: block;
+	float: left;
+	background: url('../img/sina_logo.png') no-repeat;
+	width: 136px;
+	height: 25px;
+	margin-top:4px;
+}
+
+#topbar #sina_logo:hover{
+	background-position: 0px -25px;	
+}
+
+/*退出登录*/
+#topbar a{
+	display: block;
+	float: right;
+	line-height:35px;
+	color: white;
+	margin-right:10px;
+	font-size:14px;
+}
+
+/*头部*/
+#header{
+	width:600px;
+	margin-left: 7px;
+}
+
+/*用户名  关注 粉丝 微博*/
+#col1{
+	height:60px;
+	width:600px;
+	border-bottom: 1px dashed #CEE3E1;
+	margin-bottom:10px;
+}
+
+#col1 a{
+	text-decoration:none;
+}
+
+#col1 a:hover{
+	text-decoration:underline;
+}
+
+#col1-left,#col1-right,.func,#col1 *{
+	float:left;
+}
+
+/*头像*/
+#col1-left{
+	margin:5px;
+}
+
+/*用户id*/
+#userid{
+	position: absolute;
+	top: 0px;
+	left: 139px;
+	height: 35px;
+	line-height:35px;
+	overflow: hidden;
+}
+
+#col1-right{
+	margin:5px 0px 5px 70px;
+	margin:5px 0px 5px 0px !important;/*for firefox ie8*/
+	
+}
+
+#col1-right a{
+	color:#307D74;
+}
+
+#col1-right span{
+	color:#307D74;
+	font-weight:bold;
+}
+
+/*关注 粉丝 微博*/
+.func{
+	margin-top:15px;
+	margin-left:40px;
+	width:50px;
+}
+
+@-moz-document url-prefix(){
+.func{
+	width: 50px;          /*  firefox*/
+}
+}
+
+/*数字*/
+.func span{
+	font-size:13px;
+}
+
+/*项目*/
+.func a{
+	font-size:14px;
+}
+
+
+/*发微博输入框*/
+#col2{
+	width:600px;
+	height:100px;
+}
+
+#slogan{
+	float: left;
+	display: block;
+	width: 448px;
+	height: 16px;
+	background: url('../img/slogan.png');
+	background-repeat: no-repeat;	
+	margin: 5px;
+}
+
+
+#input_count{
+	float: right;
+	color: #444;
+	font-size: 12px;
+	display: block;
+	line-height: 30px;
+}
+
+#input_left_number{
+	color: #307D74;
+	font-weight: bold;
+	font-size:14px;
+}
+
+#col2 form #input_text{
+	width:585px;
+	height:50px;
+	padding: 0px;
+	margin-left:2px;
+	font-size:14px;
+	color: #777;
+	padding: 5px;
+	text-indent: 5px;
+}
+
+
+#send_button{
+	display:block;
+	width:70px;
+	height:28px;
+	float:right;
+	background-image: url('../img/send_weibo.png');
+	background-position: -403px -1px;
+	border:none;
+	margin-top:8px;
+	margin-right:5px;
+	*margin-right:-5px;         /*ie6,ie7*/
+	cursor:pointer;
+	border-radius: 5px;
+	box-shadow:0px 1px 1px black;
+}
+
+#col2 form .send_button{
+	display:block;
+	width:70px;
+	height:28px;
+	float:right;
+	background-image: url('../img/send_weibo.png');
+	background-position: -473px -1px;
+	border:none;
+	margin-top:8px;
+	margin-right:5px;
+	*margin-right:-5px;         /*ie6,ie7*/
+	cursor:pointer;
+	border-radius: 5px;
+	box-shadow:0px 1px 1px black;
+}
+
+#col2 form .send_button:hover{
+	background: url('../img/send_weibo.png');
+	background-position: -333px -1px;	
+}
+
+#col2 form .send_button:active{
+	background: url('../img/send_weibo.png');
+	background-position: -403px -1px;
+}
+
+/*上传东西*/
+#upload_box{
+	height:30px;
+	width:230px;
+	*position: absolute;			/*ie6,ie7*/
+}
+
+.upload_func{
+	float:left;
+	margin-left:10px;
+	*margin-left:3px;				/*ie6,ie7*/
+	margin-top:13px;
+	*top:0px;						/*ie6,ie7*/
+	height:20px;
+	width:50px;
+	line-height:20px;
+	color:#333;
+}
+
+.upload_func span{
+	float:left;
+}
+
+/*点击图片，表情，视频*/
+.float_trigger{
+	font-size:13px;
+	cursor:pointer;
+	color: #92CBC4;
+}
+
+/*表情*/
+#upload_biaoqing .upload_func_logo{
+	display:block;
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	background-image:url('../img/ico.png');
+}	
+
+#biaoqing:hover{
+	text-decoration:underline;
+}
+
+#upload_biaoqing .float_box_biaoqing{
+	width: 290px;
+	height: 310px;
+	background: white;
+}
+
+.float_box_biaoqing ul{
+	float: left;
+	width: 272px;
+	margin-left: 9px;
+	margin-top:10px;
+}
+
+.biaoqing_img{
+	width: 32px;
+	height: 30px;
+	float: left;
+	border: 1px solid #E8E8E8;
+	cursor: pointer;
+	text-align:center;
+	vertical-align: middle;
+}
+
+.biaoqing_img img{
+	padding-top: 4px;
+}
+
+.biaoqing_img:hover{
+	border-color:#92CBC4 ;
+}
+
+/*图片*/
+#upload_pic .upload_func_logo{
+	display:block;
+	position:relative;
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	background-image:url('../img/ico.png');
+	background-position: 0 -32px;
+}
+	
+#pic:hover{
+	text-decoration:underline;
+}
+
+#choose_file{
+	margin: 20px 10px;
+}
+
+#clear_form{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#A5A7A7;
+  color:white;
+  width:15px;
+  height:15px;
+  text-align:center;
+  line-height:12px;
+  cursor:pointer;
+}
+
+#clear_form:hover{
+  background:#696B6B;
+}
+
+#upload_tip{
+  background:url('../img/loading22.gif');
+  width:22px;
+  height:22px;
+  margin-left:60px;
+  margin-bottom:10px;
+}
+
+/*上传弹出*/
+.float_box{
+	width:200px;
+	min-height:80px;
+	background: #F0F0F0;
+	/*background:rgba(0,0,0,0.8);*/
+	position:absolute;
+	top:240px;
+	*top:35px;								/*ie6,ie7*/
+	box-shadow:2px 2px 5px #3C5855;
+}
+
+#upload_pic_preview{
+  max-width:150px;
+  margin:10px;
+  border:5px solid #78AEA7;
+}
+
+/*弹出链接*/
+.float_input_text{
+	display:block;
+	width:190px;
+	height:30px;
+	color: #777;
+	line-height:30px;
+	font-size:14px;
+	margin-top:2px;
+	margin-left:2px;
+}
+
+.float_send{
+	  background-color: #8DDB00;
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#8DDB00), to(#629B05)); /* Saf4+, Chrome */
+	  background-image: -webkit-linear-gradient(top, #8DDB00, #629B05); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	  background-image:    -moz-linear-gradient(top, #8DDB00, #629B05); /* FF3.6 */
+	  background-image:     -ms-linear-gradient(top, #8DDB00, #629B05); /* IE10 */
+	  background-image:      -o-linear-gradient(top, #8DDB00, #629B05); /* Opera 11.10+ */
+	  background-image:         linear-gradient(top, #8DDB00, #629B05);
+	            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#8DDB00', EndColorStr='#629B05'); /* IE6-IE9 */
+	
+	width:50px;
+	color:white;
+	text-align:center;
+	line-height:25px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	cursor:pointer;
+	border-radius:3px;
+}
+
+.float_send:hover{
+	background-color: #8DDB00;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#8DDB00), to(#629B05)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #629B05, #8DDB00); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #629B05, #8DDB00); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #629B05, #8DDB00); /* IE10 */
+	background-image:      -o-linear-gradient(top, #629B05, #8DDB00); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #629B05, #8DDB00);
+	          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#8DDB00', EndColorStr='#629B05'); /* IE6-IE9 */
+	
+}
+
+.float_cancel{
+	position:absolute;
+	bottom:3px;
+	right:0px;
+	color:grey;
+	width:30px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	background: white;
+	/*background:rgba(0,0,0,8);*/
+	font-size:12px;
+	margin-top:15px;
+	margin-right:5px;
+	cursor:pointer;
+}
+
+.float_cancel:hover{
+	font-weight: bold;
+}
+
+#float_msn{
+	position:absolute;
+	background:rgba(0,0,0,0.8);
+	background:#999\9;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	border-radius:5px;
+	top:155px;
+	*top:-50px;				/*ie6,ie7*/
+	left:60px;
+	color:white;
+	text-align:center;
+	
+}
+
+/*视频*/
+#upload_video .upload_func_logo{
+	display:block;
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	background-image:url('../img/ico.png');
+	background-position: 0 -67px;
+}
+
+#video:hover{
+	text-decoration:underline;
+}
+
+/*评论框*/
+.commentbox{
+  background:#F0F0F0;
+  width:540px;
+  float:left;
+}
+
+.comment_text{
+  height:30px;
+  width:530px;
+  float:left;
+  margin-top:5px;
+  margin-left:2px;
+}
+
+.comment_button{
+  color:#333;
+  width:40px;
+  height:20px;
+  float:right;
+  background:#87D700;
+  color:white;
+  text-align:center;
+  line-height:20px;
+  margin:8px 5px auto auto;
+  cursor:pointer;
+  box-shadow:0px 1px 1px #335600;
+}
+
+.comment_button:hover{
+  background:#6BAE01;
+}
+
+.submit_comment{
+  position: relative;
+  float:left;
+  width:540px;
+  padding-bottom:10px;
+  border-bottom:1px solid #E3E5E5;
+}
+
+.comment_content{
+	float:left;
+	min-height: 30px;
+	margin-top:5px;
+	width: 520px;
+	margin:10px;
+	line-height:20px;
+}
+
+.each_comment span a{
+	float: left;
+	margin-top:5px;
+}
+
+.comment_list{
+  float:left;
+  background:#F5F7F7;
+  width:540px;
+  font-size:12px;
+  text-indent:5px;
+}
+
+.each_comment{
+	float:left;
+	border-bottom:1px dashed #E3E5E5;
+}
+
+.comment_cancel{
+  float:right;
+  margin:3px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.comment_cancel:hover{
+  text-decoration:underline;
+}
+
+
+/*评论表情*/
+.comment_biaoqing{
+	position: relative;
+	margin: 50px 0px 0px 15px;
+	width: 20px;
+}
+
+.comment_biaoqing_trigger{
+	display:block;
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	cursor: pointer;
+	background-image:url('../img/ico.png');
+}
+
+.comment_biaoqing_floatbox{
+	width: 290px;
+	height:270px;
+	top: 75px;
+	left: 0;
+	margin-left:-50px;
+	position: absolute;
+	background:white;
+	box-shadow: 1px 1px 1px #444;
+}
+
+.comment_biaoqing_floatbox ul{
+	float: left;
+	width: 272px;
+	margin:6px 0px 0px 9px;
+}
+
+.comment_biaoqing_img{
+	width: 32px;
+	height: 30px;
+	float: left;
+	border: 1px solid #E8E8E8;
+	cursor: pointer;
+	text-align:center;
+	vertical-align: middle;
+}
+
+.comment_biaoqing_img img{
+	padding-top: 4px;
+}
+
+.comment_biaoqing_img:hover{
+	border-color:#92CBC4 ;
+}
+
+/*转发表情*/
+.retweetbox{
+  background:#F0F0F0;
+  width:540px;
+  height:100px;
+  float:left;
+  position: relative;
+}
+
+.retweet_box_text{
+  height:30px;
+  width:530px;
+  float:left;
+  margin-top:5px;
+  margin-left:2px;
+}
+
+.retweet_box_button{
+  color:#333;
+  width:40px;
+  height:20px;
+  float:right;
+  background:#87D700;
+  color:white;
+  text-align:center;
+  line-height:20px;
+  margin:8px 5px auto auto;
+  cursor:pointer;
+  box-shadow:0px 1px 1px #335600;
+}
+
+.retweet_box_button:hover{
+  background:#6BAE01;
+}
+
+.retweet_biaoqing{
+	position: relative;
+	margin: 50px 0px 0px 15px;
+	width: 20px;
+}
+
+.retweet_biaoqing_trigger{
+	display:block;
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	cursor: pointer;
+	background-image:url('../img/ico.png');
+}
+
+.retweet_biaoqing_floatbox{
+	width: 290px;
+	height:270px;
+	top: 75px;
+	left: 0;
+	margin-left:-50px;
+	position: absolute;
+	background:white;
+	box-shadow: 1px 1px 1px #444;
+}
+
+.retweet_biaoqing_floatbox ul{
+	float: left;
+	width: 272px;
+	margin:6px 0px 0px 9px;
+}
+
+.retweet_biaoqing_img{
+	width: 32px;
+	height: 30px;
+	float: left;
+	border: 1px solid #E8E8E8;
+	cursor: pointer;
+	text-align:center;
+	vertical-align: middle;
+}
+
+.retweet_biaoqing_img img{
+	padding-top: 4px;
+}
+
+.retweet_biaoqing_img:hover{
+	border-color:#92CBC4 ;
+}
+
+/*翻页*/
+#page{
+  float:left;
+  margin-bottom:20px;
+}
+
+#page a{
+  float:left;
+  background:#73A8A2;
+  margin-left:170px;
+  width:60px;
+  height:20px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  padding:5px;
+}
+
+#page a:hover{
+  text-decoration:underline;
+}
+
+#page a span{
+  color:#fff;
+  line-height:20px;
+}

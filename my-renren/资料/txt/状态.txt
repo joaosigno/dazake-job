@@ -1,0 +1,35 @@
+  [0] => Array
+        (
+            [actor_id] => 363524545
+            [actor_type] => user
+            [source_id] => 2769531697
+            [feed_type] => 10
+            [attachment] => Array
+                (
+                )
+
+            [post_id] => 13703333035
+            [headurl] => http://hdn.xnimg.cn/photos/hdn121/20110415/0205/h_tiny_gFjm_4751000151cf2f75.jpg
+            [message] => 状态。信息分发。(害羞)
+            [update_time] => 2011-11-29 23:03:58
+            [source] => Array
+                (
+                    [text] => 尚未审核应用
+                    [href] => http://dev.renren.com/warning?id=170068
+                )
+
+            [likes] => Array
+                (
+                    [friend_count] => 0
+                    [user_like] => 0
+                    [total_count] => 0
+                )
+
+            [name] => 麦克
+            [prefix] => 状态。信息分发。
+            [comments] => Array
+                (
+                    [count] => 0
+                )
+
+        )

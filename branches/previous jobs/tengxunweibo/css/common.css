@@ -1,0 +1,82 @@
+#index{
+	background: url('../img/login.jpg');
+}
+
+#container{
+	background: url('../img/bg.jpg');	
+}
+
+.container{
+	width: 760px;
+	height: 600px;
+	left: 50%;
+	position: relative;
+	margin-left:-380px;
+	margin-top:20px;
+	box-shadow: 0px 3px 5px #444;
+}
+
+#main{
+	float: left;
+	margin-top:270px;
+	margin-left:100px;
+	width: 310px;
+}
+
+#main textarea{
+	width: 300px;
+	height: 100px;
+	float: left;
+	clear: both;
+}
+
+#selectbox{
+	float: left;
+	color: #333;
+	font-size:15px;
+	margin: 15px 10px;
+}
+
+#send{
+	margin: 10px;
+}
+
+#share{
+	color: #333;
+	text-align: center;
+	display: block;
+	width: 300px;
+	font-size:13px;
+}
+
+#again{
+	font-size:12px;
+	text-decoration:none;
+	display: block;
+	text-align:center;
+	width: 300px;
+	margin-top:30px;
+}
+
+#again:hover{
+	text-decoration: underline;
+}
+
+#index{
+  position:relative;
+}
+
+#floatbox{
+  position:absolute;
+  top:50px;
+  overflow-y:hidden;
+  width:552px;
+  height:449px;
+  left:50%;
+  margin-left:-276px;
+  border:10px solid #222;
+  box-shadow:2px 2px 10px #333;
+}
+.hide{
+	display: none;
+}

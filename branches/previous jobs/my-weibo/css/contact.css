@@ -1,0 +1,90 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "common.css";
+
+/*contact部分*/
+#contact{
+	width:600px;
+}
+
+.contact_box{
+	width: 600px;
+	border-bottom: 1px dashed #E1E3E3;
+	margin-bottom:20px;
+	margin-top:10px;
+	padding-bottom:10px;
+	float: left;
+}
+
+.contact_box a:hover{
+	text-decoration: underline;
+}
+
+.contact_box_left{
+	width: 50px;
+	float: left;
+}
+
+.contact_relationship{
+	width: 40px;
+	height: 19px;
+	margin-left:4px;
+	display: block;
+	background: url('../img/hufen.png');
+}
+
+.contact_cancel a{
+	display: block;
+	height: 20px;
+	width:50px;
+	text-align:center;
+	line-height:20px;
+	color: white;
+	font-size:12px;
+	margin: 10px 0px 5px 0px;
+	text-decoration:none;
+	visibility: hidden;
+	background: #84D500;
+}
+
+.contact_cancel a:hover{
+	background: #68AB02;
+	text-decoration:none;
+}
+
+.contact_box_right{
+	width: 530px;
+	float: left;
+	margin-left:20px;
+}
+
+.contact_name a{
+	color: #307D74;
+	display: block;
+	margin-bottom:3px;
+	text-decoration:none;
+}
+
+.contact_sex{
+	display: block;
+	width: 13px;
+	height: 14px;
+	background: url('../img/male.png');
+	margin-bottom:3px;
+}
+
+.contact_address, .contact_detail{
+	font-size:13px;
+	margin-bottom:3px;
+}
+
+.contact_newest_weibo a{
+	display: block;
+	margin-top:10px;
+	font-size:14px;
+	color: #307D74;
+	width: 530px;
+}
+
+
+

@@ -1,0 +1,11 @@
+
+Array
+(
+    [uid] => 363524545
+    [src_small] => http://fmn.rrimg.com/fmn062/20111201/1805/p_main_oqI7_112700045b9c1261.jpg
+    [caption] => This is the caption.
+    [pid] => 5315018973
+    [src] => http://fmn.rrimg.com/fmn062/20111201/1805/p_head_4y07_112700045b9c1261.jpg
+    [aid] => 536334713
+    [src_big] => http://fmn.rrimg.com/fmn062/20111201/1805/p_large_m2bU_112700045b9c1261.jpg
+)

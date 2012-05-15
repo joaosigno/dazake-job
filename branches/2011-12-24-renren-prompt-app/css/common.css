@@ -1,0 +1,14 @@
+*{	padding: 0px;	margin: 0px;}.hide{	display: none;}body{	/*background: url('../img/bg.jpg');*/	background: #2194C1;}#header{	width: 100%;	height: 40px;	line-height:40px;	color: white;	text-shadow: 1px 1px 1px black;	margin-left:;
+  background-color: #333333;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#222222)); 
+  background-image: -webkit-linear-gradient(top, #333333, #222222); 
+  background-image:    -moz-linear-gradient(top, #333333, #222222); 
+  background-image:     -ms-linear-gradient(top, #333333, #222222); 
+  background-image:      -o-linear-gradient(top, #333333, #222222); 
+  background-image:         linear-gradient(top, #333333, #222222);}#title{	margin-left:50px;}#main{	width: 900px;	height: 530px;	background: #fff url("../img/story.png");	position: relative;	left: 50%;	margin-left:-450px;	box-shadow: 0px 0px 10px #444;}#login img{	height: 400px;	position: relative;	left: 50%;	top: 50px;	margin-left:-158px;	box-shadow: 0px 0px 10px #444;}#loginbutton a{	width: 200px;	height: 45px;	position: absolute;	top: 480px;	left: 50%;	text-decoration:none;	margin-left:-100px;	line-height:45px;	text-align:center;	color: white;	display: block;	font-size:20px;	border-radius: 8px;	cursor: pointer;	box-shadow: 0px 0px 2px #444;
+  background:#205DAC;
+  -webkit-transition: all 0.3s ease-out;  
+     -moz-transition: all 0.3s ease-out;  
+      -ms-transition: all 0.3s ease-out;  
+       -o-transition: all 0.3s ease-out;  
+          transition: all 0.3s ease-out;}#loginbutton a:hover{	background: #174989;}#loginbutton a:active{	background: #758098;}#footer{	width: 900px;	height: 30px;	line-height:30px;	text-align:center;	position: absolute;	bottom: 0;	left: 50%;	margin-left:-450px;	color: #fff;	font-size:12px;}

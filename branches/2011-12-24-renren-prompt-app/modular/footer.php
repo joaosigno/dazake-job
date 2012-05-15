@@ -1,0 +1,1 @@
+<div id="footer">	<span>2011 © Copyright 人人网应用平台. All Rights Reserved</span></div>	<script type="text/javascript"	src="js/main.js"></script></body></html>

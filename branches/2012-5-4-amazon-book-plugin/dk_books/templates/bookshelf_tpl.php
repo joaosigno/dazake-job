@@ -54,7 +54,7 @@
 			else
 				$status = "&status=" . urlencode($_GET['status']);
 
-			$offset = 1;
+			$offset = 0;
 			$num = 50;
 			$pageq = "&num=$num&offset=$offset";
 
@@ -67,7 +67,6 @@
 
 			$books = dk_get_books("num=-1&status=all&orderby={$orderby}&order={$order}{$search}{$pageq}{$reader}{$author}{$status}");
 				
-
             ?>
 		<div class="dk-category" data-status="<?php echo $key?>">
 			<h4 class="dk-title"><?php echo $value?></h4>

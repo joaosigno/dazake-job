@@ -39,6 +39,8 @@ switch ($action)
         $updated = 0;
 
         $id = intval($_POST['id']);
+        if(empty($_POST['status']))
+            $_POST['status'] = 'unread';
         $status         = $wpdb->escape($_POST['status']);
 
         $query = "

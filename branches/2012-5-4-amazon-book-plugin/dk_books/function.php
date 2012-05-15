@@ -45,6 +45,34 @@ function dk_bookshelf(){
 add_shortcode( 'dk_bookshelf', 'dk_bookshelf' );//add bookshelf shot code 
 
 
+function dk_jquery_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+}    
+ 
+add_action('wp_enqueue_scripts', 'dk_jquery_scripts_method');
+
+function dk_jquery_ui_scripts_method() {
+    wp_enqueue_script(
+        'newscript',
+        plugins_url('/js/jquery-ui.js', __FILE__),
+        array('scriptaculous')
+    );
+}    
+ 
+add_action('wp_enqueue_scripts', 'dk_jquery_ui_scripts_method');
+
+function dk__main_scripts_method() {
+    wp_enqueue_script(
+        'newscript2',
+        plugins_url('/js/dkmain.js', __FILE__),
+        array('scriptaculous')
+    );
+}    
+ 
+add_action('wp_enqueue_scripts', 'dk__main_scripts_method');
+
 function dazake_load_script() {
 	if (!is_admin()) {
 		/**

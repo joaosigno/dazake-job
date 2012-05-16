@@ -23,7 +23,7 @@ function dk_blogger_list_setting_render() {
 add_action('admin_menu', 'my_add_pages');
 
 //style script
-function dazake_load_script() {
+function dazake_blogger_load_script() {
     if (!is_admin()) {
         /**
          * load stylesheet
@@ -31,4 +31,4 @@ function dazake_load_script() {
         wp_enqueue_style( 'bootstrap', plugins_url( '/css/style.css' , __FILE__ ) );
     }
 }
-add_action('init', 'dazake_load_script');
+add_action('init', 'dazake_blogger_load_script');

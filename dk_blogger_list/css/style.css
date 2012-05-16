@@ -1,0 +1,56 @@
+
+.dk_widget_blogger_head_img_n_name{
+  margin-top:5px;
+
+}
+
+.dk_widget_blogger_head_img_n_name img{
+  display:block;
+  width:60px;
+  float:left;
+}
+
+
+.dk_widget_blogger_head_img_n_name span{
+color:blue;
+line-height：60px;
+font-size:14px;
+width:80px;
+float:left;
+margin-left:15px;
+margin-top:20px;
+
+
+}
+
+.dk_widget_blogger_name{
+line-height：60px;
+}
+
+.dk_widget_blogger_last_post{
+  width:140px;
+  float:left;
+}
+
+
+#dk_widget_blogger_boxs{
+background: #F1F2F1;
+overflow: hidden;
+padding: 5px;
+}
+
+.dk_widget_blogger_inner{
+
+color: #414141;
+font-family: Georgia;
+font-size: 12px;
+font-weight: normal;
+line-height: 1.5em;
+
+}
+
+.dk_widget_blogger_head_img_n_name .dk_widget_blogger_name{
+color: #077CC0;
+font-family: Arial;
+font-weight: normal;
+}

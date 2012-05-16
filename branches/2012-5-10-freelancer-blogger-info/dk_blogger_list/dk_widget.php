@@ -62,7 +62,7 @@ class Dk_blogger_Widget extends WP_Widget {
 				}
 
 
-				$userimage = get_user_option( 'dk_blogger_image', $user->ID);
+				$userimage = get_user_option( 'dk_blogger_image', $value->post_author);
 				query_posts('author=' . $value->post_author);
 			?>
 			<?php if($flag == 'true' && ($count<= $dk_bloger_list_num) ):?>

@@ -38,20 +38,55 @@ $ ->
 	bookId = 0
 	status = ""
 
-	$('.dk-container-in')
-		.sortable
-			items: '.dk-book'
-			revert: true
-			connectWith: '.dk-container-in'
-			receive: (evt, ui) ->
-				$el = $(evt.target)
-				# $container = $el.find('.dk-container-in')
-				$width = $el.width()
-				status = $el.parents('.dk-category').data('status')
-				$el.css
-					width: $width + 100
-			stop: (evt, ui) ->
-				bookId = ui.item.data('id')
-				syncData(bookId, status)
+	dkTimer = (fn) ->
+		@fn = fn
+		t = setTimeout( -> 
+			@fn()
+		, 1000)
+
+	sortOpts = 
+		items: '.dk-book'
+		opacity: ".7"
+		revert: true
+		placeholder: "dk-empty dk-book"
+		forcePlaceholderSize: true
+		connectWith: '.dk-category'
+		start: (evt, ui) ->
+			$el = $(evt.target)
+			$el.siblings('.dk-category').find('.dk-hide').hide()
+
+		receive: (evt, ui) ->
+			$el = $(evt.target).find('.dk-container-in')
+			status = $(evt.target).data('status')
+			$width = $el.width()
+			$el.css
+				width: $width + 100
+			$item  = ui.item
+			$item.appendTo($el)
+			syncData(bookId, status)
+
+		remove: (evt, ui) ->
+			$el = $(evt.target).find('.dk-container-in')
+			$width = $el.width()
+			$el.css
+				width: $width - 100
+
+		stop: (evt, ui) ->
+			bookId = ui.item.data('id')
+			
+		over: (evt, ui) ->
+			dkTimer ->
+				$el = $(evt.target).find('.dk-title')
+				$el.siblings('.dk-container-out').slideDown()
+
+	$('.dk-category')
+		.sortable sortOpts
+
+	#toggle the bookcontainer
+	$('.dk-switch').click ->
+		$(@)
+			.parent()
+			.siblings('.dk-container-out')
+			.slideToggle()
 
 

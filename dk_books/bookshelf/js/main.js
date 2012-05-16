@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var bookId, getContainerWidth, k, status, syncData;
+    var bookId, dkTimer, getContainerWidth, k, sortOpts, status, syncData;
     k = function(o) {
       return console.log(o);
     };
@@ -36,23 +36,59 @@
     getContainerWidth('.dk-container-in');
     bookId = 0;
     status = "";
-    return $('.dk-container-in').sortable({
+    dkTimer = function(fn) {
+      var t;
+      this.fn = fn;
+      return t = setTimeout(function() {
+        return this.fn();
+      }, 1000);
+    };
+    sortOpts = {
       items: '.dk-book',
+      opacity: ".7",
       revert: true,
-      connectWith: '.dk-container-in',
-      receive: function(evt, ui) {
-        var $el, $width;
+      placeholder: "dk-empty dk-book",
+      forcePlaceholderSize: true,
+      connectWith: '.dk-category',
+      start: function(evt, ui) {
+        var $el;
         $el = $(evt.target);
+        return $el.siblings('.dk-category').find('.dk-hide').hide();
+      },
+      receive: function(evt, ui) {
+        var $el, $item, $width;
+        $el = $(evt.target).find('.dk-container-in');
+        status = $(evt.target).data('status');
         $width = $el.width();
-        status = $el.parents('.dk-category').data('status');
-        return $el.css({
+        $el.css({
           width: $width + 100
+        });
+        $item = ui.item;
+        $item.appendTo($el);
+        return syncData(bookId, status);
+      },
+      remove: function(evt, ui) {
+        var $el, $width;
+        $el = $(evt.target).find('.dk-container-in');
+        $width = $el.width();
+        return $el.css({
+          width: $width - 100
         });
       },
       stop: function(evt, ui) {
-        bookId = ui.item.data('id');
-        return syncData(bookId, status);
+        return bookId = ui.item.data('id');
+      },
+      over: function(evt, ui) {
+        return dkTimer(function() {
+          var $el;
+          $el = $(evt.target).find('.dk-title');
+          return $el.siblings('.dk-container-out').slideDown();
+        });
       }
+    };
+    $('.dk-category').sortable(sortOpts);
+    return $('.dk-switch').click(function() {
+      return $(this).parent().siblings('.dk-container-out').slideToggle();
     });
   });
 

@@ -73,15 +73,12 @@ function dk__main_scripts_method() {
  
 add_action('wp_enqueue_scripts', 'dk__main_scripts_method');
 
-function dazake_load_script() {
-	if (!is_admin()) {
-		/**
-		 * load stylesheet
-		 */
-		wp_enqueue_style( 'bootstrap', plugins_url( 'dk_books/css/style.css' , dirname(__FILE__) ) );
-	}
-}
-add_action('init', 'dazake_load_script');
+add_action( 'wp_enqueue_scripts', 'dk_add_my_stylesheet' );
+
+function dk_add_my_stylesheet() {
+        wp_register_style( 'dk-style', plugins_url('css/style.css', __FILE__) );
+        wp_enqueue_style( 'dk-style' );
+    }
 
 //show in userprofile
 function dk_userprofile_book() {

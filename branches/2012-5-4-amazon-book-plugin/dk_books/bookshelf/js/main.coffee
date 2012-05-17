@@ -63,7 +63,7 @@ $ ->
 				width: $width + 100
 			$item  = ui.item
 			$item.appendTo($el)
-			syncData(bookId, status)
+			
 
 		remove: (evt, ui) ->
 			$el = $(evt.target).find('.dk-container-in')
@@ -73,6 +73,8 @@ $ ->
 
 		stop: (evt, ui) ->
 			bookId = ui.item.data('id')
+
+			syncData(bookId, status)
 			
 		over: (evt, ui) ->
 			dkTimer ->

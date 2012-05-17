@@ -28,6 +28,10 @@
   padding:0px;
 }
 
+.dk-hide{
+  display:none;
+}
+
 #dk-bookshelf{
   width:540px;
 }
@@ -36,38 +40,61 @@
   width:540px;
   height:30px;
   width:100%;
-  background:#E43A06;
+  background:#fff;
+  border-bottom:1px solid #E43A06;
 }
 
 #dk-navi a{
-  color:#fff;
+  color:#E43A06;
   line-height:30px;
   text-decoration:none;
+  margin-left:10px;
+}
+
+#dk-navi a:hover{
+  text-decoration:underline;
 }
 
 .dk-category{
   width:538px;
-  /*border:1px solid #ddd;*/
-  margin:10px 0px;
+  border-bottom:5px solid #E43A06;
 }
 
 .dk-title{
-  color:#E43A06;
+  color:#fff;
   width:100%;
   text-align:center;
   border-bottom:1px solid #ddd;
   font-weight:500;
+  background:#E43A06;
+  line-height:30px;
+  height:30px;
+  cursor: pointer;
+}
+
+.dk-switch{
+  width:30px;
+  height:33px;
+  float: right;
+}
+
+.dk-switch:hover{
+  color:#AD2A1F;
+}
+.dk-title:hover{
+  background:#E9392A;
 }
 
 .dk-container-out{
   width:100%;
-  height:180px;
+  height:155px;
   overflow-x:scroll;
   overflow-y:hidden;
+  background:#f5f5f5;
 }
 
 .dk-container-in{
-  height:140px;
+  height:120px;
   min-width:500px;
   padding:10px;
 }
@@ -78,22 +105,26 @@
   margin-right:10px;
 }
 
-.dk-book img, .dk-book span{
+.dk-empty{
+  background:#CFCFCF;
+}
+
+.dk-book img{
   width:80px;
   float:left;
   clear:both;
+  border:2px solid #E9392A;
 }
 
 .dk-book img{
   cursor: move;
+  height:110px;
+}
+.onActive{
+  background:#E9392A;
 }
 
-.dk-book span{
-  font-size:12px;
-  color: #444;
-  height:30px;
-  white-space: normal; 
-  overflow: hidden;      
-  text-overflow:ellipsis;
+#content .dk-title{
+  margin:0;
 }
 /*end bookshelf css*/

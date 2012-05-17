@@ -69,13 +69,12 @@
 				
             ?>
 		<div class="dk-category" data-status="<?php echo $key?>">
-			<h4 class="dk-title"><?php echo $value?></h4>
-			<div class="dk-container-out">
+			<h4 class="dk-title"><?php echo $value?><span class="dk-switch">▼</span></h4>
+			<div class="dk-container-out <?php if($key != 'unread') echo 'dk-hide' ;?>">
 				<div class="dk-container-in">
 					<?php foreach ((array)$books as $book):?>
 						<div class="dk-book" data-id="<?php echo $book->id;?>">
 							<img src="<?php echo $book->image ;?>" alt="">
-							<span class="dk-booktitle"><?php echo $book->title ;?></span>
 						</div>
 					<?php endforeach;?>
 				</div>

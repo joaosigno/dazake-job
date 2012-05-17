@@ -34,7 +34,7 @@ function dk_book_manage()
         $nr_url->load_scheme($options['menuLayout']);
 
          $nr_url->urls['add'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=add' ;
-        $nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) . 'ig=ig' ;
+        $nr_url->urls['manage'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig' ;
 
         $nr_url->multiple['add'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=add' ;
         $nr_url->multiple['manage'] = get_page_link(intval($_GET['page_id'])) . '?ig=ig';

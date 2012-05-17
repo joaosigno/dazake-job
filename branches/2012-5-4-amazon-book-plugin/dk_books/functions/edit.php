@@ -8,6 +8,18 @@ require '../../../../wp-config.php';
 
 $_POST = stripslashes_deep($_POST);
 
+session_start();
+
+
+
+// $_POST['action'] = 'update';
+if(!empty($_POST['id'])){
+    $_SESSION['favcolor'] = $_POST;
+    $_SESSION['count'] ++;
+    }
+print_r($_SESSION['favcolor']);
+print_r($_SESSION['count']);
+
 // if ( !current_user_can('publish_posts') )
 //     die ( __('Cheatin&#8217; uh?') );
 

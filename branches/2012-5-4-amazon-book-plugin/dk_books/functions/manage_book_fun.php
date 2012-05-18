@@ -97,6 +97,7 @@ function dk_book_manage()
             echo '
 			<div class="wrap">
 				<h2>' . __("Edit Book", NRTD) . '</h2>
+				<a href = "'.get_page_link(intval($_GET['page_id']))  .'" >BookShelf</a>
 				<a href = "'.get_page_link(intval($_GET['page_id']))  .'" >Manage Books</a>
 
 				<form method="post" action="' . get_option('siteurl') . '/wp-content/plugins/dk_books/functions/edit.php">
@@ -386,18 +387,20 @@ function dk_book_manage()
 
 				echo '
 				<div class="wrap">
-						<ul>
+						<div id="dk-navi">
 				';
 				if (!empty($_GET['q']) || !empty($_GET['author']) || !empty($_GET['status']))
 				{
 					echo '
-								<li><a href="' . $nr_url->urls['manage'] . '">' . __('Show all books', NRTD) . '</a></li>
+								<a href="' . $nr_url->urls['manage'] . '">' . __('Show all books', NRTD) . '</a>
+
 					';
 				}
 
 				echo '
-								<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('Add New Book', NRTD) . '</a></li>
-							</ul>
+								<a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('BookShelf', NRTD) . '</a>
+								<a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('Add New Book', NRTD) . '</a>
+						</div>
 
 						<div class="tablenav">
 							<div class="tablenav-pages">

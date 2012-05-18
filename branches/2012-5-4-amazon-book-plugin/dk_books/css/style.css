@@ -2,20 +2,6 @@
   display:none;
 }
 
-#main ul{
-  padding:0;
-  margin:0px;
-  height:50px;
-}
-#main ul li{
-  float:left;
-  list-style:none;
-  margin:10px;
-  background:#fff;
-  padding:0px 5px;
-  border-radius:5px;
-}
-
 .bookshelf td{
   vertical-align:top;
 }

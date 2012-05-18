@@ -90,13 +90,16 @@ function dk_blogger_list_setting_render_edite_tpl(){
 	if(!empty($_POST['submit'])){
 		if(!empty($_POST['dk_blogger_image'])){
 			$result = update_user_option( $_GET['id'],'dk_blogger_image', $_POST['dk_blogger_image'] );
-			print_r($result);
+		}
+
+		if(!empty($_POST['dk_blogger_name'])){
+			$result = update_user_option( $_GET['id'],'dk_blogger_name', $_POST['dk_blogger_name'] );
 		}
 
 	}
 
 	if(!empty($_GET['id'])){
-		$nickname = get_user_option( 'nickname', $_GET['id'] );
+		$nickname = get_user_option( 'dk_blogger_name', $_GET['id'] );
 		$userimage = get_user_option( 'dk_blogger_image', $_GET['id'] );
 	}
 ?>
@@ -106,7 +109,7 @@ function dk_blogger_list_setting_render_edite_tpl(){
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td><?php echo $nickname ;?></td>
+				<td><input type="text" name = "dk_blogger_name" value = "<?php echo $nickname ;?>"></td>
 			</tr>
 			<tr>
 				<td>Image:</td>

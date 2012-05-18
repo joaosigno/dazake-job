@@ -64,8 +64,7 @@
           width: $width + 100
         });
         $item = ui.item;
-        $item.appendTo($el);
-        return syncData(bookId, status);
+        return $item.appendTo($el);
       },
       remove: function(evt, ui) {
         var $el, $width;
@@ -76,7 +75,8 @@
         });
       },
       stop: function(evt, ui) {
-        return bookId = ui.item.data('id');
+        bookId = ui.item.data('id');
+        return syncData(bookId, status);
       },
       over: function(evt, ui) {
         return dkTimer(function() {

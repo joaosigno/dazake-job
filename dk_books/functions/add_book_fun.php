@@ -45,6 +45,7 @@ if ( !function_exists('dk_book_add_fun') ) {
 			<div id="message" class="updated fade">
 				<p><strong>' . __("Book added.", NRTD) . '</strong></p>
 				<ul>
+					<li><a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('BookShelf', NRTD) . '</a></li>
 					<li><a href="' . get_page_link(intval($_GET['page_id'])) . '&dkaction=manage">' . __("Manage books", NRTD) . ' &raquo;</a></li>
 					<li><a href="' . apply_filters('book_edit_url', get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=manage&action=editsingle&id=' . intval($_GET['added'])) . '">' . __("Edit this book") . ' &raquo;</a></li>
 					<li><a href="' . get_option('home') . '">' . __("View Site") . ' &raquo;</a></li>
@@ -152,8 +153,10 @@ if ( !function_exists('dk_book_add_fun') ) {
             wp_nonce_field('now-reading-add');
 
         echo '
-
-			
+        			<div id="dk-navi-manage">
+				<a href="' . get_page_link(intval($_GET['page_id']))  . '?ig=ig&dkaction=add">' . __('BookShelf', NRTD) . '</a>
+				<a href="' . get_page_link(intval($_GET['page_id'])) . '&dkaction=manage">' . __("Manage books", NRTD) . ' &raquo;</a>
+			</div>
 
 			<p><label for="title">' . __("Title", NRTD) . ':</label><br />
 			<input type="text" name="u_title" id="title" size="50" value="' . $results[0]['title'] . '" /></p>

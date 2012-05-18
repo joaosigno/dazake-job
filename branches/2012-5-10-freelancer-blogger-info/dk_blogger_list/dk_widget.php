@@ -63,6 +63,11 @@ class Dk_blogger_Widget extends WP_Widget {
 
 
 				$userimage = get_user_option( 'dk_blogger_image', $value->post_author);
+				$nickname = get_user_option( 'dk_blogger_name', $value->post_author);
+
+				if(empty($nickname))
+					$nickname = $value->user_nicename;
+
 				query_posts('author=' . $value->post_author);
 			?>
 			<?php if($flag == 'true' && ($count<= $dk_bloger_list_num) ):?>
@@ -71,7 +76,9 @@ class Dk_blogger_Widget extends WP_Widget {
 					<div class="dk_widget_blogger_last_post">
 					<?php 
 						if ( have_posts() ) : while ( have_posts() ) : the_post();
-							the_title();
+					?>					
+						<a href = "<?php the_permalink() ;?>" ><?php the_title() ;?></a>
+					<?php
 						endwhile; else:
 							echo "The user has not contributed anything!";
 						endif;
@@ -80,7 +87,7 @@ class Dk_blogger_Widget extends WP_Widget {
 					<div class="dk_widget_blogger_head_img_n_name">
 						<a href ='<?php the_permalink() ;?>' ?>
 						<img height=60px width=64px src="<?php echo $userimage ;?>" alt="">
-						<span class = "dk_widget_blogger_name" ><?php echo $value->user_nicename;?></span>
+						<span class = "dk_widget_blogger_name" ><?php echo $nickname;?></span>
 						</a>
 					</div>
 				</div>

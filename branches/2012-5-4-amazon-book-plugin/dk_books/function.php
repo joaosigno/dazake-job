@@ -6,6 +6,8 @@
  */
 
 
+
+
 function dk_profile_book() {
 	// if(empty($_GET['added'])){
 		switch ($_GET['dkaction']) {

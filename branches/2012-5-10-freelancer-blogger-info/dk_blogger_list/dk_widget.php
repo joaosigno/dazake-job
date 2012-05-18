@@ -79,13 +79,14 @@ class Dk_blogger_Widget extends WP_Widget {
 					?>					
 						<a href = "<?php the_permalink() ;?>" ><?php the_title() ;?></a>
 					<?php
+						break;
 						endwhile; else:
 							echo "The user has not contributed anything!";
 						endif;
 					?>
 					</div>
 					<div class="dk_widget_blogger_head_img_n_name">
-						<a href ='<?php the_permalink() ;?>' ?>
+						<a href ="http://bobyorke.com/members/<?php echo $value->user_nicename;?>">
 						<img height=60px width=64px src="<?php echo $userimage ;?>" alt="">
 						<span class = "dk_widget_blogger_name" ><?php echo $nickname;?></span>
 						</a>

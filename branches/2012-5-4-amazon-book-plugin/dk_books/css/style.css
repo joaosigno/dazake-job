@@ -9,6 +9,11 @@
 
 
 /*bookshelf css*/
+*{
+  margin:0px;
+  padding:0px;
+}
+
 .dk-hide{
   display:none;
 }

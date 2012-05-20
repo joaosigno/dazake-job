@@ -65,7 +65,7 @@
 		$('#slider').slider({
 			max: 1280,
 			min: 640,
-			value: 960,
+			value: 960, //to set the default value of the pdf size
 			step: 80,
 			change: function(){
 				pdfResize($(this).slider("value"));
@@ -85,12 +85,6 @@
 				direction = false;
 				$("#zoomin").attr('data-zoomable', 'false').css('color','#ddd');
 				$("#zoomout").attr('data-zoomable', 'true').css('color','#4091A9');
-				// $('#pdfbox .form').each(function(){
-				// 	var thisHeight = $(this).css('top');
-				// 	$(this).css({
-				// 		'top': (parseFloat(thisHeight) + 0.15) + "%"
-				// 	});
-				// });
 			}
 		})
 
@@ -101,7 +95,8 @@
 			}
 		});
 
-		$('#form1').empty().load('form1.html', function(){
+		//load form input elements
+		$('#form1').empty().load('./forms/form1.html', function(){
 			$(".signature").jSignature({
 				width:620,
 				height:150,
@@ -182,7 +177,7 @@
 						.bind('click', function(){
 							$parent.find('.sign').hide();
 							var img = '<img src="'+$parent.find(".signature").jSignature('getData')+'" class="signpic" />';
-							$parent.append(img);
+							$parent.find('.signpicBox').append(img);
 						});
 			})
 		});
@@ -231,8 +226,21 @@
 			}
 
 			new Toolbar(arg);
+
 		});
 		
+		//send data to the backend
+		$('#submit').click(function(){
+			$.ajax({
+				type:"POST",
+				url:"test.php", //this is the url to the files received the data
+				data:{data:toolboxData},
+				beforeSend:function () {},
+				success:function (data) {
+					//callback function 
+				}
+			})
+		});
 	})
 })(jQuery);
 

@@ -44,6 +44,7 @@ var toolbarTpl = {
 	  +'<span class="signcancel">Cancel</span>'
 	  +'</div>'
 		+'</div>'
+		+'<div class="signpicBox"></div>'
 		+'</div>'
 	}
 };

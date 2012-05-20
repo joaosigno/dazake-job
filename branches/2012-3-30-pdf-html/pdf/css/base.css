@@ -714,6 +714,15 @@ span.addTool{
   border-radius:100%;
 }
 
+.signpicBox{
+  background:#E7F6FB;
+  border:1px solid #358AC5;
+  width:202px;
+  height:50px;
+  position:absolute;
+  right:60px;
+  bottom:7px;
+}
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles

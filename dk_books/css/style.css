@@ -107,3 +107,18 @@
   margin:0;
 }
 /*end bookshelf css*/
+
+
+/*mingle profle book list*/
+#dk_user_profile_booke_list img{
+  width:60px;
+  float:left;
+  margin:3px;
+}
+
+#dk_user_profile_booke_list{
+  border: 1px solid darkGray;
+  overflow:hidden;
+}
+
+/*end mingle profle book list*/

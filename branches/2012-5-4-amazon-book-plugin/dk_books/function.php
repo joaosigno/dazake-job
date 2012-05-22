@@ -257,7 +257,7 @@ function dk_mingle_show_user_books(){
     $reader = "&reader=".$userdata->ID;
     $books = dk_get_books("num=-1&status=all{$reader}");
     ?>
-  <p  style="text-align:center" class="mngl-user-grid-header"><a href="<?php echo DK_BOOKSHELF_URL ; ?>"><?php _e('BookShelf', 'mingle'); ?></a></p>
+  <p  style="text-align:center" class="mngl-user-grid-header"><a href="<?php echo DK_BOOKSHELF_URL ; ?>"><?php _e('My bookshelf', 'mingle'); ?></a></p>
     <?php
 }
 

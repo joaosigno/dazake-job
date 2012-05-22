@@ -100,13 +100,8 @@ if ( !function_exists('dk_book_add_fun') ) {
 
         echo '
 
-		<div class="wrap">
+		<div class="wrap dk_wrap dk_search">
 
-
-
-			<h2>Now Reading Redux</h2>
-
-			<i>Version: ' . NOW_READING_VERSION . '</i>
 
 		';
 
@@ -184,11 +179,11 @@ if ( !function_exists('dk_book_add_fun') ) {
 
                     if ( $using_isbn )
 
-                        echo '<p>' . sprintf(__("You searched for the ISBN <code>%s</code>. amazon%s returned these results:", NRTD), $isbn, $options['domain']) . '</p>';
+                        echo '<p>' . sprintf(__("You searched for the ISBN <code>%s</code> and amazon%s returned these results:", NRTD), $isbn, $options['domain']) . '</p>';
 
                     else
 
-                        echo '<p>' . sprintf(__("You searched for the book &ldquo;%s&rdquo;. amazon%s returned these results:", NRTD), $title, $options['domain']) . '</p>';
+                        echo '<p>' . sprintf(__("You searched for &ldquo;%s&rdquo; and amazon%s returned these results:", NRTD), $title, $options['domain']) . '</p>';
 
 
 
@@ -236,7 +231,7 @@ if ( !function_exists('dk_book_add_fun') ) {
 
 							') . '
 
-							<p style="clear:left;"><input class="button" type="submit" value="' . __("Use This Result", NRTD) . '" /></p>
+							<p style="clear:left;"><input class="button" type="submit" value="' . __("Add to bookshelf", NRTD) . '" /></p>
 
 
 
@@ -258,7 +253,7 @@ if ( !function_exists('dk_book_add_fun') ) {
 
         echo '
 
-		<div class="nr-add-grouping">
+		<div class="nr-add-grouping dk_addbook">
 
 		<h3>' . __("Search for a book to add", NRTD) . '</h3>';
 
@@ -298,7 +293,7 @@ if ( !function_exists('dk_book_add_fun') ) {
 
         	<div id="dk-navi-manage">
 
-				<a href="'.DK_BOOKSHELF_URL.'">' . __('BookShelf', NRTD) . ' &raquo;</a>
+				<a href="'.DK_BOOKSHELF_URL.'">' . __('My bookshelf', NRTD) . ' &raquo;</a>
 
 				<a href="' . get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=manage">' . __("Manage books", NRTD) . ' &raquo;</a>
 

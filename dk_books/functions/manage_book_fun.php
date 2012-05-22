@@ -478,7 +478,7 @@ function dk_book_manage()
 							</div>
 								<strong>' . stripslashes($book->title) . '</strong>
 								    
-                                                        <div class="row-actions">
+		                                                        <div class="row-actions">
 									<a href="' . get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=manage&amp;action=viewbook&amp;id=' . $book->id . '">' . __('View', NRTD) . '</a> |
 									<a href="' . get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=manage&amp;action=editsingle&amp;id=' . $book->id . '">' . __('Edit', NRTD) . '</a> | <a href="' . $delete . '" onclick="return confirm(\'' . __("Are you sure you wish to delete this book permanently?", NRTD) . '\')">' . __("Delete", NRTD) . '</a>
 								</div>

@@ -20,14 +20,15 @@
   height:30px;
   width:100%;
   background:#fff;
-  border-bottom:1px solid #E43A06;
+  border-bottom:1px solid #F53A01;
 }
 
 #dk-navi a{
-  color:#E43A06;
+  color:#F53A01;
   line-height:30px;
   text-decoration:none;
   margin-left:10px;
+  font-weight: bold;
 }
 
 #dk-navi a:hover{
@@ -36,7 +37,7 @@
 
 .dk-category{
   width:538px;
-  border-bottom:5px solid #E43A06;
+  border-bottom:5px solid #F53A01;
 }
 
 .dk-title{
@@ -45,7 +46,7 @@
   text-align:center;
   border-bottom:1px solid #ddd;
   font-weight:500;
-  background:#E43A06;
+  background:#F53A01;
   line-height:30px;
   height:30px;
   cursor: pointer;
@@ -61,7 +62,7 @@
   color:#AD2A1F;
 }
 .dk-title:hover{
-  background:#E9392A;
+  background:#F53A01;
 }
 
 .dk-container-out{
@@ -92,15 +93,14 @@
   width:80px;
   float:left;
   clear:both;
-  border:2px solid #E9392A;
-}
+ }
 
 .dk-book img{
   cursor: move;
   height:110px;
 }
 .onActive{
-  background:#E9392A;
+  background:#F77D57;
 }
 
 #content .dk-title{
@@ -122,3 +122,218 @@
 }
 
 /*end mingle profle book list*/
+
+
+
+/*MANAGE books*/
+.tablenav{
+  margin:20px 0px 0px 10px;
+}
+
+.dk_table{
+  padding:10px;
+  border:none;
+}
+
+.dk_table tr{
+  display:block;
+  margin:20px 0px;
+  border-bottom:3px solid #F77D57;
+}
+
+.dk_table tr{
+  overflow:hidden;
+}
+
+.dk_table td{
+  float:left;
+}
+.dk_table tr td>img:first-child{
+  border:2px solid #ddd;
+  margin-right:30px;
+}
+
+.dk_table td.post-title{
+  width:300px;
+  line-height:40px;
+}
+/*end MANAGE books*/
+
+/*search books*/
+#dk-navi-manage{
+  border-bottom:1px solid #f5f5f5;
+}
+.dk_wrap #title, .dk_wrap #author, .dk_wrap #isbn{
+  width:335px;
+  height:30px;
+  margin-top:6px;
+  border:1px solid #ddd;
+}
+
+.dk_wrap label{
+  color:#666;
+  font-weight:500;
+}
+
+.dk_wrap input[type="submit"]{
+  border:none;
+  background:#F53A01;
+  color:#fff;
+  cursor:pointer;
+}
+
+.dk_wrap input[type="submit"]:hover{
+  background:#F53A01;
+}
+/*end search books*/
+
+/*view books*/
+
+.dk_single form{
+  margin-top:20px;
+}
+
+.dk_single .book-image{
+  width:50px;
+  height:75px;
+  float:left;
+  border:5px solid #ffffff;
+}
+.dk_single form h6{
+  width:480px;
+  float:right;
+  font-size:12px;
+  font-weight:500;
+  text-align:center;
+  line-height:40px;
+}
+
+.dk_single form h6 cite{
+  font-size:20px;
+}
+
+.dk_single tbody{
+  width:540px;
+  display:block;
+  margin-top:10px;
+  border-top:3px solid #F77D57;
+}
+
+.dk_single tbody .form-field{
+  display:block;
+  border-bottom:1px solid #EA392C;
+}
+
+.dk_single tbody .form-field th{
+  width:60px;
+  text-align:left;
+  
+}
+
+.dk_single tbody .form-field td{
+  line-height:29px;
+}
+
+.dk_single tbody .form-field td p{
+  margin:0;
+}
+/*end view books*/
+
+/*edit books*/
+
+.dk_edite form{
+  margin-top:20px;
+}
+
+.dk_edite .book-image{
+  width:50px;
+  height:75px;
+  float:left;
+  border:5px solid #ffffff;
+}
+.dk_edite form h6{
+  width:480px;
+  float:right;
+  font-size:12px;
+  font-weight:500;
+  text-align:center;
+  line-height:40px;
+}
+
+.dk_edite form h6 cite{
+}
+
+.dk_edite tbody{
+  width:540px;
+  display:block;
+  margin-top:10px;
+  border-top:3px solid #F77D57;
+  padding-top:20px;
+}
+
+.dk_edite tbody .form-field{
+  display:block;
+  min-height:50px;
+}
+
+.dk_edite tbody .form-field th{
+  width:60px;
+  text-align:left; 
+}
+
+.dk_edite tbody .form-field td input, .dk_edite tbody .form-field td textarea{
+  width:461px;
+  min-height:25px;
+  border:1px solid #ddd;
+}
+
+.dk_edite .submit input{
+background-color: #F93F07 !important;
+background-image: -moz-linear-gradient(center top , #F93F07, #F93F07);
+border: 1px solid #F93F07;
+color: #FFFFFF !important;
+text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+font-size: 14px !important;
+font-family: arial;
+font-weight:bold;
+text-decoration: none;
+vertical-align: top;
+cursor:pointer;
+padding: 3px 30px 3px 30px !important;
+margin:5px 0px;
+width:auto !important;
+}
+
+.dk_edite .submit input:hover {opacity:0.8;}
+
+/*end edit books*/
+
+/*search books*/
+.dk_search form{
+  position:relative;
+}
+.dk_search form h3{
+  font-size:12px;
+  margin-top:5px;
+}
+
+.dk_search form .button{
+background-color: #F93F07 !important;
+background-image: -moz-linear-gradient(center top , #F93F07, #F93F07);
+border: 1px solid #F93F07;
+color: #FFFFFF !important;
+text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+font-size: 14px !important;
+font-family: arial;
+font-weight:bold;
+text-decoration: none;
+vertical-align: top;
+cursor:pointer;
+padding: 3px 30px 3px 30px !important;
+margin:5px 0px;
+width:auto !important;
+}
+
+.dk_search form .button:hover {opacity:0.8;}
+}
+/*search books*/

@@ -3,9 +3,11 @@
  * Hanldes the editprofile shortcode
  *
  * @author Tareq Hasan
- */
+ */
+
  define('DK_MANAGE_BOOK_URL', 'http://www.wonderbookland.com/manage-bookshelf');
- define('DK_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf'); 
+ define('DK_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');
+ 
 function dk_book_permalink( $echo = true, $id = 0 ) {
     global $book, $wpdb;
     $options = get_option(NOW_READING_OPTIONS);
@@ -140,7 +142,8 @@ function dk_get_books($query, $show_private = false) {
         case 'nrecd':
         case 'beachr':
         case 'rainyr':
-        case 'goodr':        case 'comr':
+        case 'goodr':
+        case 'comr':
         case 'pastr':
             break;
         default:

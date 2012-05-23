@@ -6,10 +6,7 @@
   vertical-align:top;
 }
 
-
-
 /*bookshelf css*/
-
 .dk-hide{
   display:none;
 }
@@ -109,6 +106,8 @@
 #content .dk-title{
   margin:0;
 }
+/*end bookshelf css*/
+
 
 /*mingle profle book list*/
 #dk_user_profile_booke_list img{
@@ -337,3 +336,4 @@ width:auto !important;
 
 .dk_search form .button:hover {opacity:0.8;}
 }
+/*search books*/

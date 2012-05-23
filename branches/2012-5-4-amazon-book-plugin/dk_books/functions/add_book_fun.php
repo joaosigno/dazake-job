@@ -49,8 +49,8 @@ if ( !function_exists('dk_book_add_fun') ) {
         }
 
         echo '
-		<div class="wrap">
-		';
+		<div class="wrap dk_wrap dk_search">
+		';
 
         if (  !empty($_POST['u_isbn']) || !empty($_POST['u_author']) || !empty($_POST['u_title']) ) {
 
@@ -125,7 +125,7 @@ if ( !function_exists('dk_book_add_fun') ) {
         }
 
         echo '
-		<div class="nr-add-grouping">
+		<div class="nr-add-grouping dk_addbook">
 		<h3>' . __("Search for a book to add", NRTD) . '</h3>';
 
         if ( !$thispage )
@@ -145,7 +145,7 @@ if ( !function_exists('dk_book_add_fun') ) {
 
         echo '
         	<div id="dk-navi-manage">
-				<a href="'.DK_BOOKSHELF_URL.'">' . __('BookShelf', NRTD) . ' &raquo;</a>
+				<a href="'.DK_BOOKSHELF_URL.'">' . __('My bookshelf', NRTD) . ' &raquo;</a>
 				<a href="' . get_page_link(intval($_GET['page_id'])) . '?ig=ig&dkaction=manage">' . __("Manage books", NRTD) . ' &raquo;</a>
 			</div>
 

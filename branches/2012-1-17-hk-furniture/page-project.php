@@ -62,5 +62,5 @@ Template Name: page-project
 				</div>
 			</div>
 		</div>
-		
+	</div>
 	<?php get_footer();?>

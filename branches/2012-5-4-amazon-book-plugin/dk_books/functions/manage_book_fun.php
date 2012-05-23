@@ -100,7 +100,7 @@ function dk_book_manage()
             $tags = join(get_book_tags($existing->id), ',');
 
             echo '
-			<div class="wrap">
+			<div class="wrap dk_edite">
 				<h2>' . __("Edit Book", NRTD) . '</h2>
 				<a href = "'.DK_BOOKSHELF_URL.'" >' . __('BookShelf', NRTD) . ' &raquo;</a>
 				<a href = "'.get_page_link(intval($_GET['page_id']))  .'" >' . __("Manage books", NRTD) . ' &raquo;</a>

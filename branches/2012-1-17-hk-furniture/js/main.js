@@ -145,3 +145,13 @@ $(function(){
 	});
 })	
 	
+//********************temp*************************
+
+// $(function(){
+// 	$('#menu a').click(function(e){
+// 		e.preventDefault();
+
+// 		console.log('ddd');
+// 	})
+
+// });

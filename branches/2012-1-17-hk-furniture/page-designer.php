@@ -50,4 +50,5 @@ Template Name: page-designer
 			?>
 		</div>
 	</div>
+	</div>
 	<?php get_footer();?>

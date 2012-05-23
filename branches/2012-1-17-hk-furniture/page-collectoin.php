@@ -56,4 +56,5 @@ Template Name: page-collection
 			<div id="nav_right" class="scroll_nav">></div>
 		</div>
 	</div>
+	</div>
 	<?php get_footer();?>

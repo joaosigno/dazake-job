@@ -5,12 +5,13 @@
 	$nr_statuses['unread'] = 'NEW';
 	$nr_statuses['reading'] = 'READING NOW';
 	$nr_statuses['rcd'] = 'RECOMMENDED';
+        $nr_statuses['nrecd'] = "NOT RECOMMENDED";
 	$nr_statuses['beachr'] = 'BEACH READS';
 	$nr_statuses['rainyr'] = 'RAINY DAY READS';
 	$nr_statuses['goodr'] = 'FEEL-GOOD READS';
 	$nr_statuses['comr'] = 'COMMUTE READS';
         $nr_statuses['nrecd'] = "NOT RECOMMENDED";
-	$nr_statuses['pastr'] = 'OLD';
+	$nr_statuses['pastr'] = 'PAST READS';
 	
 	global $userdata;
 ?>

@@ -21,10 +21,11 @@
 
             echo '
 				<div class="book-image">
-					<img style="float:left; margin-right: 10px;" id="book-image-0" alt="Book Cover" src="' . $existing->image . '" />
+					<img style="" id="book-image-0" alt="Book Cover" src="' . $existing->image . '" />
 				</div>
 
 				<h3><cite>' . $existing->title . '</cite><br /> by ' . $existing->author . '</h3>
+
 
 				<table class="form-table" cellspacing="2" cellpadding="5">
 

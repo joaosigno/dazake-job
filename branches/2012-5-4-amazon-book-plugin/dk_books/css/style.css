@@ -197,20 +197,14 @@
   width:50px;
   height:75px;
   float:left;
-  border:5px solid #ffffff;
-}
+  margin-right:20px;
+ }
 .dk_single form h6{
-  width:480px;
-  float:right;
-  font-size:12px;
-  font-weight:500;
-  text-align:center;
-  line-height:40px;
+  
 }
 
 .dk_single form h6 cite{
-  font-size:20px;
-}
+  }
 
 .dk_single tbody{
   width:540px;
@@ -249,11 +243,11 @@
   width:50px;
   height:75px;
   float:left;
-  border:5px solid #ffffff;
+  margin-right:20px;
 }
 .dk_edite form h6{
   width:480px;
-  float:right;
+  float:left;
   font-size:12px;
   font-weight:500;
   text-align:center;
@@ -287,25 +281,6 @@
   border:1px solid #ddd;
 }
 
-.dk_edite .submit input{
-background-color: #F93F07 !important;
-background-image: -moz-linear-gradient(center top , #F93F07, #F93F07);
-border: 1px solid #F93F07;
-color: #FFFFFF !important;
-text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-font-size: 14px !important;
-font-family: arial;
-font-weight:bold;
-text-decoration: none;
-vertical-align: top;
-cursor:pointer;
-padding: 3px 30px 3px 30px !important;
-margin:5px 0px;
-width:auto !important;
-}
-
-.dk_edite .submit input:hover {opacity:0.8;}
-
 /*end edit books*/
 
 /*search books*/
@@ -317,23 +292,4 @@ width:auto !important;
   margin-top:5px;
 }
 
-.dk_search form .button{
-background-color: #F93F07 !important;
-background-image: -moz-linear-gradient(center top , #F93F07, #F93F07);
-border: 1px solid #F93F07;
-color: #FFFFFF !important;
-text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-font-size: 14px !important;
-font-family: arial;
-font-weight:bold;
-text-decoration: none;
-vertical-align: top;
-cursor:pointer;
-padding: 3px 30px 3px 30px !important;
-margin:5px 0px;
-width:auto !important;
-}
-
-.dk_search form .button:hover {opacity:0.8;}
-}
 /*search books*/

@@ -1,100 +1,100 @@
-*{
-	margin:0px;
-	padding:0px;
-}
-
-.dk-hide{
-	display:none;
-}
-
-#dk-bookshelf{
-	width:540px;
-}
-
-#dk-navi{
-	width:540px;
-	height:30px;
-	width:100%;
-	background:#fff;
-	border-bottom:1px solid #E43A06;
-}
-
-#dk-navi a{
-	color:#E43A06;
-	line-height:30px;
-	text-decoration:none;
-	margin-left:10px;
-}
-
-#dk-navi a:hover{
-	text-decoration:underline;
-}
-
-.dk-category{
-	width:538px;
-	border-bottom:5px solid #E43A06;
-}
-
-.dk-title{
-	color:#fff;
-	width:100%;
-	text-align:center;
-	border-bottom:1px solid #ddd;
-	font-weight:500;
-	background:#E43A06;
-	line-height:30px;
-	height:30px;
-	cursor: pointer;
-}
-
-.dk-switch{
-	width:30px;
-	height:33px;
-	float: right;
-}
-
-.dk-switch:hover{
-	color:#AD2A1F;
-}
-.dk-title:hover{
-	background:#E9392A;
-}
-
-.dk-container-out{
-	width:100%;
-	height:155px;
-	overflow-x:scroll;
-	overflow-y:hidden;
-	background:#f5f5f5;
-}
-
-.dk-container-in{
-	height:120px;
-	min-width:500px;
-	padding:10px;
-}
-
-.dk-book{
-	height:100px;
-	float:left;
-	margin-right:10px;
-}
-
-.dk-empty{
-	background:#CFCFCF;
-}
-
-.dk-book img{
-	width:80px;
-	float:left;
-	clear:both;
-	border:2px solid #E9392A;
-}
-
-.dk-book img{
-	cursor: move;
-	height:110px;
-}
-.onActive{
-	background:#E9392A;
+*{
+	margin:0px;
+	padding:0px;
+}
+
+.dk-hide{
+	display:none;
+}
+
+#dk-bookshelf{
+	width:540px;
+}
+
+#dk-navi{
+	width:540px;
+	height:30px;
+	width:100%;
+	background:#fff;
+	border-bottom:1px solid #E43A06;
+}
+
+#dk-navi a{
+	color:#E43A06;
+	line-height:30px;
+	text-decoration:none;
+	margin-left:10px;
+}
+
+#dk-navi a:hover{
+	text-decoration:underline;
+}
+
+.dk-category{
+	width:538px;
+	border-bottom:5px solid #E43A06;
+}
+
+.dk-title{
+	color:#fff;
+	width:100%;
+	text-align:center;
+	border-bottom:1px solid #ddd;
+	font-weight:500;
+	background:#E43A06;
+	line-height:30px;
+	height:30px;
+	cursor: pointer;
+}
+
+.dk-switch{
+	width:30px;
+	height:33px;
+	float: right;
+}
+
+.dk-switch:hover{
+	color:#AD2A1F;
+}
+.dk-title:hover{
+	background:#E9392A;
+}
+
+.dk-container-out{
+	width:100%;
+	height:155px;
+	overflow-x:scroll;
+	overflow-y:hidden;
+	background:#f5f5f5;
+}
+
+.dk-container-in{
+	height:120px;
+	min-width:500px;
+	padding:10px;
+}
+
+.dk-book{
+	height:100px;
+	float:left;
+	margin-right:10px;
+}
+
+.dk-empty{
+	background:#CFCFCF;
+}
+
+.dk-book img{
+	width:80px;
+	float:left;
+	clear:both;
+	border:2px solid #E9392A;
+}
+
+.dk-book img{
+	cursor: move;
+	height:110px;
+}
+.onActive{
+	background:#E9392A;
 }

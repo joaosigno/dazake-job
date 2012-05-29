@@ -77,6 +77,12 @@
 				<div class="dk-container-in">
 					<?php foreach ((array)$books as $book):?>
 						<div class="dk-book" data-id="<?php echo $book->id;?>">
+							<div class="dk_bookshelf_view">
+								<?php
+									echo '<a href="http://localhost/wordpress/wordpress1/?page_id=4?ig=ig&dkaction=manage&amp;action=viewbook&amp;id=' . $book->id . '">' . __('View', NRTD) . '</a>';
+
+								?>
+							</div>
 							<img src="<?php echo $book->image ;?>" alt="">
 						</div>
 					<?php endforeach;?>

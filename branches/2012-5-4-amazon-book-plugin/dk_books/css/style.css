@@ -106,6 +106,15 @@
 #content .dk-title{
   margin:0;
 }
+
+.dk_bookshelf_view{
+  color:#fff;
+  text-align:center;
+  font-weight:500;
+  line-height:30px;
+  height:30px;
+  cursor: pointer;
+}
 /*end bookshelf css*/
 
 

@@ -1,2 +1,1 @@
-<?php 
-	dk_book_profilemanage();
+<?php 	dk_book_profilemanage();

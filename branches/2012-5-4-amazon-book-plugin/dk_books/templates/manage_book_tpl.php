@@ -1,3 +1,1 @@
-<?php
-	dk_book_manage();
-
+<?php	dk_book_manage();

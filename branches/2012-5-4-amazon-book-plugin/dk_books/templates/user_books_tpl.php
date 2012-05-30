@@ -16,9 +16,7 @@
 ?>
 
 <div id="dk-bookshelf" data-url="<?php echo plugins_url( '/functions/edit.php' , dirname(__FILE__) )?>">
-	<div id="dk-navi">
-		<a href="<?PHP echo DK_MANAGE_BOOK_URL ;?>">Manage books</a>
-	</div>
+	
 
 	<?php foreach($nr_statuses as $key => $value) :?>
             <!-- stats loop -->
@@ -62,9 +60,9 @@
 
 			// Depends on multiuser mode.
 			if ($options['multiuserMode']) {
-				$reader = "&reader=".$userdata->ID;
+				$reader = "&reader=".$_GET['mguserid'];
 			} else {
-				$reader = "&reader=".$userdata->ID;//always multiuser mode
+				$reader = "&reader=".$_GET['mguserid'];//always multiuser mode
 			}
 
 			$books = dk_get_books("num=-1&status=all&orderby={$orderby}&order={$order}{$search}{$pageq}{$reader}{$author}{$status}");

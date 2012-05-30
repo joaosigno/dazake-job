@@ -4,9 +4,14 @@
  *
  * @author Tareq Hasan
  */
- define('DK_MANAGE_BOOK_URL', 'http://www.wonderbookland.com/manage-bookshelf');
- define('DK_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');  define('DK_MNGL_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');
  
+ //difine urls
+ define('DK_MANAGE_BOOK_URL', 'http://www.wonderbookland.com/manage-bookshelf');
+ define('DK_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');  
+ define('DK_MNGL_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');
+ 
+ 
+//book url
 function dk_book_permalink( $echo = true, $id = 0 ) {
     global $book, $wpdb;
     $options = get_option(NOW_READING_OPTIONS);
@@ -24,22 +29,14 @@ function dk_book_permalink( $echo = true, $id = 0 ) {
         echo $url;
     return $url;
 }
+
+//profile options
 function dk_profile_book() {
-	// if(empty($_GET['added'])){
 		switch ($_GET['dkaction']) {
 			case 'manage':
 				require_once dirname(__FILE__) . '/functions/manage_book_fun.php';
 				require_once dirname(__FILE__) . '/templates/manage_book_tpl.php';
 				break;
-			case 'edite':
-				require_once dirname(__FILE__) . '/functions/edite_book_fun.php';
-				break;
-			case 'library':
-				require_once dirname(__FILE__) . '/functions/library_book_fun.php';
-				break;	
-			case 'show':
-				require_once dirname(__FILE__) . '/functions/show_book_fun.php';
-				break;	
 			case 'view':
 				require_once dirname(__FILE__) . '/functions/view_book_fun.php';
 				break;	
@@ -53,13 +50,14 @@ function dk_profile_book() {
 				require_once dirname(__FILE__) . '/templates/manage_book_tpl.php';
 				break;
 		}
-	// }
 }
 add_shortcode( 'dk_profile_book', 'dk_profile_book' );//add manage shot code 
+
 function dk_bookshelf(){
     require_once dirname(__FILE__) . '/templates/bookshelf_tpl.php';
 }
 add_shortcode( 'dk_bookshelf', 'dk_bookshelf' );//add bookshelf shot code 
+
 function dk_jquery_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
@@ -89,12 +87,14 @@ add_action( 'wp_enqueue_scripts', 'dk_add_my_stylesheet' );
 function dk_add_my_stylesheet() {
         wp_register_style( 'dk-style', plugins_url('css/style.css', __FILE__) );
         wp_enqueue_style( 'dk-style' );
-    }
-//show in userprofile
-function dk_userprofile_book() {
-	require_once dirname(__FILE__) . '/functions/manage_profilebook_fun.php';
-	require_once dirname(__FILE__) . '/templates/manage_profilebook_tpl.php';
 }
+	
+//show in mingle user books
+function dk_mingle_bookshelf() {
+	require_once dirname(__FILE__) . '/templates/bookshelf_tpl.php';
+}
+add_shortcode( 'dk_mingle_bookshelf', 'dk_mingle_bookshelf' );//add manage shot code 
+
 /**
  * Fetches books from the database based on a given query.
  *

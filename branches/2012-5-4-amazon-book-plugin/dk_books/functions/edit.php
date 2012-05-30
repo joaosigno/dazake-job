@@ -26,7 +26,7 @@ switch ($action)
 		WHERE b_id = $id
             ");
 
-        wp_redirect($_SERVER['HTTP_REFERER'] . '&deleted=1');
+        wp_redirect($_SERVER['HTTP_REFERER'] . '?ig=ig&deleted=1');
         die;
         break;
 
@@ -196,7 +196,7 @@ switch ($action)
 
         delete_book_meta($id, $key);
 
-        $forward = $nr_url->urls['manage'] . "&action=editsingle&id=$id&updated=1";
+        $forward = $nr_url->urls['manage'] . "?ig=ig&action=editsingle&id=$id&updated=1";
         header("Location: $forward");
         die;
         break;

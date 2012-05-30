@@ -32,13 +32,19 @@ $ ->
 
 	#menu hover change background
 	menuContent = 
-		'home': '首页'
-		'about': '关于'
-		'works': '作品'
-		'price': '价格'
-		'flow': '流程'
-		'gallery': '风情赏'
+		'accueil': '首页'
+		'bio': '关于'
+		'œuvres': '作品'
+		'prix': '价格'
+		'processus': '流程'
+		'galeries': '风情赏'
 		'contact': '联系'
+
+	$('#slide-info').Slide 
+		effect : "scroolTxt"
+		speed : "normal"
+		timer : 3000
+		steps:1
 
 	$('#menu li a').each ->
 		temp = ''

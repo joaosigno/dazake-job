@@ -10,7 +10,7 @@ Template Name: page-works.php
 		<div class="worksCate">
 
 			<div class="row cateTitle">
-				<h3 class="span5">与爱情有关</h3>
+				<h3 class="span5">一个人的狂欢</h3>
 			</div>
 			
 			<div class="row">
@@ -64,7 +64,7 @@ Template Name: page-works.php
 		<div class="worksCate">
 
 			<div class="row cateTitle">
-				<h3 class="span5">与自己有关</h3>
+				<h3 class="span5">一个人的狂欢</h3>
 			</div>
 			
 			<div class="row">
@@ -89,7 +89,7 @@ Template Name: page-works.php
 		<div class="worksCate">
 
 			<div class="row cateTitle">
-				<h3 class="span5">与闺蜜有关</h3>
+				<h3 class="span5">闺蜜我最大</h3>
 			</div>
 			
 			<div class="row">
@@ -114,7 +114,7 @@ Template Name: page-works.php
 		<div class="worksCate">
 
 			<div class="row cateTitle">
-				<h3 class="span5">与蜜途有关</h3>
+				<h3 class="span5">微电影</h3>
 			</div>
 			
 			<div class="row">

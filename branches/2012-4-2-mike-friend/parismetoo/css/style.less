@@ -88,18 +88,28 @@ embed{
 
 .cover{
 	height:240px;
-	background:#fff;
 	margin-top:25px;
 	margin-bottom:20px;	
 	text-align:center;
+	position:relative;
 	overflow: hidden;
-	box-shadow:0px 1px 2px #999;
+
+	.solde{
+	  width:100px;
+	  height:100px;
+	  position:absolute;
+	  right:10px;
+	  bottom:40px;
+	  background:url('../images/sold.png');
+	}
 
 	img{
 		width:293px;
 		height:195px;
 		margin-top:5px;
 		cursor: pointer;
+		border:3px solid #fff;
+		box-shadow:0px 1px 2px #999;
 		-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
 		   -moz-transition: all 0.3s ease-out;  /* FF4+ */
 		    -ms-transition: all 0.3s ease-out;  /* IE10? */
@@ -119,8 +129,8 @@ embed{
 	}
 
 	h4{
-		height:35px;
-		line-height:35px;
+		height:30px;
+		line-height:30px;
 		margin-top:5px;
 		color:@grey;
 		text-transform:capitalize;
@@ -188,7 +198,6 @@ body{
 					color:#666;
 					font-weight:bold;
 					text-shadow:1px 1px 1px #fff;
-					text-transform:uppercase;
 					-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
 					   -moz-transition: all 0.3s ease-out;  /* FF4+ */
 					    -ms-transition: all 0.3s ease-out;  /* IE10? */
@@ -277,6 +286,26 @@ body{
 	}
 }
 
+#slide-info-title{
+	color:#555;
+	margin:20px 0px 10px;
+}
+
+#slide-info{
+  width:100%;
+  height:160px;
+  overflow:hidden;
+  border-top:1px solid #aaa;
+}
+
+#slide-info li{
+  list-style:none;
+  margin:10px 0px 0px -24px;
+  // background:#fff;
+  padding:5px;
+  border-bottom:1px solid #ddd;
+}
+
 #main{
 	.pageTitle{
 		height:40px;
@@ -358,9 +387,12 @@ body{
 	#contact{
 		margin-left:0px;
 
+		#googlemap{
+			margin-left:-8px;
+		}
 		#contactDetail{
 			background:#fff;
-			height:470px;
+			height:220px;
 			margin:2px 0px 20px;
 			box-shadow:0px 1px 1px #aaa;
 			text-indent:10px;
@@ -370,14 +402,14 @@ body{
 
 				label{
 					width:70px;
-					height:40px;
-					line-height:40px;
+					height:25px;
+					line-height:25px;
 					text-align:right;
 					display: inline;
 				}
 			}
 			.mapp-container{
-				margin:0px;
+				margin:20px;
 			}
 		}
 	}
@@ -403,6 +435,15 @@ body{
 				-moz-opacity: 0.5;
 				filter:alpha(opacity=5);
 			}
+		}
+	}
+
+	#social-icon{
+		margin-left:20px;
+		img{
+			width:30px;
+			height:30px;
+			border-radius:5px;
 		}
 	}
 }

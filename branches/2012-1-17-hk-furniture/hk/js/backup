@@ -1,0 +1,200 @@
+$(function () {
+
+//********************plugins*******************************
+//bc-slide.js
+var i = 1,
+		j = 0,
+		next = 0;
+		
+	function slide(target){
+		switch (j) {
+			case 0:
+				next = 1;
+			break;
+			case 1:
+				next = 2;
+			break;
+			case 2:
+				next = 0;
+			break;
+		}
+		var newThis = $("#"+target);
+		newThis.children("a:eq("+j+")").children("img").fadeOut(700);
+		newThis.children("a:eq("+next+")").children("img").fadeIn(700);
+	}
+
+	function test() {
+		slide("slideshow"+i);
+		if(i == 3){
+			j++;
+			if(j == 3){
+				j = 0;
+			}
+			i = 0;
+		}
+		i++;
+	}
+	
+	var t = setInterval(test, 1650);
+	
+	$(".slideshow").mouseover(function () {
+		clearInterval(t);
+	})
+	
+	$(".slideshow").mouseout(function () {
+		t = setInterval(test, 1650);
+	})
+
+//scroll.js
+$(function () {
+	var nowPos = 715,	 	//initial position
+		maxScroll = 1415,	//max scroll position
+		minScroll = 0,		//min scroll position
+		dirt = "right",		//initial scrolling direction
+		pace = 300,			//each time scroll pace
+		scrollspeed = 600,	//A scroll cost time
+		frequency = 2500;	//every ** does the bar scroll
+	
+	//set the mid position 
+	$("#collection").scrollLeft(nowPos);
+	//record the scrollbar's position every time it scrolls
+	$("#collection").scroll(function () {
+		nowPos = $(this).scrollLeft();
+	})
+	
+	//the scroll function
+	function scroll(dirt) {
+		switch (dirt) {
+			case "left":
+				nowPos -= pace;
+				break;
+			case "right":
+				nowPos += pace;
+				break;
+		}
+		$("#collection").animate({
+			scrollLeft:nowPos
+		},scrollspeed);
+	}
+	
+	//auto scroll function
+	function autoScroll() {
+		if(nowPos >= maxScroll){
+			dirt = "left";
+		}
+		if(nowPos <= minScroll){
+			dirt = "right";
+		}
+		switch (dirt) {
+			case "left":
+				scroll("left");
+				break;
+			case "right":
+				scroll("right");
+				break;
+		}
+	}
+	//start & stop auto scroll
+	var t = setInterval(autoScroll, frequency);
+	
+	$("#collection").mouseover(function () {
+		clearInterval(t);
+	})
+	$("#collection").mouseout(function () {
+		t = setInterval(autoScroll, frequency);
+	})
+	
+	//navigator
+	$("#nav_right").click(function () {
+		scroll("right");
+	})
+	
+	$("#nav_left").click(function () {
+		scroll("left");
+	})
+})
+
+//************************main*************************
+	var maxScr = 1415;
+
+//********************about.php*************************
+	
+//	item click action
+	$(function(){
+		$('#about .item').click(function(){
+			$(this).addClass('active').siblings('.item').removeClass('active');
+		})
+	})
+//********************collection.php*************************	
+		
+	//show the nav_button
+		$("#collection").mouseover(function () {
+			$("#show_nav").show();
+		})
+		
+		$("#collection").mouseout(function () {
+			$("#show_nav").hide();
+		})
+		
+	//show the category
+		$("#pro_nav_trigger").click(function () {
+			$(this).toggleClass("showcate_active");
+			$("#Pro_nav").slideToggle(200);
+			if($(this).hasClass("showcate_active")){
+				$(".scroll_nav").css({"top":250});
+			}else {
+				$(".scroll_nav").css({"top":200});
+			}
+			if($('#main').find('#currentCate')){
+				$('#currentCate').fadeToggle(200);
+			}
+		})
+		
+		$("#Pro_nav>li").click(function () {
+			$("#Pro_nav>li").css({"color":"#fff"});
+			$(this).css({"color":"#333"});
+			$("#Pro_nav .sub-menu").hide();
+			$(this).children("ul").show();
+			console.log($(this).children('ul'));
+		})
+})
+
+//********************designer.php*************************
+$(function(){
+	$('#designer-items>.cat-item>a').removeAttr('href').on('click',function(){
+		$(this).parent('.cat-item').siblings('.cat-item').children('ul').slideUp();
+		$(this).siblings('ul').slideDown();
+	});
+})
+
+//********************single-product.php*************************
+$(function(){
+	var oriImg = $('#leftbox>img').attr('src');
+    $('.imgcover').mouseover(function(){
+        
+  		$('#leftbox>img').attr('src',$(this).siblings('img').attr('src'));
+        
+    })
+
+    $('.imgcover').mouseout(function(){
+        
+  		$('#leftbox>img').attr('src',oriImg);
+        
+	})
+});
+
+//********************project.php*************************
+$(function(){
+	$('.project_item').mouseover(function(){
+		$('#project_preview img').attr('src',$(this).attr('id')).fadeIn();		
+	});
+
+	$('.project_item').mouseout(function(){
+		$('#project_preview img').hide();		
+	});
+
+	$('#project_display img').on('click',function(){
+		$('#midbox img').attr('src',$(this).attr('src'));
+	});
+})	
+	

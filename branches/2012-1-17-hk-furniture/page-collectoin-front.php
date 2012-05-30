@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: page-collection
+Template Name: page-collection-front
 */
 ?>
 <!DOCTYPE html <?php bloginfo('template_directory'); ?> "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -22,24 +22,19 @@ Template Name: page-collection
 		})
 	</script>
 	<?php get_header();?>
+	
 	<div id="collection">
-		<div id="showbox">
-			<?php
-			    $new = new WP_Query('post_type=product&posts_per_page=8');
-		    	while ($new->have_posts()) : $new->the_post();
-		    	$thisId = get_the_ID();
-			?>
-			<a href="<?php echo site_url(); ?>/?page_id=65&id=<?php echo $thisId?>" class='test_img'><img src="<?php echo get_post_meta($thisId, 'wpcf-image1', true)?>" alt="" /></a>
-			<?php
-			    endwhile;
-			?>
 
-		</div>
-		
-		<div id="show_nav" class="hide">
-			<div id="nav_left" class="scroll_nav"><</div>
-			<div id="nav_right" class="scroll_nav">></div>
-		</div>
 	</div>
+	</div>
+	<div id="cate-nav">
+		<div id="signatureline">
+			<img src="<?php bloginfo('template_directory'); ?>/images/signatureline.png" height="496" width="680" alt="" />
+			<a href="" class="cate-nav"><span><< </span>Signature line</a>
+		</div>
+		<div id="basicline">
+			<img src="<?php bloginfo('template_directory'); ?>/images/basicline.png" height="312" width="500" alt="" />
+			<a href="" class="cate-nav">Basic line<span> >></span></a>
+		</div>
 	</div>
 	<?php get_footer();?>

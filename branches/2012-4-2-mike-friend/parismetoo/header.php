@@ -94,9 +94,8 @@
 			<div id="qqcontact">
 				<div class="row">
 					<div class="span3 offset9">
-						<span>点我吧:</span>
-						<a href="" ><img id="qqboy" class="qqcontact" title="hello" src="<?php bloginfo('template_url'); ?>/images/qqboy.png" alt=""></a>
-						<a href="" ><img id="qqgirl" class="qqcontact" title="hello" src="<?php bloginfo('template_url'); ?>/images/qqgirl.png" alt=""></a>
+						<a href="" ><img id="qqboy" class="qqcontact" title="Vincent" src="<?php bloginfo('template_url'); ?>/images/qqboy.png" alt=""></a>
+						<a href="" ><img id="qqgirl" class="qqcontact" title="Marie" src="<?php bloginfo('template_url'); ?>/images/qqgirl.png" alt=""></a>
 					</div>
 				</div>
 			</div>

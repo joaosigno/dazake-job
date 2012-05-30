@@ -16,6 +16,7 @@
 			 */
 			wp_register_script('jquery', 'http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js');
 			wp_register_script('modernizr', get_template_directory_uri() . '/js/libs/modernizr.js');
+			wp_register_script('jqslide', get_template_directory_uri() . '/js/libs/jqslide.js');
 			wp_register_script('bootstrap', get_template_directory_uri() . '/js/libs/bootstrap/js/bootstrap.min.js');
 			wp_register_script('lazyload', get_template_directory_uri() . '/js/libs/lazyload.js');
 			wp_register_script('less', get_template_directory_uri() . '/js/libs/less.js');
@@ -29,6 +30,7 @@
 			wp_enqueue_script('modernizr');
 			wp_enqueue_script('bootstrap');
 			wp_enqueue_script('lazyload');
+			wp_enqueue_script('jqslide');
 			wp_enqueue_script('less');
 			wp_enqueue_script('main');
 

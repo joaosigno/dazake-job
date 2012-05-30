@@ -9,7 +9,7 @@ Template Name: page-contact.php
 			<h3 class="pageTitle span2">联系我们:</h3>
 		</div>
 
-		<div id="contactDetail" class="span5">
+		<div id="contactDetail" class="row">
 			<div class="eachContactDetail">
 				<label for="">地址:</label>
 				<span class="eachContact">上海市安远路839号</span>
@@ -47,7 +47,7 @@ Template Name: page-contact.php
 				<span class="eachContact"><img src="" alt=""></span>
 			</div>
 		</div>
-		<div id="googlemap" class="span7">
+		<div id="googlemap" class="row">
 			<!-- for google map -->
 			<?php 
 				if ( have_posts() ) : while ( have_posts() ) : the_post(); 

@@ -1,5 +1,4 @@
 <?php
-
 	$id = intval($_GET['id']);
             $existing = get_book($id);
             $meta = get_book_meta($existing->id);

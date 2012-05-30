@@ -1,6 +1,1 @@
-<?php
-	dk_book_add_fun();
-
-
-
-?>
+<?php	dk_book_add_fun();

@@ -12,15 +12,15 @@ function dk_book_manage()
     global $wpdb, $nr_statuses, $nr_post_options, $userdata;
 
     unset($nr_statuses);
-    $nr_statuses['unread'] = 'NEW BOOK';
+    $nr_statuses['unread'] = 'NEWLY ADDED';
     $nr_statuses['reading'] = 'READING NOW';
-    $nr_statuses['rcd'] = 'RECOMMENDED';
-    $nr_statuses['nrecd'] = "NOT RECOMMENDED";
-    $nr_statuses['beachr'] = 'BEACH READS';
-    $nr_statuses['rainyr'] = 'RAINY DAY READS';
-    $nr_statuses['goodr'] = 'FEEL-GOOD READS';
-    $nr_statuses['comr'] = 'COMMUTE READS';
-    $nr_statuses['pastr'] = 'PAST READS';
+    $nr_statuses['rcd'] = 'STRONGLY RECOMMENDED';
+    $nr_statuses['beachr'] = 'FAVOURITES FOR THE BEACH';
+    $nr_statuses['rainyr'] = 'GREAT FOR RAINY DAYS';
+    $nr_statuses['goodr'] = 'FAVOURITE FEEL-GOOD READS';
+    $nr_statuses['comr'] = 'GREAT COMMUTE READS';
+    $nr_statuses['pastr'] = 'MY PESONAL WISH LIST';
+    $nr_statuses['nrecd'] = "BEST AVOIDED";
 
     get_currentuserinfo();
 

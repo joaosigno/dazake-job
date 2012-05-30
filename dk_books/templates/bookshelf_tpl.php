@@ -2,16 +2,15 @@
 	//init read status
 	if(!empty($nr_statuses))
 		unset($nr_statuses);
-	$nr_statuses['unread'] = 'NEW';
+	$nr_statuses['unread'] = 'NEWLY ADDED';
 	$nr_statuses['reading'] = 'READING NOW';
-	$nr_statuses['rcd'] = 'RECOMMENDED';
-        $nr_statuses['nrecd'] = "NOT RECOMMENDED";
-	$nr_statuses['beachr'] = 'BEACH READS';
-	$nr_statuses['rainyr'] = 'RAINY DAY READS';
-	$nr_statuses['goodr'] = 'FEEL-GOOD READS';
-	$nr_statuses['comr'] = 'COMMUTE READS';
-        $nr_statuses['nrecd'] = "NOT RECOMMENDED";
-	$nr_statuses['pastr'] = 'PAST READS';
+	$nr_statuses['rcd'] = 'STRONGLY RECOMMENDED';
+        $nr_statuses['beachr'] = 'FAVOURITES FOR THE BEACH';
+	$nr_statuses['rainyr'] = 'GREAT FOR RAINY DAYS';
+	$nr_statuses['goodr'] = 'FAVOURITE FEEL-GOOD READS';
+	$nr_statuses['comr'] = 'GREAT COMMUTE READS';
+        $nr_statuses['pastr'] = 'MY PESONAL WISH LIST';
+        $nr_statuses['nrecd'] = "BEST AVOIDED";
 	
 	global $userdata;
 ?>
@@ -79,8 +78,7 @@
 						<div class="dk-book" data-id="<?php echo $book->id;?>">
 							<div class="dk_bookshelf_view">
 								<?php
-									echo '<a href="http://localhost/wordpress/wordpress1/?page_id=4?ig=ig&dkaction=manage&amp;action=viewbook&amp;id=' . $book->id . '">' . __('View', NRTD) . '</a>';
-
+									echo '<a href="'.DK_MANAGE_BOOK_URL .'?ig=ig&dkaction=manage&amp;action=viewbook&amp;id=' . $book->id . '">' . __('View', NRTD) . '</a>';
 								?>
 							</div>
 							<img src="<?php echo $book->image ;?>" alt="">

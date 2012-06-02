@@ -72,6 +72,14 @@ function dk_bookshelf(){
 add_shortcode( 'dk_bookshelf', 'dk_bookshelf' );//add bookshelf shot code 
 
 
+function dk_user_books(){
+    require_once dirname(__FILE__) . '/templates/dk_user_books_tpl.php';
+}
+add_shortcode( 'dk_user_books', 'dk_user_books' );//add bookshelf shot code 
+
+
+
+
 function dk_jquery_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');

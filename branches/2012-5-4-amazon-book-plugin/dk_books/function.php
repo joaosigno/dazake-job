@@ -7,7 +7,7 @@
 
  define('DK_MANAGE_BOOK_URL', 'http://www.wonderbookland.com/manage-bookshelf');
  define('DK_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');  
- define('DK_MNGL_BOOKSHELF_URL', 'http://www.wonderbookland.com/bookshelf');
+ define('DK_MNGL_BOOKSHELF_URL', 'http://www.wonderbookland.com/user-books/');
  
 function dk_book_permalink( $echo = true, $id = 0 ) {
     global $book, $wpdb;

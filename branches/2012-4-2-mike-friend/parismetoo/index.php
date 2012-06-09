@@ -1,48 +1,31 @@
 <?php get_header(); ?>
 			<div id="showcase">
 				<div class="row">
+<?php 
+$args=array(
+	'taxonomy'=>'picture_category',
+  'term' => 'front-page',
+  'post_type' => 'pictures',
+  'showposts' => '9'
+);
+$picturePosts = new WP_Query($args);
+?> 
+
+				<?php while ( $picturePosts->have_posts() ) : $picturePosts->the_post(); ?>
 					<div class="cover span4 sold">
-						<a href="" ><span class="solde"></span><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/1.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
+					
+					<?php
+					$thumb = get_post_meta($post->ID, 'wpcf-thumb', true);
+					$sale = get_post_meta($post->ID, 'wpcf-sale', true);
+?>
+						<a href="<?php the_permalink(); ?>" >
+						<?php if($sale): ?>
+							<span class="solde"></span>
+						<?php endif; ?>
+						<img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php echo $thumb; ?>" alt=""></a>
+						<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
 					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/2.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/3.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/4.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/5.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/6.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/7.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/8.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
-					<div class="cover span4">
-						<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/9.jpg" alt=""></a>
-						<a href=""><h4>test</h4></a>
-					</div>
+					<?php endwhile; // End the loop. Whew. ?>
 				</div>
 			</div>
 		</div>
@@ -50,13 +33,22 @@
 		<h4 id="slide-info-title">最新资讯:</h4>
 		<div id="slide-info">
 	    <div class="JQ-content-box">
+		
 	      <ul class="JQ-slide-content">
-	      	<li><a href="http://www.baidu.com">爱人，爱墙，蒙马特的呢喃</a></li>
-	      	<li><a href="http://www.baidu.com">上海办事处开立优惠，前五对新人拍摄费全免！</a></li>
-	      	<li><a href="http://www.baidu.com">木头变王子——不老泉边的求婚</a></li>
-	      	<li><a href="http://www.baidu.com">6月2日巴黎面签通过！十全大补之经验分享</a></li>
-	      	<li><a href="http://www.baidu.com">从英吉利海峡到地中海——贯法背包客的行吟图片</a></li>
+		    <?php 
+$args=array(
+	'taxonomy'=>'picture_category',
+  'term' => 'zuixinzixun',
+  'post_type' => 'pictures',
+  'showposts' => '5'
+);
+$recentPosts = new WP_Query($args);     
+?> 
+<?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?> 
+	      	<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+<?php endwhile; ?>  
 	      </ul>
+		  
 	    </div>
 	  </div>
 

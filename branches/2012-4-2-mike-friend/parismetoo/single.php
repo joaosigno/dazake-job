@@ -5,29 +5,26 @@ Template Name: single-post
 ?>
 
 <?php get_header(); ?>
+<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 	<div id="each_post">
-		<div id="post-title">This is the post title</div>
+		<div id="post-title"><?php the_title(); ?></div>	
 		<div id="post-header">
 			<div id="post-thumb">
-				<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
+			<?php
+			global $post;
+			$thumb = get_post_meta($post->ID, 'wpcf-thumb', true);
+			$intro = get_post_meta($post->ID, 'wpcf-intro', true);
+			?>
+				<img src="<?php echo $thumb ;?>" alt="">
 			</div>
 
 			<div id="post-info">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id lectus a justo feugiat sodales eu id augue. Pellentesque a diam vel nunc fringilla semper nec porttitor felis. Nunc nisl mauris, molestie non faucibus non, tincidunt eget arcu. Vivamus dapibus consectetur pharetra. Maecenas consectetur hendrerit leo a pellentesque. Nam condimentum, ipsum condimentum euismod ultricies, magna est tincidunt sapien, ut placerat mauris mauris id lorem. Suspendisse ornare, mi quis condimentum rutrum, lorem diam malesuada sapien, at faucibus felis erat et nunc.
-
-</p>
+				<p><?php echo $intro ;?></p>
 			</div>
 		</div>
 		<div id="post-main">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
-			<img src="<?php bloginfo('template_url'); ?>/images/post-img.jpg" alt="">
+			<?php the_content(); ?>
 		</div>
 	</div>
+<?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>

@@ -65,6 +65,8 @@ $ ->
 		showItem = parseInt $(@).data 'slide'
 		$('#slideContent').animate
 			'margin-left': showItem
+
+	$('#post-main img').fancybox()
 		
 		
 

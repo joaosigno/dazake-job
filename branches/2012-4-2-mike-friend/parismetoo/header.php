@@ -51,7 +51,7 @@
 	
 	</head>
 
-<body <?php body_class(); ?>>
+<body style="background:url('<?php echo get_post_meta('117', 'wpcf-background-img', true);?>') repeat;" <?php body_class(); ?>>
 	<!-- <embed src="<?php bloginfo('template_url'); ?>/music/helene.mp3" autostart="true" loop="true" hidden="true"> -->
 	<div class="container">
 		<!-- #header -->
@@ -94,8 +94,8 @@
 			<div id="qqcontact">
 				<div class="row">
 					<div class="span3 offset9">
-						<a href="" ><img id="qqboy" class="qqcontact" title="Vincent" src="<?php bloginfo('template_url'); ?>/images/qqboy.png" alt=""></a>
-						<a href="" ><img id="qqgirl" class="qqcontact" title="Marie" src="<?php bloginfo('template_url'); ?>/images/qqgirl.png" alt=""></a>
+						<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo get_post_meta('117', 'wpcf-qq1', true);?>&site=qq&menu=yes" target="_blank" ><img id="qqboy" class="qqcontact" title="Vincent" src="<?php bloginfo('template_url'); ?>/images/qqboy.png" alt=""></a>
+						<a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo get_post_meta('117', 'wpcf-qq2', true);?>&site=qq&menu=yes" target="_blank"><img id="qqgirl" class="qqcontact" title="Marie" src="<?php bloginfo('template_url'); ?>/images/qqgirl.png" alt=""></a>
 					</div>
 				</div>
 			</div>

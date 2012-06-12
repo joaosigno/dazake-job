@@ -54,7 +54,7 @@ $args=array(
 );
 $alonePosts = new WP_Query($args);     
 ?> 
-<?php while ($friendsPosts->have_posts()) : $friendsPosts->the_post(); ?> 
+<?php while ($alonePosts->have_posts()) : $alonePosts->the_post(); ?> 
 <?php
 					$thumb = get_post_meta($post->ID, 'wpcf-thumb', true);
 					$sale = get_post_meta($post->ID, 'wpcf-sale', true);
@@ -77,18 +77,25 @@ $alonePosts = new WP_Query($args);
 			</div>
 			
 			<div class="row">
-				<div class="cover span4 sold">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/1.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
-				<div class="cover span4">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/2.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
-				<div class="cover span4">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/3.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
+								<?php 
+				$args=array(
+					'taxonomy'=>'picture_category',
+				  'term' => 'maiden',
+				  'post_type' => 'pictures',
+				  'showposts' => '3'
+				);
+				$maidenPosts = new WP_Query($args);     
+				?> 
+				<?php while ($maidenPosts->have_posts()) : $maidenPosts->the_post(); ?> 
+				<?php
+									$thumb = get_post_meta($post->ID, 'wpcf-thumb', true);
+									$sale = get_post_meta($post->ID, 'wpcf-sale', true);
+				?>
+								<div class="cover span4">
+									<a href="<?php the_permalink(); ?>" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php echo $thumb ;?>" alt=""></a>
+									<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+								</div>
+				<?php endwhile; ?> 
 			</div>
 
 		</div>
@@ -102,18 +109,25 @@ $alonePosts = new WP_Query($args);
 			</div>
 			
 			<div class="row">
-				<div class="cover span4 sold">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/1.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
-				<div class="cover span4">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/2.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
-				<div class="cover span4">
-					<a href="" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php bloginfo('template_url'); ?>/images/3.jpg" alt=""></a>
-					<a href=""><h4>test</h4></a>
-				</div>
+				<?php 
+								$args=array(
+									'taxonomy'=>'picture_category',
+								  'term' => 'movies',
+								  'post_type' => 'pictures',
+								  'posts_per_page' => '3'
+								);
+								$moviesPosts = new WP_Query($args);     
+								?> 
+								<?php while ($moviesPosts->have_posts()) : $moviesPosts->the_post(); ?> 
+								<?php
+													$thumb = get_post_meta($post->ID, 'wpcf-thumb', true);
+													$sale = get_post_meta($post->ID, 'wpcf-sale', true);
+								?>
+												<div class="cover span4">
+													<a href="<?php the_permalink(); ?>" ><img class="lazy" data-original="<?php bloginfo('template_url'); ?>/images/blank.jpg" src="<?php echo $thumb ;?>" alt=""></a>
+													<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+												</div>
+								<?php endwhile; ?>
 			</div>
 
 		</div>

@@ -37,9 +37,9 @@ $picturePosts = new WP_Query($args);
 	      <ul class="JQ-slide-content">
 		    <?php 
 $args=array(
-	'taxonomy'=>'picture_category',
+	'taxonomy'=>'category',
   'term' => 'zuixinzixun',
-  'post_type' => 'pictures',
+  'post_type' => 'post',
   'showposts' => '5'
 );
 $recentPosts = new WP_Query($args);     

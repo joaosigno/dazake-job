@@ -1,0 +1,151 @@
+/*
+Theme Name: Parismetto Photography Theme
+Theme URI: 
+Description: This is a photography website based on wordpress and developed by Dazake
+Author: Dazake
+Author URI: dazake.com
+*/
+
+/* =Reset default browser CSS. 
+-------------------------------------------------------------- */
+html, body, div, span, p, blockquote, pre,
+a, img, strong,
+b, center,
+dl, dt, dd, ol, ul, li,
+form, label, legend,
+table, tr, th, td{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+	font-family:'Microsoft YaHei','黑体'，helvetica,arial,verdana,sans-serif;
+}
+
+
+/* = main style 
+-------------------------------------------------------------- */
+#each_post{
+  width:100%;
+  height:auto;
+  overflow:hidden;
+  background:#fff;
+  padding:20px 0px;
+  box-shadow:0px 5px 5px #999;
+}
+
+#post-title{
+  width:100%;
+  height:50px;
+  background:#333;
+  color:#fff;
+  font-family: 'Dynalight', cursive;
+  font-size:35px;
+  text-align:center;
+  line-height:50px;
+  margin-bottom:20px;
+}
+
+#post-header{
+  width:100%;
+  height:200px;
+  border-bottom:1px solid #ddd;
+  border-top:1px solid #ddd;
+}
+
+#post-thumb{
+  width:250px;
+  float:left;
+  height:200px;
+  text-align:center;
+  border-right:1px solid #ddd;
+}
+
+#post-thumb img{
+  width:220px;
+  border-radius:3px;
+  margin-top:10px;
+  border:3px solid #ddd;
+}
+
+#post-info{
+  float:left;
+  width:688px; 
+}
+
+#post-info p{
+  width:650px;
+  margin:10px;
+  color:#888;
+}
+
+#post-main{
+  text-align:center;
+}
+
+#post-main img{
+	width:640px;
+	height:auto;
+  margin:20px 0px;
+  box-shadow:0px 1px 4px #000;
+}
+
+/*single-post */#single-post{
+  background:#fff;
+  box-shadow:0px 10px 10px #555;
+}
+
+#single-post-title{
+  width:100%;
+  height:50px;
+  background:#F2F2F2;
+  text-align:center;
+}
+
+#single-post-title>h3{
+  line-height:50px; 
+  color:#555; 
+}
+
+#single-post-content{
+  overflow:hidden;
+}
+
+#single-post-content p{
+  width:800px;
+  margin:10px 70px;
+  line-height:18px;
+}
+
+#single-post-content p img{
+  width:800px;
+  height:auto;
+  margin:10px 0px;
+  box-shadow:0px 3px 2px #555;
+}

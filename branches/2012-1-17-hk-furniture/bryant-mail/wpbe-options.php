@@ -34,6 +34,26 @@
 		</p>
 	</form>
 
+	<!-- for group user dazake -->
+	<?php
+			
+
+		// $locations = $wpdb->get_results( $wpdb->prepare("SELECT LABEL FROM wp_cimy_uef_fields") );
+		// $locations = $locations[0]->LABEL;
+		// $groups =  explode(",", $locations);
+
+		function get_group_by_id($id){
+			global $wpdb;
+			$group = $wpdb->get_results( $wpdb->prepare("SELECT VALUE FROM wp_cimy_uef_data WHERE ID like $id") );
+			return $group[0]->VALUE;
+		}
+
+		print_r(get_group_by_id(2));
+	?>
+
+
+	<!-- for group user dazake -->
+
 	<!-- test -->
 	<div id="maillist">
 	  <form name="form_eemail" method="post" action="admin.php?page=add_admin_menu_email_to_registered_user" onsubmit="return send_email_submit()"  >

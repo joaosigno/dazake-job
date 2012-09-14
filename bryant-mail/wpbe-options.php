@@ -36,19 +36,27 @@
 
 	<!-- for group user dazake -->
 	<?php
-			
-
-		// $locations = $wpdb->get_results( $wpdb->prepare("SELECT LABEL FROM wp_cimy_uef_fields") );
-		// $locations = $locations[0]->LABEL;
-		// $groups =  explode(",", $locations);
-
-		function get_group_by_id($id){
+		function get_groups(){
 			global $wpdb;
-			$group = $wpdb->get_results( $wpdb->prepare("SELECT VALUE FROM wp_cimy_uef_data WHERE ID like $id") );
-			return $group[0]->VALUE;
+			$groups = $wpdb->get_results( $wpdb->prepare("SELECT LABEL FROM wp_cimy_uef_fields") );
+			$groups = $groups[0]->LABEL;
+			$groups =  explode(",", $groups);
+
+			return $groups;
 		}
 
-		print_r(get_group_by_id(2));
+		$user_groups = get_groups();
+	?>
+		<h3>Select User Group</h3>
+		<select name="ztem-user-group" id="ztem-user-group">
+			<option value="Select a group">Select a group</option>
+			<?php
+			  for($i=0; $i<count($user_groups); $i++){
+			  echo 	'<option value="'.$user_groups[$i].'">'.$user_groups[$i].'</option>';
+			  }
+			?>
+		</select>
+	<?php
 	?>
 
 
@@ -58,11 +66,20 @@
 	<div id="maillist">
 	  <form name="form_eemail" method="post" action="admin.php?page=add_admin_menu_email_to_registered_user" onsubmit="return send_email_submit()"  >
 	    <input type="hidden" name="send" value="true" />
-	    <input type="button" name="CheckAll" value="Check All" onClick="SetAllCheckBoxes('form_eemail', 'eemail_checked[]', true);">
-	    <input type="button" name="UnCheckAll" value="Uncheck All" onClick="SetAllCheckBoxes('form_eemail', 'eemail_checked[]', false);">
+	    <!-- <input type="button" name="CheckAll" value="Check All" onClick="SetAllCheckBoxes('form_eemail', 'eemail_checked[]', true);"> -->
+	    <!-- <input type="button" name="UnCheckAll" value="Uncheck All" onClick="SetAllCheckBoxes('form_eemail', 'eemail_checked[]', false);"> -->
 	    <?php
 	global $wpdb, $wp_version;
-	$data = $wpdb->get_results("select user_nicename,user_email from ". $wpdb->prefix . "users ORDER BY user_nicename");
+	$data = $wpdb->get_results("select ID,user_nicename,user_email from ". $wpdb->prefix . "users ORDER BY user_nicename");
+
+	//edited by bryant get group by id;
+	function get_group_by_id($id){
+		global $wpdb;
+		$group = $wpdb->get_results( $wpdb->prepare("SELECT VALUE FROM wp_cimy_uef_data WHERE ID like $id") );
+		return $group[0]->VALUE;
+	};
+	//edited by bryant get group by id;
+	
 	if ( !empty($data) ) 
 	{
 	echo "<table border='0' style='padding:4px;'><tr>";
@@ -71,11 +88,13 @@
 	foreach ( $data as $data )
 	{
 		$to = $data->user_email;
+		$id = $data->ID;
+		$group = get_group_by_id($id);
 		if($to <> "")
 		{
 			echo "<td>";
 			?>
-	    <input class="radio" type="checkbox" checked="checked" value='<?php echo $to; ?>' name="eemail_checked[]">
+	    <input class="radio <?php echo $group ;?>" type="checkbox" value='<?php echo $to; ?>' name="eemail_checked[]">
 	    &nbsp;<?php echo $to; ?>
 	    <?php
 			if($col > 1) 

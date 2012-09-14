@@ -55,4 +55,12 @@ jQuery(document).ready(function($){
 		}
 	});
 
+
+	//bryant
+	$('#ztem-user-group').change(function(){
+		console.log($(this).val());
+		var selectGroup = $(this).val();
+		$('#maillist input.radio').removeAttr('checked');
+		$('#maillist input.'+selectGroup).attr('checked', 'checked');
+	});
 });

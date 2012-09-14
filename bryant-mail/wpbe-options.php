@@ -75,7 +75,7 @@
 	//edited by bryant get group by id;
 	function get_group_by_id($id){
 		global $wpdb;
-		$group = $wpdb->get_results( $wpdb->prepare("SELECT VALUE FROM wp_cimy_uef_data WHERE ID like $id") );
+		$group = $wpdb->get_results( $wpdb->prepare("SELECT VALUE FROM wp_cimy_uef_data WHERE USER_ID like $id") );
 		return $group[0]->VALUE;
 	};
 	//edited by bryant get group by id;

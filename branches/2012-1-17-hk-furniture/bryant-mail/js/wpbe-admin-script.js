@@ -63,4 +63,16 @@ jQuery(document).ready(function($){
 		$('#maillist input.radio').removeAttr('checked');
 		$('#maillist input.'+selectGroup).attr('checked', 'checked');
 	});
+
+	$('.radio').click(function(){
+		var value = $(this).attr('checked');
+		console.log(value);
+		if(value === undefined ){
+			$(this).removeAttr('checked');
+		}else{
+			$(this).attr('checked', 'checked' );
+			
+		}
+		
+	});
 });

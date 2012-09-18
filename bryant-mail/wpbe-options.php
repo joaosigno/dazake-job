@@ -15,6 +15,10 @@
 				<th scope="row"><label for="wpbe_from_email"><?php _e('Email address', 'wp-better-emails'); ?></label></th>
 				<td><input type="text" id="wpbe_from_email" class="regular-text" name="wpbe_options[from_email]" value="<?php echo esc_attr_e($this->options['from_email']); ?>" /></td>
 			</tr>
+			<tr valign="top">
+				<th scope="row"><label for="wpbe_email_subject"><?php _e('Email Subject', 'wp-better-emails'); ?></label></th>
+				<td><input type="text" id="wpbe_email_subject" class="regular-text" name="wpbe_options[email_subject]" value="<?php echo esc_attr_e($this->options['email_subject']); ?>" /></td>
+			</tr>
 		</table>
 		
 		<!-- Template -->

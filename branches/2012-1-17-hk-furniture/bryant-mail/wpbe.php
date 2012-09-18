@@ -254,6 +254,7 @@ if (!class_exists('WP_Better_Emails')) {
 		 * @since 0.1
 		 * @param string $email
 		 */
+		
 		function ajax_send_preview($email) {
 			if (!current_user_can('manage_options'))
 				die();
@@ -272,9 +273,11 @@ if (!class_exists('WP_Better_Emails')) {
 			$message .= "\r\n\r\n";
 			$message .= __('If you have any problems or any suggestions to improve this plugin, please let me know.', 'wp-better-emails');
 			$message .= "\r\n\r\n";
+
+			
 			for($i=0; $i<count($preview_email); $i++){
-				if (wp_mail($preview_email[$i], '[' . wp_specialchars_decode(get_option('blogname'), ENT_QUOTES) . '] - ' . __('Email template preview', 'wp-better-emails'), $message))
-					die('<div class="updated"><p>' . sprintf(__('An email preview has been successfully sent to clients' , 'wp-better-emails'), esc_attr($preview_email[$i]) ) . '</p></div>');
+				if (wp_mail($preview_email[$i], $this->options['email_subject'], $message))
+					die('<div class="updated"><p>' . sprintf(__('An email has been successfully sent to clients' , 'wp-better-emails'), esc_attr($preview_email[$i]) ) . '</p></div>');
 				else
 					die('<div class="error"><p>' . __('An error occured while sending email. Please check your server configuration.', 'wp-better-emails') . '</p></div>');
 			}

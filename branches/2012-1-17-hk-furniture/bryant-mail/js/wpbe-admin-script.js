@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 				loading.css('visibility', 'hidden');
 			},
 			success: function(data) {
-				message.append(data);
+				message.append(data).fadeOut(3000);
 			}
 		});
 	});
